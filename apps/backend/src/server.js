@@ -98,6 +98,49 @@ app.post("/api/items", async (req, res) => {
   }
 });
 
+// =====================
+// Didi Food (básico): Orders (Pedidos)
+// =====================
+
+let memOrders = [
+  { id: 1, item: "Tacos", restaurant: "Taquería Don Pepe", status: "pendiente", created_at: new Date().toISOString() },
+];
+
+app.get("/api/orders", async (req, res) => {
+  try {
+    if (!pool) return res.json(memOrders);
+    return res.json(memOrders);
+  } catch (e) {
+    console.error(e);
+    return res.status(500).json({ error: "orders_error" });
+  }
+});
+
+app.post("/api/orders", async (req, res) => {
+  const item = String(req.body?.item || "").trim();
+  const restaurant = String(req.body?.restaurant || "").trim();
+
+  if (!item) return res.status(400).json({ error: "item_required" });
+  if (!restaurant) return res.status(400).json({ error: "restaurant_required" });
+
+  try {
+    const nextId = (memOrders[0]?.id || 0) + 1;
+    const order = {
+      id: nextId,
+      item,
+      restaurant,
+      status: "pendiente",
+      created_at: new Date().toISOString(),
+    };
+
+    memOrders = [order, ...memOrders];
+    return res.status(201).json(order);
+  } catch (e) {
+    console.error(e);
+    return res.status(500).json({ error: "orders_error" });
+  }
+});
+
 async function start() {
   if (pool) {
     pool.on("error", (err) => console.error("Postgres pool error:", err));
