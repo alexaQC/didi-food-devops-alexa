@@ -141,6 +141,50 @@ app.post("/api/orders", async (req, res) => {
   }
 });
 
+// =====================
+// Didi Food (básico): Restaurants + Menu
+// =====================
+
+let memRestaurants = [
+  { id: 1, name: "Taquería Don Pepe", category: "Mexicana" },
+  { id: 2, name: "Pizza Express", category: "Italiana" },
+  { id: 3, name: "Sushi Rápido", category: "Japonesa" },
+];
+
+let memMenu = [
+  { id: 1, restaurantId: 1, name: "Tacos al pastor", price: 80 },
+  { id: 2, restaurantId: 1, name: "Gringa", price: 95 },
+  { id: 3, restaurantId: 2, name: "Pizza pepperoni", price: 150 },
+  { id: 4, restaurantId: 2, name: "Pizza hawaiana", price: 160 },
+  { id: 5, restaurantId: 3, name: "Sushi roll", price: 140 },
+  { id: 6, restaurantId: 3, name: "Yakimeshi", price: 120 },
+];
+
+// GET /api/restaurants -> lista de restaurantes
+app.get("/api/restaurants", async (req, res) => {
+  try {
+    return res.json(memRestaurants);
+  } catch (e) {
+    console.error(e);
+    return res.status(500).json({ error: "restaurants_error" });
+  }
+});
+
+// GET /api/restaurants/:id/menu -> menú de un restaurante
+app.get("/api/restaurants/:id/menu", async (req, res) => {
+  try {
+    const id = Number(req.params.id);
+    const restaurant = memRestaurants.find((r) => r.id === id);
+    if (!restaurant) return res.status(404).json({ error: "restaurant_not_found" });
+
+    const menu = memMenu.filter((m) => m.restaurantId === id);
+    return res.json({ restaurant, menu });
+  } catch (e) {
+    console.error(e);
+    return res.status(500).json({ error: "menu_error" });
+  }
+});
+
 async function start() {
   if (pool) {
     pool.on("error", (err) => console.error("Postgres pool error:", err));
