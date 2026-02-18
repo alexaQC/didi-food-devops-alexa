@@ -1,4 +1,7 @@
 services:
+  # ========================
+  # DB del backend (FinLab / Gateway)
+  # ========================
   db:
     image: postgres:16-alpine
     environment:
@@ -7,3 +10,31 @@ services:
       POSTGRES_DB: finlab
     ports:
       - "5432:5432"
+
+  # ========================
+  # USERS MICROSERVICE DB
+  # ========================
+  users-db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: users
+    ports:
+      - "5433:5432"
+
+  # ========================
+  # USERS MICROSERVICE
+  # ========================
+  users-service:
+    build: ./apps/users-service
+    environment:
+      - DB_HOST=users-db
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - DB_NAME=users
+      - DB_PORT=5432
+    depends_on:
+      - users-db
+    ports:
+      - "3001:3001"
