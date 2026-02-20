@@ -39,16 +39,25 @@ app.get("/users", async (req, res) => {
 });
 
 app.post("/users", async (req, res) => {
-  const { name, email } = req.body;
+  try {
+    const { name, email } = req.body;
 
-  const { rows } = await pool.query(
-    "INSERT INTO users(name, email) VALUES($1, $2) RETURNING *",
-    [name, email]
-  );
+    if (!name || !email) {
+      return res.status(400).json({ error: "name and email required" });
+    }
 
-  console.log("USER_CREATED", rows[0].id);
+    const { rows } = await pool.query(
+      "INSERT INTO users(name, email) VALUES($1, $2) RETURNING *",
+      [name, email]
+    );
 
-  res.status(201).json(rows[0]);
+    console.log("USER_CREATED", rows[0].id);
+
+    res.status(201).json(rows[0]);
+  } catch (err) {
+    console.error("POST /users error:", err.message);
+    res.status(500).json({ error: "db_error" });
+  }
 });
 
 app.get("/healthz", (req, res) => res.send("ok"));

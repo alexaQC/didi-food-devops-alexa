@@ -1,3 +1,4 @@
+import axios from "axios";
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -182,6 +183,33 @@ app.get("/api/restaurants/:id/menu", async (req, res) => {
   } catch (e) {
     console.error(e);
     return res.status(500).json({ error: "menu_error" });
+  }
+});
+
+// =====================
+// Gateway → Users Service
+// =====================
+
+const USERS_SERVICE_URL =
+  process.env.USERS_SERVICE_URL || "http://localhost:3001";
+
+app.get("/api/users", async (req, res) => {
+  try {
+    const response = await axios.get(`${USERS_SERVICE_URL}/users`);
+    res.json(response.data);
+  } catch (error) {
+    console.error("Error calling users-service:", error.message);
+    res.status(500).json({ error: "users_service_unavailable" });
+  }
+});
+
+app.post("/api/users", async (req, res) => {
+  try {
+    const response = await axios.post(`${USERS_SERVICE_URL}/users`, req.body);
+    res.status(201).json(response.data);
+  } catch (error) {
+    console.error("Error calling users-service:", error.message);
+    res.status(500).json({ error: "users_service_unavailable" });
   }
 });
 

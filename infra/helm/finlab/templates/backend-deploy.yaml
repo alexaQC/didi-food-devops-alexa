@@ -18,6 +18,7 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: {{ .Values.backend.port }}
+
           env:
             - name: PORT
               value: {{ .Values.backend.env.PORT | quote }}
@@ -29,7 +30,10 @@ spec:
               value: {{ .Values.backend.env.DB_HOST | quote }}
             - name: DB_PORT
               value: {{ .Values.backend.env.DB_PORT | quote }}
-            {{- if .Values.postgres.enabled }}
+            - name: USERS_SERVICE_URL
+              value: "http://users-service:3001"
+
+              {{ if .Values.postgres.enabled }}
             - name: DB_USER
               valueFrom:
                 secretKeyRef:
@@ -45,14 +49,15 @@ spec:
                 secretKeyRef:
                   name: postgres-secret
                   key: POSTGRES_DB
-            {{- else }}
+              {{ else }}
             - name: DB_USER
               value: {{ .Values.backend.env.DB_USER | quote }}
             - name: DB_PASSWORD
               value: {{ .Values.backend.env.DB_PASSWORD | quote }}
             - name: DB_NAME
               value: {{ .Values.backend.env.DB_NAME | quote }}
-            {{- end }}
+              {{ end }}
+
           readinessProbe:
             httpGet:
               path: /readyz
@@ -60,12 +65,14 @@ spec:
             initialDelaySeconds: 3
             periodSeconds: 5
             failureThreshold: 3
+
           livenessProbe:
             httpGet:
               path: /healthz
               port: {{ .Values.backend.port }}
             initialDelaySeconds: 10
             periodSeconds: 10
+
           resources:
             requests:
               cpu: {{ .Values.backend.resources.requests.cpu }}

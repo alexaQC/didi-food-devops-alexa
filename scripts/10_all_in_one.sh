@@ -55,7 +55,9 @@ echo "== Build & push images to host registry =="
 
 docker build -t "${HOST_REG}/${NAMESPACE}/backend:${TAG}" ./apps/backend
 docker build -t "${HOST_REG}/${NAMESPACE}/frontend:${TAG}" ./apps/frontend
+docker build -t "${HOST_REG}/${NAMESPACE}/users-service:${TAG}" ./apps/users-service
 
+docker push "${HOST_REG}/${NAMESPACE}/users-service:${TAG}"
 docker push "${HOST_REG}/${NAMESPACE}/backend:${TAG}"
 docker push "${HOST_REG}/${NAMESPACE}/frontend:${TAG}"
 ok "Imágenes publicadas en ${HOST_REG}"

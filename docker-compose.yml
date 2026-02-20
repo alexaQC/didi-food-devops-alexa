@@ -38,3 +38,16 @@ services:
       - users-db
     ports:
       - "3001:3001"
+
+        # =====================
+  # BACKEND (API Gateway)
+  # =====================
+  backend:
+    build: ./apps/backend
+    env_file:
+      - ./apps/backend/.env
+    depends_on:
+      - users-service
+      - db
+    ports:
+      - "3000:3000"
