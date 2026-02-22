@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orders-postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: orders-postgres
+  template:
+    metadata:
+      labels:
+        app: orders-postgres
+    spec:
+      containers:
+        - name: postgres
+          image: {{ .Values.ordersPostgres.image }}
+          ports:
+            - containerPort: {{ .Values.ordersPostgres.port }}
+          env:
+            - name: POSTGRES_USER
+              value: {{ .Values.ordersPostgres.user }}
+            - name: POSTGRES_PASSWORD
+              value: {{ .Values.ordersPostgres.password }}
+            - name: POSTGRES_DB
+              value: {{ .Values.ordersPostgres.db }}

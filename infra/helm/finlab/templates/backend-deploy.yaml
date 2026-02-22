@@ -32,6 +32,8 @@ spec:
               value: {{ .Values.backend.env.DB_PORT | quote }}
             - name: USERS_SERVICE_URL
               value: "http://users-service:3001"
+            - name: ORDERS_SERVICE_URL
+              value: "http://orders-service:3000"
 
               {{ if .Values.postgres.enabled }}
             - name: DB_USER

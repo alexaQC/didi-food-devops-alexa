@@ -56,8 +56,10 @@ echo "== Build & push images to host registry =="
 docker build -t "${HOST_REG}/${NAMESPACE}/backend:${TAG}" ./apps/backend
 docker build -t "${HOST_REG}/${NAMESPACE}/frontend:${TAG}" ./apps/frontend
 docker build -t "${HOST_REG}/${NAMESPACE}/users-service:${TAG}" ./apps/users-service
+docker build -t "${HOST_REG}/${NAMESPACE}/orders-service:${TAG}" ./apps/orders-service
 
 docker push "${HOST_REG}/${NAMESPACE}/users-service:${TAG}"
+docker push "${HOST_REG}/${NAMESPACE}/orders-service:${TAG}"
 docker push "${HOST_REG}/${NAMESPACE}/backend:${TAG}"
 docker push "${HOST_REG}/${NAMESPACE}/frontend:${TAG}"
 ok "Imágenes publicadas en ${HOST_REG}"
@@ -79,7 +81,9 @@ helm upgrade --install finlab ./infra/helm/finlab -n "$NAMESPACE" --create-names
   --set backend.image="${NAMESPACE}/backend" \
   --set backend.tag="$TAG" \
   --set frontend.image="${NAMESPACE}/frontend" \
-  --set frontend.tag="$TAG"
+  --set frontend.tag="$TAG" \
+  --set ordersService.image="${NAMESPACE}/orders-service" \
+  --set ordersService.tag="$TAG" 
 
 echo
 echo "== Wait rollout =="

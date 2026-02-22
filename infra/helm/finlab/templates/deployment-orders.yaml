@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orders-service
+spec:
+  replicas: {{ .Values.ordersService.replicas }}
+  selector:
+    matchLabels:
+      app: orders-service
+  template:
+    metadata:
+      labels:
+        app: orders-service
+    spec:
+      containers:
+        - name: orders-service
+          image: "{{ .Values.registry }}/{{ .Values.ordersService.image }}:{{ .Values.ordersService.tag }}"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: {{ .Values.ordersService.port }}
+          env:
+            - name: PORT
+              value: "{{ .Values.ordersService.env.PORT }}"
+            - name: DB_HOST
+              value: "{{ .Values.ordersService.env.DB_HOST }}"
+            - name: DB_PORT
+              value: "{{ .Values.ordersService.env.DB_PORT }}"
+            - name: DB_USER
+              value: "{{ .Values.ordersService.env.DB_USER }}"
+            - name: DB_PASSWORD
+              value: "{{ .Values.ordersService.env.DB_PASSWORD }}"
+            - name: DB_NAME
+              value: "{{ .Values.ordersService.env.DB_NAME }}"
+          resources:
+            requests:
+              cpu: {{ .Values.ordersService.resources.requests.cpu }}
+              memory: {{ .Values.ordersService.resources.requests.memory }}
+            limits:
+              cpu: {{ .Values.ordersService.resources.limits.cpu }}
+              memory: {{ .Values.ordersService.resources.limits.memory }}
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: {{ .Values.ordersService.port }}
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: {{ .Values.ordersService.port }}
+            initialDelaySeconds: 5
+            periodSeconds: 5

@@ -39,15 +39,50 @@ services:
     ports:
       - "3001:3001"
 
-        # =====================
+  # ========================
+  # ORDERS MICROSERVICE DB
+  # ========================
+  orders-db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: orders_user
+      POSTGRES_PASSWORD: orders_pass
+      POSTGRES_DB: orders_db
+    ports:
+      - "5434:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U orders_user -d orders_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # ========================
+  # ORDERS MICROSERVICE
+  # ========================
+  orders-service:
+    build: ./apps/orders-service
+    ports:
+      - "3002:3000"
+    environment:
+      - DB_HOST=orders-db
+      - DB_PORT=5432
+      - DB_USER=orders_user
+      - DB_PASSWORD=orders_pass
+      - DB_NAME=orders_db
+    depends_on:
+      orders-db:
+        condition: service_healthy
+
+  # ========================
   # BACKEND (API Gateway)
-  # =====================
+  # ========================
   backend:
     build: ./apps/backend
     env_file:
       - ./apps/backend/.env
     depends_on:
       - users-service
+      - orders-service
       - db
     ports:
       - "3000:3000"

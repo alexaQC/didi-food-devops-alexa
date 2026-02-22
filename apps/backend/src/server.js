@@ -18,6 +18,12 @@ let httpServer;
 const memoryMode = isMemoryMode();
 const pool = createPool();
 
+const USERS_SERVICE_URL =
+  process.env.USERS_SERVICE_URL || "http://localhost:3001";
+  
+const ORDERS_SERVICE_URL =
+  process.env.ORDERS_SERVICE_URL || "http://orders-service:3000";
+
 function parseIntOrDefault(value, fallback) {
   const parsed = Number.parseInt(String(value || ""), 10);
   return Number.isNaN(parsed) ? fallback : parsed;
@@ -100,45 +106,29 @@ app.post("/api/items", async (req, res) => {
 });
 
 // =====================
-// Didi Food (básico): Orders (Pedidos)
+// Gateway → Orders Service
 // =====================
-
-let memOrders = [
-  { id: 1, item: "Tacos", restaurant: "Taquería Don Pepe", status: "pendiente", created_at: new Date().toISOString() },
-];
 
 app.get("/api/orders", async (req, res) => {
   try {
-    if (!pool) return res.json(memOrders);
-    return res.json(memOrders);
-  } catch (e) {
-    console.error(e);
-    return res.status(500).json({ error: "orders_error" });
+    const response = await axios.get(`${ORDERS_SERVICE_URL}/orders`);
+    res.json(response.data);
+  } catch (error) {
+    console.error("Error calling orders-service:", error.message);
+    res.status(500).json({ error: "orders_service_unavailable" });
   }
 });
 
 app.post("/api/orders", async (req, res) => {
-  const item = String(req.body?.item || "").trim();
-  const restaurant = String(req.body?.restaurant || "").trim();
-
-  if (!item) return res.status(400).json({ error: "item_required" });
-  if (!restaurant) return res.status(400).json({ error: "restaurant_required" });
-
   try {
-    const nextId = (memOrders[0]?.id || 0) + 1;
-    const order = {
-      id: nextId,
-      item,
-      restaurant,
-      status: "pendiente",
-      created_at: new Date().toISOString(),
-    };
-
-    memOrders = [order, ...memOrders];
-    return res.status(201).json(order);
-  } catch (e) {
-    console.error(e);
-    return res.status(500).json({ error: "orders_error" });
+    const response = await axios.post(
+      `${ORDERS_SERVICE_URL}/orders`,
+      req.body
+    );
+    res.status(201).json(response.data);
+  } catch (error) {
+    console.error("Error calling orders-service:", error.message);
+    res.status(500).json({ error: "orders_service_unavailable" });
   }
 });
 
@@ -189,9 +179,6 @@ app.get("/api/restaurants/:id/menu", async (req, res) => {
 // =====================
 // Gateway → Users Service
 // =====================
-
-const USERS_SERVICE_URL =
-  process.env.USERS_SERVICE_URL || "http://localhost:3001";
 
 app.get("/api/users", async (req, res) => {
   try {

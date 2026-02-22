@@ -17,6 +17,7 @@ backend:
     DB_USER: "finlab"
     DB_PASSWORD: "finlab"
     DB_NAME: "finlab"
+    ORDERS_SERVICE_URL: "http://orders-service:3000"
   resources:
     requests:
       cpu: 100m
@@ -79,5 +80,34 @@ usersPostgres:
   user: finlab
   password: finlab
   db: finlab
+  port: 5432
+  storage: 1Gi
+
+ordersService:
+  image: finlab/orders-service
+  tag: "0.1.0"
+  replicas: 1
+  port: 3000
+  env:
+    PORT: "3000"
+    DB_HOST: "orders-postgres"
+    DB_PORT: "5432"
+    DB_USER: "finlab"
+    DB_PASSWORD: "finlab"
+    DB_NAME: "orders"
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits:
+      cpu: 200m
+      memory: 128Mi
+
+ordersPostgres:
+  enabled: true
+  image: postgres:15
+  user: finlab
+  password: finlab
+  db: orders
   port: 5432
   storage: 1Gi
