@@ -19,10 +19,13 @@ const memoryMode = isMemoryMode();
 const pool = createPool();
 
 const USERS_SERVICE_URL =
-  process.env.USERS_SERVICE_URL || "http://localhost:3001";
+  process.env.USERS_SERVICE_URL || "http://users-service:3001";
   
 const ORDERS_SERVICE_URL =
   process.env.ORDERS_SERVICE_URL || "http://orders-service:3000";
+
+const PAYMENTS_SERVICE_URL =
+  process.env.PAYMENTS_SERVICE_URL || "http://payments-service:3002";
 
 function parseIntOrDefault(value, fallback) {
   const parsed = Number.parseInt(String(value || ""), 10);
@@ -129,6 +132,33 @@ app.post("/api/orders", async (req, res) => {
   } catch (error) {
     console.error("Error calling orders-service:", error.message);
     res.status(500).json({ error: "orders_service_unavailable" });
+  }
+});
+
+// =====================
+// Gateway → Payments Service
+// =====================
+
+app.get("/api/payments", async (req, res) => {
+  try {
+    const response = await axios.get(`${PAYMENTS_SERVICE_URL}/payments`);
+    res.json(response.data);
+  } catch (error) {
+    console.error("Error calling payments-service:", error.message);
+    res.status(500).json({ error: "payments_service_unavailable" });
+  }
+});
+
+app.post("/api/payments", async (req, res) => {
+  try {
+    const response = await axios.post(
+      `${PAYMENTS_SERVICE_URL}/payments`,
+      req.body
+    );
+    res.status(201).json(response.data);
+  } catch (error) {
+    console.error("Error calling payments-service:", error.message);
+    res.status(500).json({ error: "payments_service_unavailable" });
   }
 });
 

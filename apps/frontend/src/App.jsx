@@ -5,7 +5,6 @@ const API = "http://localhost:3000/api";
 const SCREENS = {
   REGISTER: "register",
   HOME: "home",
-  CREATE_ORDER: "create-order",
   ORDERS: "orders",
 };
 
@@ -16,22 +15,26 @@ export default function App() {
   const [restaurants, setRestaurants] = useState([]);
   const [menu, setMenu] = useState([]);
   const [orders, setOrders] = useState([]);
-  const [error, setError] = useState("");
+
+  const [currentUser, setCurrentUser] = useState(null);
+  const [selectedRestaurant, setSelectedRestaurant] = useState(null);
 
   const [newUser, setNewUser] = useState({ username: "", email: "" });
-
-  const [newOrder, setNewOrder] = useState({
-    userId: "",
-    restaurantId: "",
-    items: [],
-  });
+  const [error, setError] = useState("");
 
   // ---------------- SAFE FETCH ----------------
   async function safeFetch(url, setter) {
     try {
       const res = await fetch(url);
       const data = await res.json();
-      setter(Array.isArray(data) ? data : []);
+
+      if (Array.isArray(data)) {
+        setter(data);
+      } else if (Array.isArray(data.menu)) {
+        setter(data.menu);
+      } else {
+        setter([]);
+      }
     } catch (err) {
       console.error(err);
       setError(`Error loading ${url}`);
@@ -52,8 +55,16 @@ export default function App() {
         body: JSON.stringify(newUser),
       });
 
+      const res = await fetch(`${API}/users`);
+      const list = await res.json();
+
+      setUsers(list);
+
+      const lastUser = list[list.length - 1];
+      setCurrentUser(lastUser);
+
       setNewUser({ username: "", email: "" });
-      fetchUsers();
+      setScreen(SCREENS.HOME);
     } catch (err) {
       console.error(err);
       setError("Error creating user");
@@ -67,7 +78,22 @@ export default function App() {
 
   async function loadMenu(restaurantId) {
     if (!restaurantId) return;
-    safeFetch(`${API}/restaurants/${restaurantId}/menu`, setMenu);
+
+    try {
+      const res = await fetch(`${API}/restaurants/${restaurantId}/menu`);
+      const data = await res.json();
+
+      if (Array.isArray(data)) {
+        setMenu(data);
+      } else if (Array.isArray(data.menu)) {
+        setMenu(data.menu);
+      } else {
+        setMenu([]);
+      }
+    } catch (err) {
+      console.error(err);
+      setMenu([]);
+    }
   }
 
   // ---------------- ORDERS ----------------
@@ -75,11 +101,14 @@ export default function App() {
     safeFetch(`${API}/orders`, setOrders);
   }
 
-  async function createOrder() {
+  async function createOrderFromMenu(item) {
+    if (!currentUser || !selectedRestaurant) return;
+
     try {
       const payload = {
-        ...newOrder,
-        items: newOrder.items,
+        userId: currentUser.id,
+        restaurantId: selectedRestaurant.id,
+        items: [item],
       };
 
       await fetch(`${API}/orders`, {
@@ -88,7 +117,6 @@ export default function App() {
         body: JSON.stringify(payload),
       });
 
-      setNewOrder({ userId: "", restaurantId: "", items: [] });
       fetchOrders();
       setScreen(SCREENS.ORDERS);
     } catch (err) {
@@ -97,22 +125,12 @@ export default function App() {
     }
   }
 
-  function toggleItem(item) {
-    setNewOrder((prev) => ({
-      ...prev,
-      items: prev.items.includes(item)
-        ? prev.items.filter((i) => i !== item)
-        : [...prev.items, item],
-    }));
-  }
-
   useEffect(() => {
     fetchUsers();
     fetchRestaurants();
     fetchOrders();
   }, []);
 
-  // ================= UI =================
   return (
     <>
       {/* NAVBAR */}
@@ -123,14 +141,24 @@ export default function App() {
             <div>
               <div className="brand__name">FinLab Eats</div>
               <div className="brand__sub">Gateway: {API}</div>
+              {currentUser && (
+                <div className="brand__sub">
+                  Usuario: {currentUser.username}
+                </div>
+              )}
             </div>
           </div>
 
           <div className="nav">
-            <button className="nav__btn" onClick={() => setScreen(SCREENS.REGISTER)}>Registro</button>
-            <button className="nav__btn" onClick={() => setScreen(SCREENS.HOME)}>Home</button>
-            <button className="nav__btn" onClick={() => setScreen(SCREENS.CREATE_ORDER)}>Crear pedido</button>
-            <button className="nav__btn" onClick={() => setScreen(SCREENS.ORDERS)}>Órdenes</button>
+            <button className="nav__btn" onClick={() => setScreen(SCREENS.REGISTER)}>
+              Registro
+            </button>
+            <button className="nav__btn" onClick={() => setScreen(SCREENS.HOME)}>
+              Home
+            </button>
+            <button className="nav__btn" onClick={() => setScreen(SCREENS.ORDERS)}>
+              Órdenes
+            </button>
           </div>
         </div>
       </div>
@@ -141,7 +169,7 @@ export default function App() {
 
             {error && <p style={{ color: "red" }}>{error}</p>}
 
-            {/* ================= REGISTRO ================= */}
+            {/* REGISTRO */}
             {screen === SCREENS.REGISTER && (
               <div className="grid grid--2">
                 <div className="panel">
@@ -183,18 +211,28 @@ export default function App() {
               </div>
             )}
 
-            {/* ================= HOME ================= */}
+            {/* HOME */}
             {screen === SCREENS.HOME && (
               <div className="grid grid--2">
+
+                {/* RESTAURANTES */}
                 <div className="panel">
                   <h3>Restaurantes</h3>
+
+                  {!currentUser && (
+                    <p className="muted">Crea un usuario para poder pedir</p>
+                  )}
+
                   <ul>
                     {restaurants.map((r) => (
                       <li key={r.id}>
                         {r.name}
                         <button
                           className="btn"
-                          onClick={() => loadMenu(r.id)}
+                          onClick={() => {
+                            setSelectedRestaurant(r);
+                            loadMenu(r.id);
+                          }}
                         >
                           Ver menú
                         </button>
@@ -203,94 +241,57 @@ export default function App() {
                   </ul>
                 </div>
 
+                {/* MENÚ */}
                 <div className="panel">
                   <h3>Menú</h3>
-                  <ul>
-                    {menu.map((item, i) => (
-                      <li key={i}>{item}</li>
-                    ))}
-                  </ul>
+
+                  {!selectedRestaurant && (
+                    <p className="muted">Selecciona un restaurante</p>
+                  )}
+
+                  {menu.map((item, i) => (
+                    <div key={i} className="item">
+                      <span>{item.name || item}</span>
+
+                      <button
+                        className="btn btn--primary"
+                        disabled={!currentUser}
+                        onClick={() => createOrderFromMenu(item)}
+                      >
+                        Agregar
+                      </button>
+                    </div>
+                  ))}
                 </div>
+
               </div>
             )}
 
-            {/* ================= CREATE ORDER ================= */}
-            {screen === SCREENS.CREATE_ORDER && (
-              <div className="grid grid--2">
-                <div className="panel">
-                  <h3>Crear pedido</h3>
-
-                  <label>Usuario</label>
-                  <select
-                    className="input"
-                    value={newOrder.userId}
-                    onChange={(e) =>
-                      setNewOrder({ ...newOrder, userId: e.target.value })
-                    }
-                  >
-                    <option value="">Selecciona usuario</option>
-                    {users.map((u) => (
-                      <option key={u.id} value={u.id}>
-                        {u.username}
-                      </option>
-                    ))}
-                  </select>
-
-                  <label>Restaurante</label>
-                  <select
-                    className="input"
-                    value={newOrder.restaurantId}
-                    onChange={(e) => {
-                      const id = e.target.value;
-                      setNewOrder({ ...newOrder, restaurantId: id, items: [] });
-                      loadMenu(id);
-                    }}
-                  >
-                    <option value="">Selecciona restaurante</option>
-                    {restaurants.map((r) => (
-                      <option key={r.id} value={r.id}>
-                        {r.name}
-                      </option>
-                    ))}
-                  </select>
-
-                  <label>Items</label>
-                  <div className="panel">
-                    {menu.map((item, i) => (
-                      <div key={i}>
-                        <input
-                          type="checkbox"
-                          checked={newOrder.items.includes(item)}
-                          onChange={() => toggleItem(item)}
-                        />
-                        {item}
-                      </div>
-                    ))}
-                  </div>
-
-                  <button className="btn btn--primary" onClick={createOrder}>
-                    Crear pedido
-                  </button>
-                </div>
-
-                <div className="panel">
-                  <h3>Resumen</h3>
-                  <pre>{JSON.stringify(newOrder, null, 2)}</pre>
-                </div>
-              </div>
-            )}
-
-            {/* ================= ORDERS ================= */}
+            {/* ORDERS */}
             {screen === SCREENS.ORDERS && (
               <div className="panel">
                 <h3>Órdenes</h3>
+
                 <ul>
-                  {orders.map((o) => (
-                    <li key={o.id}>
-                      #{o.id} → user {o.userId} → restaurant {o.restaurantId} →{" "}
-                      <span className="badge">{o.status || "created"}</span>
-                    </li>
-                  ))}
+                  {orders.map((o) => {
+                    const user = users.find(
+                      (u) => u.id === (o.userId ?? o.user_id)
+                    );
+
+                    const restaurant = restaurants.find(
+                      (r) => r.id === (o.restaurantId ?? o.restaurant_id)
+                    );
+
+                    return (
+                      <li key={o.id}>
+                        #{o.id} → {user?.username || o.userId || o.user_id} →{" "}
+                        {restaurant?.name || o.restaurantId || o.restaurant_id}{" "}
+                        <span className="badge">
+                          {o.status || `Total: $${o.total ?? "?"}`}
+                        </span>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             )}

@@ -1,5 +1,5 @@
 {
-  "name": "orders-service",
+  "name": "payments-service",
   "version": "1.0.0",
   "type": "module",
   "main": "src/server.js",

@@ -5,7 +5,7 @@ registry: k3d-finlab-registry:5000
 
 backend:
   image: finlab/backend
-  tag: "0.1.0"
+  tag: "latest"
   replicas: 2
   port: 3000
   env:
@@ -18,6 +18,8 @@ backend:
     DB_PASSWORD: "finlab"
     DB_NAME: "finlab"
     ORDERS_SERVICE_URL: "http://orders-service:3000"
+    PAYMENTS_SERVICE_URL: "http://payments-service:3002"
+    USERS_SERVICE_URL: "http://users-service:3001"
   resources:
     requests:
       cpu: 100m
@@ -28,7 +30,7 @@ backend:
 
 frontend:
   image: finlab/frontend
-  tag: "0.1.0"
+  tag: "latest"
   replicas: 2
   port: 80
   resources:
@@ -56,7 +58,7 @@ hpa:
 
 usersService:
   image: finlab/users-service
-  tag: "0.1.0"
+  tag: "latest"
   replicas: 1
   port: 3001
   env:
@@ -85,7 +87,7 @@ usersPostgres:
 
 ordersService:
   image: finlab/orders-service
-  tag: "0.1.0"
+  tag: "latest"
   replicas: 1
   port: 3000
   env:
@@ -109,5 +111,35 @@ ordersPostgres:
   user: finlab
   password: finlab
   db: orders
+  port: 5432
+  storage: 1Gi
+   
+  
+paymentsService:
+  image: finlab/payments-service
+  tag: "latest"
+  replicas: 1
+  port: 3002
+  env:
+    PORT: "3002"
+    DB_HOST: "payments-postgres"
+    DB_PORT: "5432"
+    DB_USER: "finlab"
+    DB_PASSWORD: "finlab"
+    DB_NAME: "payments"
+  resources:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits:
+      cpu: 200m
+      memory: 128Mi
+
+paymentsPostgres:
+  enabled: true
+  image: postgres:15
+  user: finlab
+  password: finlab
+  db: payments
   port: 5432
   storage: 1Gi

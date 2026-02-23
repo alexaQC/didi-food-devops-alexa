@@ -3,18 +3,21 @@ kind: Deployment
 metadata:
   name: backend
   namespace: {{ .Release.Namespace }}
-  labels: { app: backend }
+  labels:
+    app: backend
 spec:
   replicas: {{ .Values.backend.replicas }}
   selector:
-    matchLabels: { app: backend }
+    matchLabels:
+      app: backend
   template:
     metadata:
-      labels: { app: backend }
+      labels:
+        app: backend
     spec:
       containers:
         - name: backend
-          image: {{ if .Values.registry }}{{ printf "%s/%s:%s" .Values.registry .Values.backend.image .Values.backend.tag | quote }}{{ else }}{{ printf "%s:%s" .Values.backend.image .Values.backend.tag | quote }}{{ end }}
+          image: "{{ .Values.registry }}/{{ .Values.backend.image }}:{{ .Values.backend.tag }}"
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: {{ .Values.backend.port }}
@@ -31,9 +34,11 @@ spec:
             - name: DB_PORT
               value: {{ .Values.backend.env.DB_PORT | quote }}
             - name: USERS_SERVICE_URL
-              value: "http://users-service:3001"
+              value: {{ .Values.backend.env.USERS_SERVICE_URL | quote }}
             - name: ORDERS_SERVICE_URL
-              value: "http://orders-service:3000"
+              value: {{ .Values.backend.env.ORDERS_SERVICE_URL | quote }}
+            - name: PAYMENTS_SERVICE_URL
+              value: {{ .Values.backend.env.PAYMENTS_SERVICE_URL | quote }}
 
               {{ if .Values.postgres.enabled }}
             - name: DB_USER

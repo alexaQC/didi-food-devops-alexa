@@ -3,18 +3,21 @@ kind: Deployment
 metadata:
   name: frontend
   namespace: {{ .Release.Namespace }}
-  labels: { app: frontend }
+  labels:
+    app: frontend
 spec:
   replicas: {{ .Values.frontend.replicas }}
   selector:
-    matchLabels: { app: frontend }
+    matchLabels:
+      app: frontend
   template:
     metadata:
-      labels: { app: frontend }
+      labels:
+        app: frontend
     spec:
       containers:
         - name: frontend
-          image: {{ if .Values.registry }}{{ printf "%s/%s:%s" .Values.registry .Values.frontend.image .Values.frontend.tag | quote }}{{ else }}{{ printf "%s:%s" .Values.frontend.image .Values.frontend.tag | quote }}{{ end }}
+          image: "{{ .Values.registry }}/{{ .Values.frontend.image }}:{{ .Values.frontend.tag }}"
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: {{ .Values.frontend.port }}
