@@ -5,15 +5,14 @@ fail() { echo "ERROR: $*" >&2; exit 1; }
 warn() { echo "WARN: $*" >&2; }
 ok()   { echo "OK: $*"; }
 
-# Parámetros (Finlab standard)
 CLUSTER="finlab"
 NAMESPACE="finlab"
-HOST_REG="localhost:5001"                 # push target desde WSL
+HOST_REG="localhost:5001"
 K3D_REG_NAME="finlab-registry"
-INTERNAL_REG="${K3D_REG_NAME}:5000"       # pull target desde nodos k3d
+INTERNAL_REG="${K3D_REG_NAME}:5000"
 TAG="${TAG:-$(date +%s)}"
 
-echo "== Finlab: full lab run =="
+echo "== Finlab: full lab run (Terraform enabled) =="
 echo "Cluster:      $CLUSTER"
 echo "Namespace:    $NAMESPACE"
 echo "Host registry (push):     $HOST_REG"
@@ -23,12 +22,12 @@ echo
 
 # 0) Validación previa
 if [ -x "./scripts/06_validate_env.sh" ]; then
-    bash ./scripts/06_validate_env.sh
+  bash ./scripts/06_validate_env.sh
 else
-  warn "No existe ./scripts/06_validate_env.sh o no es ejecutable. Continuaré."
+  warn "No existe ./scripts/06_validate_env.sh. Continuaré."
 fi
 
-docker ps >/dev/null 2>&1 || fail "Docker no accesible sin sudo. Ejecuta ./scripts/07_fix_permissions.sh"
+docker ps >/dev/null 2>&1 || fail "Docker no accesible sin sudo."
 
 # 1) Reset cluster
 echo
@@ -47,13 +46,7 @@ ok "Cluster creado"
 
 # 3) Build & push images
 echo
-echo "== Build & push images to host registry =="
-
-[ -d "./apps/backend" ] || fail "No existe ./apps/backend"
-[ -d "./apps/frontend" ] || fail "No existe ./apps/frontend"
-[ -d "./apps/users-service" ] || fail "No existe ./apps/users-service"
-[ -d "./apps/orders-service" ] || fail "No existe ./apps/orders-service"
-[ -d "./apps/payments-service" ] || fail "No existe ./apps/payments-service"
+echo "== Build & push images =="
 
 docker build -t "${HOST_REG}/${NAMESPACE}/backend:${TAG}" ./apps/backend
 docker build -t "${HOST_REG}/${NAMESPACE}/frontend:${TAG}" ./apps/frontend
@@ -67,35 +60,43 @@ docker push "${HOST_REG}/${NAMESPACE}/users-service:${TAG}"
 docker push "${HOST_REG}/${NAMESPACE}/orders-service:${TAG}"
 docker push "${HOST_REG}/${NAMESPACE}/payments-service:${TAG}"
 
-ok "Imágenes publicadas en ${HOST_REG}"
+ok "Imágenes publicadas"
 
-# 3.1) Verificar registry desde nodo
+# 3.1) Verificar registry dentro del cluster
 echo "== DNS check (registry inside cluster) =="
 
 docker exec "k3d-${CLUSTER}-server-0" sh -c "nslookup ${K3D_REG_NAME} >/dev/null" \
-  || fail "El nodo no puede resolver '${K3D_REG_NAME}'"
+  || fail "El nodo no resuelve '${K3D_REG_NAME}'"
 
 docker exec "k3d-${CLUSTER}-server-0" sh -c "wget -qO- http://${K3D_REG_NAME}:5000/v2/ >/dev/null" \
-  || fail "El nodo no puede acceder al registry interno"
+  || fail "El nodo no accede al registry interno"
 
-# 4) Deploy con Helm
+# 4) Terraform deploy
 echo
-echo "== Deploy via Helm (force internal registry) =="
+echo "== Terraform deploy =="
 
-[ -d "./infra/helm/finlab" ] || fail "No existe ./infra/helm/finlab (chart)"
+[ -d "./terraform" ] || fail "No existe carpeta ./terraform"
 
-helm upgrade --install finlab ./infra/helm/finlab -n "$NAMESPACE" --create-namespace \
-  --set registry="$INTERNAL_REG" \
-  --set backend.image="${NAMESPACE}/backend" \
-  --set backend.tag="$TAG" \
-  --set frontend.image="${NAMESPACE}/frontend" \
-  --set frontend.tag="$TAG" \
-  --set usersService.image="${NAMESPACE}/users-service" \
-  --set usersService.tag="$TAG" \
-  --set ordersService.image="${NAMESPACE}/orders-service" \
-  --set ordersService.tag="$TAG" \
-  --set paymentsService.image="${NAMESPACE}/payments-service" \
-  --set paymentsService.tag="$TAG"
+cd terraform
+
+terraform init -upgrade
+
+terraform apply -auto-approve \
+  -var="namespace=${NAMESPACE}" \
+  -var="release_name=finlab" \
+  -var="chart_path=../infra/helm/finlab" \
+  -var="kubeconfig_path=${HOME}/.kube/config" \
+  -var="image_registry=${INTERNAL_REG}" \
+  -var="image_tag=${TAG}" \
+  -var="backend_image=${NAMESPACE}/backend" \
+  -var="frontend_image=${NAMESPACE}/frontend" \
+  -var="users_image=${NAMESPACE}/users-service" \
+  -var="orders_image=${NAMESPACE}/orders-service" \
+  -var="payments_image=${NAMESPACE}/payments-service"
+
+cd ..
+
+ok "Terraform aplicado"
 
 # 5) Esperar rollouts
 echo
@@ -114,9 +115,11 @@ kubectl -n "$NAMESPACE" get deploy,svc,pods -o wide
 # 6) Self-healing check
 echo
 echo "== Self-healing check: delete one backend pod =="
+
 BACKEND_POD="$(kubectl -n "$NAMESPACE" get pod -l app=backend -o jsonpath='{.items[0].metadata.name}')"
 kubectl -n "$NAMESPACE" delete pod "$BACKEND_POD" >/dev/null
 kubectl -n "$NAMESPACE" rollout status deploy/backend
+
 ok "Self-healing validado"
 
 echo
