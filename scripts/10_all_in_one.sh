@@ -41,7 +41,6 @@ k3d cluster create "$CLUSTER" \
   --agents 2 \
   --registry-create "${K3D_REG_NAME}:0.0.0.0:5001"
 
-kubectl create ns "$NAMESPACE" >/dev/null 2>&1 || true
 ok "Cluster creado"
 
 # 3) Build & push images
