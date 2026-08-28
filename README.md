@@ -21,7 +21,7 @@ A partir de esta situación, el proyecto de testing se enfoca en mejorar la dete
 | Integrante | Rol principal | Rol complementario |
 |---|---|---|
 | **Alexa** | Project Manager / Scrum Master | QA Lead |
-| **Jerry** | DevOps QA | Tester funcional |
+| **Gerardo** | DevOps QA | Tester funcional |
 | **Alan** | QA Engineer - Backend e Integración | Automation Engineer |
 
 ---
@@ -88,7 +88,7 @@ En esta fase se analiza el estado inicial de FinLab Eats y se establece el alcan
 
 | EDT | Actividad | Tiempo estimado | Responsable |
 |---|---|---:|---|
-| 1.1 | Reproducir y documentar la falla de despliegue | 2 h | Jerry |
+| 1.1 | Reproducir y documentar la falla de despliegue | 2 h | Gerardo |
 | 1.2 | Identificar servicios y componentes críticos | 2 h | Alan |
 | 1.3 | Definir problemática, alcance y necesidades | 2 h | Alexa |
 | 1.4 | Elaborar matriz de riesgos | 2 h | Alexa / Alan |
@@ -111,7 +111,7 @@ En esta fase se establece la estrategia que se utilizará para comprobar la cali
 | 2.1 | Definir estrategia y enfoque de testing | 2 h | Alexa |
 | 2.2 | Seleccionar pruebas de integración, smoke y regresión | 2 h | Alexa / Alan |
 | 2.3 | Diseñar casos de prueba y resultados esperados | 4 h | Alan |
-| 2.4 | Preparar checklist y herramientas de prueba | 2 h | Alan / Jerry |
+| 2.4 | Preparar checklist y herramientas de prueba | 2 h | Alan / Gerardo |
 | 2.5 | Definir métricas y criterios de aceptación | 2 h | Alexa |
 | | **Total Fase 2** | **12 h** | |
 
@@ -131,12 +131,12 @@ También se automatizan los casos que pueden ejecutarse de manera repetitiva.
 
 | EDT | Actividad | Tiempo estimado | Responsable |
 |---|---|---:|---|
-| 3.1 | Revisar scripts, Docker, Terraform, Helm y Kubernetes | 3 h | Jerry |
+| 3.1 | Revisar scripts, Docker, Terraform, Helm y Kubernetes | 3 h | Gerardo |
 | 3.2 | Ejecutar pruebas de integración entre servicios | 5 h | Alan |
-| 3.3 | Ejecutar pruebas smoke de disponibilidad | 3 h | Jerry |
+| 3.3 | Ejecutar pruebas smoke de disponibilidad | 3 h | Gerardo |
 | 3.4 | Ejecutar pruebas de regresión | 4 h | Alan |
 | 3.5 | Automatizar pruebas seleccionadas | 6 h | Alan |
-| 3.6 | Capturar resultados, logs y evidencias | 2 h | Jerry / Alan |
+| 3.6 | Capturar resultados, logs y evidencias | 2 h | Gerardo / Alan |
 | | **Total Fase 3** | **23 h** | |
 
 **Duración calendario estimada:** 5 días.
@@ -179,7 +179,7 @@ Finalmente, se analizarán las métricas obtenidas para determinar si las modifi
 | EDT | Actividad | Tiempo estimado | Responsable |
 |---|---|---:|---|
 | 4.1 | Registrar y priorizar defectos encontrados | 2 h | Alexa / Alan |
-| 4.2 | Analizar y aplicar correcciones | 4 h | Alan / Jerry |
+| 4.2 | Analizar y aplicar correcciones | 4 h | Alan / Gerardo |
 | 4.3 | Reejecutar casos fallidos y pruebas de regresión | 4 h | Alan |
 | 4.4 | Calcular y comparar métricas | 2 h | Alexa |
 | | **Total Fase 4** | **12 h** | |
@@ -198,9 +198,9 @@ En la última fase se realizará una validación final del sistema y se organiza
 
 | EDT | Actividad | Tiempo estimado | Responsable |
 |---|---|---:|---|
-| 5.1 | Ejecutar validación final | 2 h | Alan / Jerry |
+| 5.1 | Ejecutar validación final | 2 h | Alan / Gerardo |
 | 5.2 | Organizar evidencias y documentación | 2 h | Alexa |
-| 5.3 | Elaborar reporte final y reflexión | 3 h | Alexa / Jerry / Alan |
+| 5.3 | Elaborar reporte final y reflexión | 3 h | Alexa / Gerardo / Alan |
 | | **Total Fase 5** | **7 h** | |
 
 **Duración calendario estimada:** 2 días.
@@ -254,7 +254,7 @@ La **Fase 5** únicamente puede comenzar cuando los defectos críticos hayan sid
 | Integrante | Rol QA | Función principal | Perfil / conocimientos aplicados |
 |---|---|---|---|
 | **Alexa** | Analista QA / QA Lead | Define la estrategia de pruebas, riesgos, métricas, prioridades y seguimiento del proyecto. | Gestión de calidad, planificación de pruebas, métricas, documentación y coordinación del equipo. |
-| **Jerry** | DevOps QA / Tester funcional | Valida despliegues, infraestructura, disponibilidad de servicios y funcionamiento general después de cada implementación. | Docker, Kubernetes, Helm, Terraform, logs, pruebas smoke y validaciones funcionales. |
+| **Gerardo** | DevOps QA / Tester funcional | Valida despliegues, infraestructura, disponibilidad de servicios y funcionamiento general después de cada implementación. | Docker, Kubernetes, Helm, Terraform, logs, pruebas smoke y validaciones funcionales. |
 | **Alan** | QA Engineer / Automatizador QA | Diseña y ejecuta pruebas de backend e integración y automatiza los casos repetitivos. | APIs, Postman, diseño de casos de prueba, pruebas de integración, regresión y automatización. |
 
 
@@ -276,7 +276,7 @@ Responsable de coordinar el proyecto, organizar las actividades del equipo y ver
 
 ---
 
-## Jerry - DevOps QA y Tester funcional
+## Gerardo - DevOps QA y Tester funcional
 
 Responsable de analizar el proceso de despliegue, infraestructura y disponibilidad de los servicios de FinLab Eats. También participa en pruebas funcionales para comprobar que los principales componentes del sistema se encuentren disponibles después de cada despliegue.
 
@@ -321,7 +321,7 @@ Las actividades definidas en la EDT se asignan a los integrantes del equipo de a
 
 | Actividad | Descripción | Encargado |
 |---|---|---|
-| **EDT 1.1 - Reproducir falla de despliegue** | Ejecutar nuevamente el proceso de despliegue para reproducir el error `context deadline exceeded` y recopilar evidencia técnica del problema. | **Jerry - DevOps QA** |
+| **EDT 1.1 - Reproducir falla de despliegue** | Ejecutar nuevamente el proceso de despliegue para reproducir el error `context deadline exceeded` y recopilar evidencia técnica del problema. | **Gerardo - DevOps QA** |
 | **EDT 1.2 - Identificar componentes críticos** | Analizar los servicios principales del backend y determinar cuáles tienen mayor impacto en el funcionamiento de la aplicación. | **Alan - QA Engineer** |
 | **EDT 1.3 - Definir problemática y alcance** | Establecer el problema principal del proyecto de testing, las necesidades del sistema y el alcance de las pruebas. | **Alexa - QA Lead / Project Manager** |
 | **EDT 1.4 - Elaborar matriz de riesgos** | Identificar los riesgos relacionados con disponibilidad, comunicación entre servicios, despliegues y regresiones. | **Alexa - QA Lead** |
@@ -330,19 +330,19 @@ Las actividades definidas en la EDT se asignan a los integrantes del equipo de a
 | **EDT 2.3 - Diseñar casos de prueba** | Definir precondiciones, datos de entrada, pasos y resultados esperados para cada caso de prueba. | **Alan - QA Engineer** |
 | **EDT 2.4 - Preparar herramientas y checklist** | Configurar herramientas de apoyo como Postman y elaborar una lista de validaciones para los servicios críticos. | **Alan - QA Engineer / Automation Engineer** |
 | **EDT 2.5 - Definir métricas** | Establecer las métricas que permitirán evaluar el avance y la efectividad de las soluciones implementadas. | **Alexa - QA Lead** |
-| **EDT 3.1 - Revisión estática de infraestructura** | Revisar scripts, Docker, Terraform, Helm y Kubernetes para detectar errores de configuración antes de ejecutar el despliegue. | **Jerry - DevOps QA** |
+| **EDT 3.1 - Revisión estática de infraestructura** | Revisar scripts, Docker, Terraform, Helm y Kubernetes para detectar errores de configuración antes de ejecutar el despliegue. | **Gerardo - DevOps QA** |
 | **EDT 3.2 - Ejecutar pruebas de integración** | Comprobar la comunicación entre los diferentes servicios del backend y validar sus respuestas. | **Alan - QA Engineer** |
-| **EDT 3.3 - Ejecutar pruebas smoke** | Verificar después del despliegue que los servicios principales y endpoints de disponibilidad se encuentren funcionando. | **Jerry - DevOps QA** |
+| **EDT 3.3 - Ejecutar pruebas smoke** | Verificar después del despliegue que los servicios principales y endpoints de disponibilidad se encuentren funcionando. | **Gerardo - DevOps QA** |
 | **EDT 3.4 - Ejecutar pruebas de regresión** | Repetir casos previamente aprobados después de realizar cambios para comprobar que no aparezcan nuevas fallas. | **Alan - QA Engineer** |
 | **EDT 3.5 - Automatizar pruebas seleccionadas** | Crear o adaptar scripts que permitan ejecutar automáticamente las validaciones repetitivas del sistema. | **Alan - Automation Engineer** |
-| **EDT 3.6 - Recolectar logs y evidencias** | Guardar capturas, respuestas HTTP, resultados de pruebas y logs generados durante la ejecución. | **Jerry - DevOps QA** |
+| **EDT 3.6 - Recolectar logs y evidencias** | Guardar capturas, respuestas HTTP, resultados de pruebas y logs generados durante la ejecución. | **Gerardo - DevOps QA** |
 | **EDT 4.1 - Registrar y priorizar defectos** | Documentar los defectos detectados y clasificarlos de acuerdo con su severidad e impacto. | **Alexa - QA Lead** |
-| **EDT 4.2 - Analizar y aplicar correcciones** | Analizar la causa de los errores encontrados y realizar los ajustes necesarios en backend o infraestructura. | **Alan / Jerry** |
+| **EDT 4.2 - Analizar y aplicar correcciones** | Analizar la causa de los errores encontrados y realizar los ajustes necesarios en backend o infraestructura. | **Alan / Gerardo** |
 | **EDT 4.3 - Reejecutar pruebas** | Volver a ejecutar los casos fallidos y las pruebas de regresión para comprobar las correcciones realizadas. | **Alan - QA Engineer** |
 | **EDT 4.4 - Analizar métricas** | Calcular y comparar los resultados obtenidos para determinar si la calidad y estabilidad del sistema mejoraron. | **Alexa - QA Lead** |
-| **EDT 5.1 - Validación final** | Ejecutar las pruebas finales para comprobar el estado general del sistema antes del cierre del proyecto. | **Alan / Jerry** |
+| **EDT 5.1 - Validación final** | Ejecutar las pruebas finales para comprobar el estado general del sistema antes del cierre del proyecto. | **Alan / Gerardo** |
 | **EDT 5.2 - Organizar evidencias** | Reunir y ordenar capturas, logs, resultados y documentación generada durante el proyecto. | **Alexa - Project Manager** |
-| **EDT 5.3 - Elaborar reporte y reflexión** | Integrar los resultados, evidencias y conclusiones del proyecto en el entregable final. | **Alexa / Jerry / Alan** |
+| **EDT 5.3 - Elaborar reporte y reflexión** | Integrar los resultados, evidencias y conclusiones del proyecto en el entregable final. | **Alexa / Gerardo / Alan** |
 
 ---
 
@@ -357,7 +357,7 @@ El proyecto utilizará los archivos y directorios del repositorio como evidencia
 | Pruebas End-to-End existentes | `tests/e2e/` |
 | Pruebas de rendimiento existentes | `tests/perf/` |
 | Configuración Helm | `infra/helm/finlab/` |
-| Terraform | `infra/terraform/` |
+| Terraform | `terraform/` (raíz del repositorio) |
 | Ansible | `infra/ansible/` |
 | Scripts de despliegue | `scripts/` |
 | Cronograma, EDT, roles y funciones | `README.md` |
@@ -408,7 +408,7 @@ apps/frontend           React + Vite
 tests/e2e               Pruebas Playwright
 tests/perf              Pruebas k6
 infra/helm/finlab       Helm chart
-infra/terraform         Terraform
+terraform/               Terraform (raíz del repositorio)
 infra/ansible           Ansible
 scripts                 Scripts de ejecución y despliegue
 ```
