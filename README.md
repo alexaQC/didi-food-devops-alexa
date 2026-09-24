@@ -500,3 +500,43 @@ DATABASE_URL
 ```
 
 ---
+
+## Estado de pruebas automatizadas y CI/CD
+
+**Pipeline:** [GitHub Actions - API Tests (Newman)](https://github.com/alexaQC/didi-food-devops-alexa/actions/workflows/api-tests.yml)
+Corre en cada push/PR contra `main`, `fix/**` y `ci/**`. Levanta el stack
+completo con Docker Compose y ejecuta la colección de Postman.
+
+**Tablero:** [Trello - FinLab Eats Testing](https://trello.com/b/9dNf9GX0/finlab-eats-testing)
+
+### Tipos de prueba implementados
+
+| Tipo | Herramienta | Ubicación | Estado |
+|---|---|---|---|
+| Funcionales (e2e) | Playwright | `tests/e2e/app.spec.js` | 2/2 passed |
+| Rendimiento (smoke) | k6 | `tests/perf/smoke.js` | 150/150 checks, p95=42ms |
+| API (integración, negativos, seguridad) | Postman/Newman | `postman/` | 23/26 assertions (ver defecto abajo) |
+
+### Defecto conocido: manejo de errores en el gateway
+
+El gateway (`apps/backend/src/server.js`) responde `500 { error: "..._unavailable" }`
+para CUALQUIER error de los microservicios downstream, incluyendo errores de
+validación 400 legítimos — pierde el status code y el body real que sí
+devuelven `users-service`/`orders-service`/`payments-service`.
+
+**Evidencia:** 3 assertions fallidas en el pipeline de Newman (ver artefacto
+`newman-report` en cada corrida de Actions).
+
+**Corrección propuesta (no aplicada aún):** en cada bloque `catch` de los
+proxies (`/api/users`, `/api/orders`, `/api/payments`), reenviar
+`error.response?.status` y `error.response?.data` cuando existan, y
+reservar el `500 unavailable` genérico solo para cuando `error.response`
+no existe (timeout/conexión real rechazada).
+
+### Hallazgo de seguridad: sin validación de autorización
+
+`POST /api/orders` acepta cualquier `user_id`, incluso uno inexistente,
+sin verificar que corresponda al usuario que hace la petición. No hay
+JWT, cookie de sesión, ni ningún mecanismo de autenticación entre
+requests (confirmado por grep sobre todo el código, cero resultados
+para jwt/session/token/Authorization).
