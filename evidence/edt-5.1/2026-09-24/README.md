@@ -19,5 +19,6 @@ Commit base: `356ebbe9069cd504146a9e9165e5a1c513d9d6ac`
 | `actionlint.txt` | Validación del workflow, exit 0. |
 | `github-actions-before-push.json` | Corridas remotas disponibles antes de publicar la corrección. |
 | `github-run-36038380971-pre-correction/` | Logs y JUnit de la última corrida real anterior; estaba verde con tres fallos tolerados. |
+| `github-run-36050549447-verified/` | Artefacto y resumen de verificación del workflow corregido: estable 22/22; defectos conocidos 1/4. |
 
-La evidencia de una ejecución real del workflow corregido no forma parte de esta carpeta todavía. Debe añadirse después del commit/push y de revisar tanto los logs como los dos JUnit; el color del job no es evidencia suficiente.
+La ejecución corregida verificada es la [36050549447](https://github.com/alexaQC/didi-food-devops-alexa/actions/runs/36050549447), sobre el commit `350e7b6fa75bb28ba7f58f0c3dafe530a58710d3`. El artefacto remoto [`api-tests-and-compose-logs`](https://github.com/alexaQC/didi-food-devops-alexa/actions/runs/36050549447/artifacts/10830142527) contiene ambos JUnit, estado y logs de Compose. El resultado verde corresponde al grupo estable; las tres assertions 400→500 permanecen fallidas en el grupo no bloqueante.

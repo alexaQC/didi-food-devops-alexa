@@ -2,12 +2,13 @@
 
 Fecha de ejecución: 2026-09-24 (America/Mexico_City)
 
-Estado del documento: **validación ejecutada, EDT 5.1 todavía no cerrada**. Falta ejecutar en GitHub Actions el workflow corregido después de publicar estos cambios.
+Estado del documento: **validación técnica COMPLETADA**. La ejecución corregida de GitHub Actions fue verificada junto con sus logs y artefactos. La sincronización de la tarjeta en Trello queda pendiente por falta de una sesión o token autorizado en este entorno.
 
 ## Identificación y alcance
 
 - Rama: `chore/static-iac-review`.
 - Commit base validado: `356ebbe9069cd504146a9e9165e5a1c513d9d6ac`.
+- Commit ejecutado por el pipeline corregido: `350e7b6fa75bb28ba7f58f0c3dafe530a58710d3`.
 - Rúbrica revisada: `C:\Users\VladG\OneDrive\Desktop\Rubrica_Proyecto_Final.pdf` (3 páginas).
 - Avance revisado: `C:\Users\VladG\OneDrive\Desktop\Avance_Proyecto_GAPS_NEW (1).pdf` (15 páginas). Es idéntico por SHA-256 a `Avance_Proyecto_GAPS_NEW.pdf`: `DCC71EEA7DC1B23E831C6000105CB0B33423AB77F67DF9EBDB6871496EDF2C33`.
 - No se encontró el DOCX editable que originó el avance. Para actualizar ese entregable se necesita el archivo fuente correspondiente a ese PDF, idealmente `Avance_Proyecto_GAPS_NEW.docx`; no se reconstruyó a partir del PDF.
@@ -35,7 +36,7 @@ Versiones registradas:
 |---|---|---|---|
 | Indisponibilidad | Build/up aislado, estado Compose, `/healthz`, `/readyz` y `pg_isready` | Servicios levantados; endpoints 200; bases aceptando conexiones | `compose-build-up.txt`, `compose-ps.jsonl`, `health-flow-communication.txt`, `database-health.txt` |
 | Comunicación entre servicios | Flujo gateway → users/orders/payments y consultas posteriores | 201 al crear; 200 al consultar; entidades persistidas | `health-flow-communication.txt`, `newman-full.txt` |
-| Despliegue falsamente exitoso | Espera bloqueante de `/readyz`, estado/logs siempre publicados | El pipeline falla si readiness no se confirma y conserva diagnóstico | `.github/workflows/api-tests.yml`, `actionlint.txt`; corrida remota corregida pendiente |
+| Despliegue falsamente exitoso | Espera bloqueante de `/readyz`, estado/logs siempre publicados | El pipeline falla si readiness no se confirma y conserva diagnóstico | `.github/workflows/api-tests.yml`, `actionlint.txt`, [corrida 36050549447](https://github.com/alexaQC/didi-food-devops-alexa/actions/runs/36050549447) |
 | Regresión | Playwright, colección Newman completa y k6 | UI 2/2; API sin ocultar fallos; k6 dentro de umbrales | `playwright.txt`, `newman-full.txt`, `newman-full-report.xml`, `k6.txt`, `k6-summary.json` |
 
 Todos los nombres de evidencia de esta tabla se encuentran en `evidence/edt-5.1/2026-09-24/`.
@@ -120,27 +121,37 @@ Validación local del cambio:
 - Comando equivalente estable: 22/22, código 0.
 - Comando equivalente de defectos conocidos: 1/4, tres fallos, código 1.
 
-La última ejecución real disponible en GitHub Actions es la corrida pre-corrección [36038380971](https://github.com/alexaQC/didi-food-devops-alexa/actions/runs/36038380971), commit `b286c11`, marcada `success`. Su JUnit contiene las tres assertions 400→500 fallidas; por lo tanto, el color verde no demuestra aprobación. Sus logs y artefacto están preservados en `evidence/edt-5.1/2026-09-24/github-run-36038380971-pre-correction/`.
+La ejecución corregida [36050549447](https://github.com/alexaQC/didi-food-devops-alexa/actions/runs/36050549447), para el commit `350e7b6fa75bb28ba7f58f0c3dafe530a58710d3`, terminó `success` en 58 segundos. La revisión no se limitó al color del job:
 
-No existe todavía una ejecución remota del workflow corregido porque estos cambios no se han publicado. Ese criterio permanece **NO VERIFICADO**.
+- `/readyz` confirmó el backend antes de iniciar Newman;
+- el grupo estable ejecutó 10 requests y **22/22 assertions**, sin fallos;
+- el grupo no bloqueante ejecutó cuatro requests y **1/4 assertions**: conserva tres fallos 400→500 y terminó internamente con código 1;
+- el resumen del workflow identifica ese grupo como `failure` y no aprobado;
+- se publicaron cuatro archivos en el artefacto [`api-tests-and-compose-logs`](https://github.com/alexaQC/didi-food-devops-alexa/actions/runs/36050549447/artifacts/10830142527): dos JUnit, `compose-ps.txt` y `compose.log`;
+- artefacto ID `10830142527`, 5,495 bytes, SHA-256 del ZIP `e9a4252a6f644d4a52ea4023f84b817001e8c7064a8a86c681aefa1178ced2d8`.
+
+Los archivos descargados están preservados en `evidence/edt-5.1/2026-09-24/github-run-36050549447-verified/`. El JUnit estable contiene 22 casos sin `failure`; el JUnit de defectos conocidos contiene cuatro casos y tres nodos `failure`, uno por cada defecto documentado.
+
+La corrida pre-corrección [36038380971](https://github.com/alexaQC/didi-food-devops-alexa/actions/runs/36038380971), commit `b286c11`, también estaba marcada `success`, aunque su JUnit contenía las tres assertions fallidas. Su evidencia se conserva para demostrar por qué el color verde por sí solo era insuficiente.
 
 ## Tabla de validación EDT 5.1
 
 | Criterio | Prueba | Resultado | Evidencia | Estado | Pendiente |
 |---|---|---|---|---|---|
-| Build reproducible local | Compose aislado con `--build` | Código 0; nueve contenedores levantados | `compose-build-up.txt`, `compose-ps.jsonl` | APROBADO | Repetir en runner remoto mediante workflow. |
+| Build reproducible local y CI | Compose aislado con `--build` local y en runner | Código 0; nueve contenedores locales; stack remoto levantado | `compose-build-up.txt`, corrida 36050549447 y `compose-ps.txt` remoto | APROBADO | No sustituye un despliegue Kubernetes. |
 | Disponibilidad del gateway | `/healthz` y `/readyz` | 200/200 | `health-flow-communication.txt` | APROBADO | Ampliar readiness para downstreams. |
 | Disponibilidad de datos | Cuatro `pg_isready` | Cuatro códigos 0 | `database-health.txt` | APROBADO | Añadir healthcheck al db principal en Compose. |
 | Comunicación entre servicios | Usuario → orden → pago y consultas | 201/201/201; consultas 200 y entidades encontradas | `health-flow-communication.txt` | APROBADO | Probar fallos y timeouts downstream. |
 | UI funcional | Playwright | 2/2 | `playwright.txt` | APROBADO | La cobertura sigue limitada a dos escenarios. |
-| API estable | Newman estable | 22/22 | `newman-stable.txt`, `newman-stable-report.xml` | APROBADO | Confirmar el mismo resultado en Actions. |
+| API estable | Newman estable local y remoto | 22/22 en ambas ejecuciones | `newman-stable.txt`, JUnit remoto, corrida 36050549447 | APROBADO | Ampliar cobertura funcional. |
 | Contrato de errores API | Newman completo/negativos | 23/26; tres 400 esperados reciben 500 | `newman-full.txt`, `newman-known-defects.txt` | FALLIDO | Analizar y corregir DEF-API-001 con pruebas de regresión. |
 | Rendimiento smoke | k6, 10 VUs/15 s | 150/150; 0% error; p95 62.42 ms | `k6.txt`, `k6-summary.json` | APROBADO | No inferir tendencia con dos mediciones no controladas. |
 | Revisión estática ejecutada | Checkov Helm/Dockerfiles | 651/160 y 186/0 | `infra/checkov-reports/` | APROBADO | Mantener aceptación limitada y remediar antes de producción. |
 | Ausencia de hallazgos Helm | Checkov Helm | Permanecen 160 | `checkov-helm-report-after.txt` | FALLIDO | Priorizar security contexts, probes, recursos y NetworkPolicies. |
 | Cobertura Terraform | Checkov Terraform | 0 checks aplicables | `checkov-terraform-report.txt` | NO VERIFICADO | Incorporar herramienta/policies que cubran estos recursos. |
-| Sintaxis del pipeline | actionlint + ejecución local equivalente | Código 0; grupos 22/22 y 1/4 | `actionlint.txt`, salidas Newman separadas | APROBADO | Falta corrida real del YAML corregido. |
-| Pipeline corregido en GitHub | Push a `chore/**`, logs y artefactos | No existe corrida para estos cambios | Consulta `gh run list` guardada | NO VERIFICADO | Publicar cambios, esperar run y descargar artefacto nuevo. |
+| Sintaxis del pipeline | actionlint + ejecución local y remota | Código 0; grupos 22/22 y 1/4 | `actionlint.txt`, salidas Newman y corrida 36050549447 | APROBADO | Actualizar acciones antes de que finalice la transición de Node.js 20. |
+| Pipeline corregido en GitHub | Push a `chore/**`, logs y artefactos | `success`; commit y contenido de ambos JUnit verificados | [Corrida 36050549447](https://github.com/alexaQC/didi-food-devops-alexa/actions/runs/36050549447), artefacto 10830142527 | APROBADO | Los tres defectos conocidos permanecen abiertos y no bloquean este workflow. |
+| Sincronización de seguimiento | Tarjeta Trello `[EDT 5.1] Ejecutar validación final` | API respondió HTTP 401 al intentar moverla de `To Do` a `Done` | [Tarjeta EDT 5.1](https://trello.com/c/hhMPzT2P/20-edt-51-ejecutar-validaci%C3%B3n-final) | NO VERIFICADO | Requiere que un miembro autenticado del tablero la mueva a `Done`. |
 | Integración en PDF del avance | Localización de fuente | Solo se encontraron dos PDFs idénticos | Hash documentado arriba | NO VERIFICADO | Proporcionar DOCX fuente; no reconstruir evidencia. |
 
 ## Relación con la hipótesis original
@@ -157,4 +168,4 @@ No se confirma la parte cuantitativa de la hipótesis. No existen mediciones com
 
 ## Conclusión de entrega
 
-El prototipo demuestra funcionalidad local, comunicación entre servicios y tres tipos de pruebas reproducibles. Sin embargo, **todavía no debe marcarse EDT 5.1 como completada ni considerarse listo para el cierre académico final**: falta una corrida real del workflow corregido con sus dos JUnit y logs, y el grupo Newman completo continúa fallando 3 de 26 assertions. Tras el push, debe revisarse el contenido del artefacto; no basta con observar el color del workflow.
+La **validación técnica EDT 5.1 queda COMPLETADA**: existe evidencia local y una corrida real del workflow corregido cuyo commit, logs y dos JUnit fueron comprobados. El prototipo está listo para entrega académica con reservas explícitas, no para producción. Permanecen abiertos DEF-API-001, SEC-API-001, 160 hallazgos Helm aceptados solo para el entorno local, la falta de cobertura aplicable de Terraform y la integración del reporte en el PDF/DOCX final. Las tres assertions 400→500 continúan fallidas y no se presentan como aprobadas. La tarjeta Trello aún requiere actualización manual autenticada.

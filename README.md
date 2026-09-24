@@ -535,11 +535,12 @@ interpreta la diferencia como mejora o degradación estadística.
 - [Checkov Terraform](infra/checkov-reports/checkov-terraform-report.txt): 0 checks aplicables; no equivale a aprobación.
 - [Riesgos estáticos aceptados](infra/checkov-reports/riesgo-aceptado.md), limitados al entorno local.
 
-La última corrida real disponible de Actions es la
-[36038380971](https://github.com/alexaQC/didi-food-devops-alexa/actions/runs/36038380971),
-anterior a la corrección del workflow. Está marcada verde, pero su JUnit contiene
-tres fallos. La ejecución remota del workflow corregido permanece **NO VERIFICADA**
-hasta publicar estos cambios y revisar sus logs y artefactos; EDT 5.1 no está cerrada.
+La ejecución corregida
+[36050549447](https://github.com/alexaQC/didi-food-devops-alexa/actions/runs/36050549447)
+validó el commit `350e7b6fa75bb28ba7f58f0c3dafe530a58710d3`: el grupo estable
+terminó 22/22 y el grupo no bloqueante conservó 1/4, con las tres assertions
+400→500 fallidas. Sus dos JUnit y logs están en el artefacto
+[`api-tests-and-compose-logs`](https://github.com/alexaQC/didi-food-devops-alexa/actions/runs/36050549447/artifacts/10830142527).
 
 ### Defecto conocido: manejo de errores en el gateway
 
@@ -552,7 +553,8 @@ devuelven `users-service`/`orders-service`/`payments-service`.
 `evidence/edt-5.1/2026-09-24/newman-full.txt` y
 `newman-full-report.xml`. En el workflow corregido quedan en
 `newman-known-defects-report.xml`, dentro del artefacto
-`api-tests-and-compose-logs`; dicho artefacto remoto todavía no existe.
+`api-tests-and-compose-logs`; el artefacto verificado corresponde a la corrida
+[36050549447](https://github.com/alexaQC/didi-food-devops-alexa/actions/runs/36050549447).
 
 **Corrección propuesta (no aplicada aún):** en cada bloque `catch` de los
 proxies (`/api/users`, `/api/orders`, `/api/payments`), reenviar
