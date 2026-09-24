@@ -515,7 +515,7 @@ completo con Docker Compose y ejecuta la colección de Postman.
 |---|---|---|---|
 | Funcionales (e2e) | Playwright | `tests/e2e/app.spec.js` | 2/2 passed |
 | Rendimiento (smoke) | k6 | `tests/perf/smoke.js` | 150/150 checks, p95=42ms |
-| API (integración, negativos, seguridad) | Postman/Newman | `postman/` | 23/26 assertions (ver defecto abajo) |
+| API (integración, negativos, seguridad) | Postman/Newman | `tests/api/` | 23/26 assertions (ver defecto abajo) |
 
 ### Defecto conocido: manejo de errores en el gateway
 
