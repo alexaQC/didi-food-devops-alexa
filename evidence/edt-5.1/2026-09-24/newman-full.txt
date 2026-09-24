@@ -1,0 +1,117 @@
+command=newman.cmd run "tests/api/FinLab Eats - API Tests.postman_collection.json" -e "tests/api/FinLab Eats - Local.postman_environment.json" --env-var base_url=http://127.0.0.1:3100 --reporters cli,junit --reporter-junit-export evidence/edt-5.1/2026-09-24/newman-full-report.xml
+version=6.2.2
+(node:4116) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
+(Use `node --trace-deprecation ...` to show where the warning was created)
+newman
+
+FinLab Eats - API Tests
+
+□ 1. Smoke
+└ GET Healthz
+  GET http://127.0.0.1:3100/healthz [200 OK, 260B, 26ms]
+  √  Smoke: /healthz responde 200
+
+└ GET Readyz
+  GET http://127.0.0.1:3100/readyz [200 OK, 263B, 14ms]
+  √  Smoke: /readyz responde 200 (backend listo)
+
+□ 2. Flujo principal (integracion)
+└ GET Restaurantes
+  GET http://127.0.0.1:3100/api/restaurants [200 OK, 436B, 3ms]
+  √  Status 200
+  √  Body es un array con restaurantes
+  √  Incluye Taqueria Don Pepe (dato fijo conocido)
+  √  Guardar restaurantId
+
+└ GET Menu de restaurante
+  GET http://127.0.0.1:3100/api/restaurants/1/menu [200 OK, 465B, 5ms]
+  √  Status 200
+  √  Body tiene restaurant y menu
+
+└ POST Crear usuario
+  POST http://127.0.0.1:3100/api/users [201 Created, 342B, 12ms]
+  √  Status 201
+  √  Body devuelve el usuario creado
+  √  Guardar userId
+
+└ POST Crear orden
+  POST http://127.0.0.1:3100/api/orders [201 Created, 347B, 15ms]
+  √  Status 201
+  √  Body devuelve la orden creada
+  √  Guardar orderId
+
+└ POST Crear pago
+  POST http://127.0.0.1:3100/api/payments [201 Created, 393B, 12ms]
+  √  Status 201
+  √  Pago aprobado (success true)
+
+└ GET Verificar orden en consulta (regresion)
+  GET http://127.0.0.1:3100/api/orders [200 OK, 574B, 10ms]
+  √  Status 200
+  √  La orden creada aparece al consultar despues (no solo en el POST)
+
+└ GET Verificar pago en consulta (regresion)
+  GET http://127.0.0.1:3100/api/payments [200 OK, 640B, 5ms]
+  √  Status 200
+  √  El pago creado aparece al consultar despues
+
+□ 3. Negativos (error guessing)
+└ POST Usuario sin datos
+  POST http://127.0.0.1:3100/api/users [500 Internal Server Error, 323B, 6ms]
+  1. Status 400 esperado (rechaza usuario sin name/email)
+
+└ POST Orden sin datos
+  POST http://127.0.0.1:3100/api/orders [500 Internal Server Error, 324B, 6ms]
+  2. Status 400 esperado (rechaza orden sin userId/total)
+
+└ GET Menu de restaurante inexistente
+  GET http://127.0.0.1:3100/api/restaurants/9999/menu [404 Not Found, 306B, 2ms]
+  √  Status 404: restaurante inexistente
+
+└ POST Pago sin datos
+  POST http://127.0.0.1:3100/api/payments [500 Internal Server Error, 326B, 5ms]
+  3. Status 400 esperado (rechaza pago sin orderId/amount)
+
+□ 4. Seguridad (hallazgo real)
+└ POST Orden con userId inexistente (sin validacion de autorizacion)
+  POST http://127.0.0.1:3100/api/orders [201 Created, 352B, 7ms]
+  √  HALLAZGO: el backend acepta un userId que no existe (201), sin validar que el usuario sea real ni que quien manda el request sea ese usuario
+  √  Esto documenta ausencia de control de acceso: cualquiera puede crear ordenes a nombre de cualquier userId
+
+┌─────────────────────────┬─────────────────┬─────────────────┐
+│                         │        executed │          failed │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│              iterations │               1 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│                requests │              14 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│            test-scripts │              14 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│      prerequest-scripts │               0 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│              assertions │              26 │               3 │
+├─────────────────────────┴─────────────────┴─────────────────┤
+│ total run duration: 1252ms                                  │
+├─────────────────────────────────────────────────────────────┤
+│ total data received: 1.54kB (approx)                        │
+├─────────────────────────────────────────────────────────────┤
+│ average response time: 9ms [min: 2ms, max: 26ms, s.d.: 6ms] │
+└─────────────────────────────────────────────────────────────┘
+
+[31m  # [39m[31m failure        [39m[31m detail                                                          [39m
+[90m    [39m[90m                [39m[90m                                                                 [39m
+ 1.  AssertionError  Status 400 esperado (rechaza usuario sin name/email)            
+                     expected response to have status code 400 but got 500           
+                     at assertion:0 in test-script                                   
+                     inside "3. Negativos (error guessing) / POST Usuario sin datos" 
+[90m    [39m[90m                [39m[90m                                                                 [39m
+ 2.  AssertionError  Status 400 esperado (rechaza orden sin userId/total)            
+                     expected response to have status code 400 but got 500           
+                     at assertion:0 in test-script                                   
+                     inside "3. Negativos (error guessing) / POST Orden sin datos"   
+[90m    [39m[90m                [39m[90m                                                                 [39m
+ 3.  AssertionError  Status 400 esperado (rechaza pago sin orderId/amount)           
+                     expected response to have status code 400 but got 500           
+                     at assertion:0 in test-script                                   
+                     inside "3. Negativos (error guessing) / POST Pago sin datos"    
+exit_code=1

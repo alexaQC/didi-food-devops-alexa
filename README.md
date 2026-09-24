@@ -504,8 +504,12 @@ DATABASE_URL
 ## Estado de pruebas automatizadas y CI/CD
 
 **Pipeline:** [GitHub Actions - API Tests (Newman)](https://github.com/alexaQC/didi-food-devops-alexa/actions/workflows/api-tests.yml)
-Corre en cada push/PR contra `main`, `fix/**` y `ci/**`. Levanta el stack
-completo con Docker Compose y ejecuta la colección de Postman.
+Corre en cada push contra `main`, `fix/**`, `ci/**` y `chore/**`, en pull requests
+contra `main` y mediante ejecución manual. Levanta el stack con Docker Compose,
+exige que `/readyz` confirme disponibilidad y ejecuta Newman en dos grupos:
+22 assertions estables bloqueantes y 4 assertions negativas no bloqueantes que
+conservan tres defectos conocidos. Ambos grupos generan JUnit; el artefacto también
+incluye estado y logs de Compose.
 
 **Tablero:** [Trello - FinLab Eats Testing](https://trello.com/b/9dNf9GX0/finlab-eats-testing)
 
@@ -513,9 +517,29 @@ completo con Docker Compose y ejecuta la colección de Postman.
 
 | Tipo | Herramienta | Ubicación | Estado |
 |---|---|---|---|
-| Funcionales (e2e) | Playwright | `tests/e2e/app.spec.js` | 2/2 passed |
-| Rendimiento (smoke) | k6 | `tests/perf/smoke.js` | 150/150 checks, p95=42ms |
-| API (integración, negativos, seguridad) | Postman/Newman | `tests/api/` | 23/26 assertions (ver defecto abajo) |
+| Funcionales (e2e) | Playwright | `tests/e2e/app.spec.js` | 2/2, exit 0 |
+| Rendimiento (smoke) | k6 | `tests/perf/smoke.js` | 150/150, 0% errores, p95=62.42 ms, exit 0 |
+| API estable | Postman/Newman | `tests/api/` | 22/22, exit 0 |
+| API completa, incluidos defectos | Postman/Newman | `tests/api/` | **23/26, exit 1** |
+
+Resultados de la ejecución local EDT 5.1 del 24 de septiembre de 2026. El p95
+anterior documentado era 42 ms; las dos corridas cumplen el umbral, pero no se
+interpreta la diferencia como mejora o degradación estadística.
+
+### Evidencia de validación final EDT 5.1
+
+- [Reporte de validación EDT 5.1](docs/validacion-final-edt-5.1.md)
+- [Evidencia reproducible](evidence/edt-5.1/2026-09-24/)
+- [Checkov Helm posterior](infra/checkov-reports/checkov-helm-report-after.txt): 651 pasados / 160 fallidos.
+- [Checkov Dockerfiles posterior](infra/checkov-reports/checkov-dockerfile-report-after.txt): 186 pasados / 0 fallidos.
+- [Checkov Terraform](infra/checkov-reports/checkov-terraform-report.txt): 0 checks aplicables; no equivale a aprobación.
+- [Riesgos estáticos aceptados](infra/checkov-reports/riesgo-aceptado.md), limitados al entorno local.
+
+La última corrida real disponible de Actions es la
+[36038380971](https://github.com/alexaQC/didi-food-devops-alexa/actions/runs/36038380971),
+anterior a la corrección del workflow. Está marcada verde, pero su JUnit contiene
+tres fallos. La ejecución remota del workflow corregido permanece **NO VERIFICADA**
+hasta publicar estos cambios y revisar sus logs y artefactos; EDT 5.1 no está cerrada.
 
 ### Defecto conocido: manejo de errores en el gateway
 
@@ -524,8 +548,11 @@ para CUALQUIER error de los microservicios downstream, incluyendo errores de
 validación 400 legítimos — pierde el status code y el body real que sí
 devuelven `users-service`/`orders-service`/`payments-service`.
 
-**Evidencia:** 3 assertions fallidas en el pipeline de Newman (ver artefacto
-`newman-report` en cada corrida de Actions).
+**Evidencia final local:** 3 assertions fallidas en
+`evidence/edt-5.1/2026-09-24/newman-full.txt` y
+`newman-full-report.xml`. En el workflow corregido quedan en
+`newman-known-defects-report.xml`, dentro del artefacto
+`api-tests-and-compose-logs`; dicho artefacto remoto todavía no existe.
 
 **Corrección propuesta (no aplicada aún):** en cada bloque `catch` de los
 proxies (`/api/users`, `/api/orders`, `/api/payments`), reenviar

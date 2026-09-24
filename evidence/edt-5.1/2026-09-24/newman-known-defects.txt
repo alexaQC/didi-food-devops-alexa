@@ -1,0 +1,61 @@
+workflow-equivalent known-defects command
+(node:10040) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
+(Use `node --trace-deprecation ...` to show where the warning was created)
+newman
+
+FinLab Eats - API Tests
+
+□ 3. Negativos (error guessing)
+└ POST Usuario sin datos
+  POST http://127.0.0.1:3100/api/users [500 Internal Server Error, 323B, 32ms]
+  1. Status 400 esperado (rechaza usuario sin name/email)
+
+└ POST Orden sin datos
+  POST http://127.0.0.1:3100/api/orders [500 Internal Server Error, 324B, 9ms]
+  2. Status 400 esperado (rechaza orden sin userId/total)
+
+└ GET Menu de restaurante inexistente
+  GET http://127.0.0.1:3100/api/restaurants/9999/menu [404 Not Found, 306B, 5ms]
+  √  Status 404: restaurante inexistente
+
+└ POST Pago sin datos
+  POST http://127.0.0.1:3100/api/payments [500 Internal Server Error, 326B, 9ms]
+  3. Status 400 esperado (rechaza pago sin orderId/amount)
+
+┌─────────────────────────┬──────────────────┬──────────────────┐
+│                         │         executed │           failed │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│              iterations │                1 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│                requests │                4 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│            test-scripts │                4 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│      prerequest-scripts │                0 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│              assertions │                4 │                3 │
+├─────────────────────────┴──────────────────┴──────────────────┤
+│ total run duration: 347ms                                     │
+├───────────────────────────────────────────────────────────────┤
+│ total data received: 147B (approx)                            │
+├───────────────────────────────────────────────────────────────┤
+│ average response time: 13ms [min: 5ms, max: 32ms, s.d.: 10ms] │
+└───────────────────────────────────────────────────────────────┘
+
+[31m  # [39m[31m failure        [39m[31m detail                                                          [39m
+[90m    [39m[90m                [39m[90m                                                                 [39m
+ 1.  AssertionError  Status 400 esperado (rechaza usuario sin name/email)            
+                     expected response to have status code 400 but got 500           
+                     at assertion:0 in test-script                                   
+                     inside "3. Negativos (error guessing) / POST Usuario sin datos" 
+[90m    [39m[90m                [39m[90m                                                                 [39m
+ 2.  AssertionError  Status 400 esperado (rechaza orden sin userId/total)            
+                     expected response to have status code 400 but got 500           
+                     at assertion:0 in test-script                                   
+                     inside "3. Negativos (error guessing) / POST Orden sin datos"   
+[90m    [39m[90m                [39m[90m                                                                 [39m
+ 3.  AssertionError  Status 400 esperado (rechaza pago sin orderId/amount)           
+                     expected response to have status code 400 but got 500           
+                     at assertion:0 in test-script                                   
+                     inside "3. Negativos (error guessing) / POST Pago sin datos"    
+exit_code=1

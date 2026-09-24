@@ -1,0 +1,2 @@
+command=docker run --rm --mount <repo-readonly> -w /repo rhysd/actionlint:1.7.7 .github/workflows/api-tests.yml
+exit_code=0

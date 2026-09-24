@@ -2,9 +2,10 @@ name: API Tests (Newman)
 
 on:
   push:
-    branches: [ main, 'fix/**', 'ci/**' ]
+    branches: [ main, 'fix/**', 'ci/**', 'chore/**' ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   newman:
@@ -18,32 +19,79 @@ jobs:
 
       - name: Esperar a que el backend este listo
         run: |
+          set -euo pipefail
+          ready=0
           for i in $(seq 1 30); do
             if curl -sf http://localhost:3000/readyz; then
               echo "Backend listo"
+              ready=1
               break
             fi
             echo "Esperando backend... intento $i"
             sleep 2
           done
+          if [ "$ready" -ne 1 ]; then
+            echo "ERROR: el backend no confirmo /readyz despues de 30 intentos"
+            docker compose ps --all
+            docker compose logs --no-color
+            exit 1
+          fi
 
       - name: Instalar Newman
-        run: npm install -g newman
+        run: npm install -g newman@6.2.2
 
-      - name: Ejecutar coleccion de Postman
+      - name: Ejecutar pruebas API estables (bloqueantes)
+        id: stable
+        run: |
+          newman run "tests/api/FinLab Eats - API Tests.postman_collection.json" \
+            -e "tests/api/FinLab Eats - Local.postman_environment.json" \
+            --folder "1. Smoke" \
+            --folder "2. Flujo principal (integracion)" \
+            --folder "4. Seguridad (hallazgo real)" \
+            --reporters cli,junit \
+            --reporter-junit-export newman-stable-report.xml
+
+      - name: Ejecutar defectos conocidos (no bloqueante)
+        id: known_defects
+        if: always()
         continue-on-error: true
         run: |
           newman run "tests/api/FinLab Eats - API Tests.postman_collection.json" \
             -e "tests/api/FinLab Eats - Local.postman_environment.json" \
+            --folder "3. Negativos (error guessing)" \
             --reporters cli,junit \
-            --reporter-junit-export newman-report.xml
+            --reporter-junit-export newman-known-defects-report.xml
 
-      - name: Subir reporte como artefacto
+      - name: Resumen honesto de resultados
+        if: always()
+        run: |
+          {
+            echo "## API Tests (Newman)"
+            echo "| Grupo | Resultado del paso | Bloquea el pipeline |"
+            echo "|---|---|---|"
+            echo "| Pruebas estables | ${{ steps.stable.outcome }} | Si |"
+            echo "| Defectos conocidos | ${{ steps.known_defects.outcome }} | No |"
+            echo
+            echo "El grupo de defectos conocidos conserva las tres assertions 400->500 y su reporte; no se considera aprobado."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Capturar estado y logs de Compose
+        if: always()
+        run: |
+          docker compose ps --all > compose-ps.txt
+          docker compose logs --no-color > compose.log
+
+      - name: Subir reportes y logs como artefacto
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: newman-report
-          path: newman-report.xml
+          name: api-tests-and-compose-logs
+          if-no-files-found: warn
+          path: |
+            newman-stable-report.xml
+            newman-known-defects-report.xml
+            compose-ps.txt
+            compose.log
 
       - name: Bajar el stack
         if: always()
