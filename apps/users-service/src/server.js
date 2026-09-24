@@ -23,6 +23,19 @@ const pool = new Pool({
 
 // Crear tabla si no existe
 async function initDB() {
+  // Espera DB con retry para evitar race condition
+  const retries = 30;
+  for (let i = 1; i <= retries; i++) {
+    try {
+      await pool.query("SELECT 1");
+      break;
+    } catch (err) {
+      console.log(`waiting for users postgres... (${i}/${retries})`);
+      await new Promise((r) => setTimeout(r, 1000));
+      if (i === retries) throw err;
+    }
+  }
+
   await pool.query(`
     CREATE TABLE IF NOT EXISTS users (
       id SERIAL PRIMARY KEY,
