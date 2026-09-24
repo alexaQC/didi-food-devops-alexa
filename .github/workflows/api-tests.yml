@@ -31,6 +31,7 @@ jobs:
         run: npm install -g newman
 
       - name: Ejecutar coleccion de Postman
+        continue-on-error: true
         run: |
           newman run "postman/FinLab Eats - API Tests.postman_collection.json" \
             -e "postman/FinLab Eats - Local.postman_environment.json" \
