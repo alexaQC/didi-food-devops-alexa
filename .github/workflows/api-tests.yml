@@ -1,0 +1,49 @@
+name: API Tests (Newman)
+
+on:
+  push:
+    branches: [ main, 'fix/**', 'ci/**' ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  newman:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repositorio
+        uses: actions/checkout@v4
+
+      - name: Levantar stack con Docker Compose
+        run: docker compose up --build -d
+
+      - name: Esperar a que el backend este listo
+        run: |
+          for i in $(seq 1 30); do
+            if curl -sf http://localhost:3000/readyz; then
+              echo "Backend listo"
+              break
+            fi
+            echo "Esperando backend... intento $i"
+            sleep 2
+          done
+
+      - name: Instalar Newman
+        run: npm install -g newman
+
+      - name: Ejecutar coleccion de Postman
+        run: |
+          newman run "postman/FinLab Eats - API Tests.postman_collection.json" \
+            -e "postman/FinLab Eats - Local.postman_environment.json" \
+            --reporters cli,junit \
+            --reporter-junit-export newman-report.xml
+
+      - name: Subir reporte como artefacto
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: newman-report
+          path: newman-report.xml
+
+      - name: Bajar el stack
+        if: always()
+        run: docker compose down
