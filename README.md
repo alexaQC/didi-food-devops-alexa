@@ -576,3 +576,12 @@ sin verificar que corresponda al usuario que hace la petición. No hay
 JWT, cookie de sesión, ni ningún mecanismo de autenticación entre
 requests (confirmado por grep sobre todo el código, cero resultados
 para jwt/session/token/Authorization).
+
+## Portafolio técnico final
+
+[Proyecto_Final_Portafolio.pdf](docs/Proyecto_Final_Portafolio.pdf)
+
+Documento completo: introducción y evolución del caso, trazabilidad
+hipótesis → pruebas → resultados, evidencias funcionales, automatizaciones,
+integración CI/CD, hallazgos, revisión estática de infraestructura,
+quinta retrospectiva y anexo con capturas.
