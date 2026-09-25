@@ -1,0 +1,82 @@
+workflow-equivalent stable command
+(node:16376) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
+(Use `node --trace-deprecation ...` to show where the warning was created)
+newman
+
+FinLab Eats - API Tests
+
+□ 1. Smoke
+└ GET Healthz
+  GET http://127.0.0.1:3100/healthz [200 OK, 260B, 33ms]
+  √  Smoke: /healthz responde 200
+
+└ GET Readyz
+  GET http://127.0.0.1:3100/readyz [200 OK, 263B, 8ms]
+  √  Smoke: /readyz responde 200 (backend listo)
+
+□ 2. Flujo principal (integracion)
+└ GET Restaurantes
+  GET http://127.0.0.1:3100/api/restaurants [200 OK, 436B, 4ms]
+  √  Status 200
+  √  Body es un array con restaurantes
+  √  Incluye Taqueria Don Pepe (dato fijo conocido)
+  √  Guardar restaurantId
+
+└ GET Menu de restaurante
+  GET http://127.0.0.1:3100/api/restaurants/1/menu [200 OK, 465B, 10ms]
+  √  Status 200
+  √  Body tiene restaurant y menu
+
+└ POST Crear usuario
+  POST http://127.0.0.1:3100/api/users [201 Created, 342B, 18ms]
+  √  Status 201
+  √  Body devuelve el usuario creado
+  √  Guardar userId
+
+└ POST Crear orden
+  POST http://127.0.0.1:3100/api/orders [201 Created, 347B, 14ms]
+  √  Status 201
+  √  Body devuelve la orden creada
+  √  Guardar orderId
+
+└ POST Crear pago
+  POST http://127.0.0.1:3100/api/payments [201 Created, 393B, 14ms]
+  √  Status 201
+  √  Pago aprobado (success true)
+
+└ GET Verificar orden en consulta (regresion)
+  GET http://127.0.0.1:3100/api/orders [200 OK, 731B, 7ms]
+  √  Status 200
+  √  La orden creada aparece al consultar despues (no solo en el POST)
+
+└ GET Verificar pago en consulta (regresion)
+  GET http://127.0.0.1:3100/api/payments [200 OK, 734B, 9ms]
+  √  Status 200
+  √  El pago creado aparece al consultar despues
+
+□ 4. Seguridad (hallazgo real)
+└ POST Orden con userId inexistente (sin validacion de autorizacion)
+  POST http://127.0.0.1:3100/api/orders [201 Created, 352B, 7ms]
+  √  HALLAZGO: el backend acepta un userId que no existe (201), sin validar que el usuario sea real ni que quien manda el request sea ese usuario
+  √  Esto documenta ausencia de control de acceso: cualquiera puede crear ordenes a nombre de cualquier userId
+
+┌─────────────────────────┬──────────────────┬─────────────────┐
+│                         │         executed │          failed │
+├─────────────────────────┼──────────────────┼─────────────────┤
+│              iterations │                1 │               0 │
+├─────────────────────────┼──────────────────┼─────────────────┤
+│                requests │               10 │               0 │
+├─────────────────────────┼──────────────────┼─────────────────┤
+│            test-scripts │               10 │               0 │
+├─────────────────────────┼──────────────────┼─────────────────┤
+│      prerequest-scripts │                0 │               0 │
+├─────────────────────────┼──────────────────┼─────────────────┤
+│              assertions │               22 │               0 │
+├─────────────────────────┴──────────────────┴─────────────────┤
+│ total run duration: 907ms                                    │
+├──────────────────────────────────────────────────────────────┤
+│ total data received: 1.64kB (approx)                         │
+├──────────────────────────────────────────────────────────────┤
+│ average response time: 12ms [min: 4ms, max: 33ms, s.d.: 7ms] │
+└──────────────────────────────────────────────────────────────┘
+exit_code=0

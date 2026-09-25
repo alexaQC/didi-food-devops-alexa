@@ -1,0 +1,3 @@
+http://127.0.0.1:3100/healthz status=200
+http://127.0.0.1:3100/readyz status=200
+http://127.0.0.1:8081/ status=200

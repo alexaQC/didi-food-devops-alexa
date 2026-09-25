@@ -22,6 +22,11 @@ services:
       POSTGRES_DB: users
     ports:
       - "5433:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d users"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   # ========================
   # USERS MICROSERVICE
@@ -35,7 +40,8 @@ services:
       - DB_NAME=users
       - DB_PORT=5432
     depends_on:
-      - users-db
+      users-db:
+        condition: service_healthy
     ports:
       - "3001:3001"
 
@@ -113,8 +119,12 @@ services:
   # ========================
   backend:
     build: ./apps/backend
-    env_file:
-      - ./apps/backend/.env
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USER=finlab
+      - DB_PASSWORD=finlab
+      - DB_NAME=finlab
     depends_on:
       - users-service
       - orders-service

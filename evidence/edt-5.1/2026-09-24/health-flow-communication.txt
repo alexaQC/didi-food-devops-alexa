@@ -1,0 +1,70 @@
+captured=2026-09-24T13:11:49.5945313-06:00
+===== backend healthz
+GET http://127.0.0.1:3100/healthz
+status=200
+body=ok
+===== backend readyz
+GET http://127.0.0.1:3100/readyz
+status=200
+body=ready
+===== frontend root
+GET http://127.0.0.1:8081/
+status=200
+body=<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FinLab Eats</title>
+    <script type="module" crossorigin src="/assets/index-BAIznZ2T.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-l6c2jbxo.css">
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+  </body>
+</html>
+===== gateway restaurants
+GET http://127.0.0.1:3100/api/restaurants
+status=200
+body=[{"id":1,"name":"Taquería Don Pepe","category":"Mexicana"},{"id":2,"name":"Pizza Express","category":"Italiana"},{"id":3,"name":"Sushi Rápido","category":"Japonesa"}]
+===== gateway restaurant menu
+GET http://127.0.0.1:3100/api/restaurants/1/menu
+status=200
+body={"restaurant":{"id":1,"name":"Taquería Don Pepe","category":"Mexicana"},"menu":[{"id":1,"restaurantId":1,"name":"Tacos al pastor","price":80},{"id":2,"restaurantId":1,"name":"Gringa","price":95}]}
+===== gateway create user -> users-service
+POST http://127.0.0.1:3100/api/users
+status=201
+body={"id":3,"name":"EDT51 Tester 1790277109699","email":"edt51-1790277109699@example.com"}
+===== gateway create order -> orders-service
+POST http://127.0.0.1:3100/api/orders
+status=201
+body={"id":3,"user_id":3,"total":"3.00","created_at":"2026-09-24T19:11:49.782Z"}
+===== gateway create payment -> payments-service
+POST http://127.0.0.1:3100/api/payments
+status=201
+body={"success":true,"payment":{"id":3,"order_id":3,"amount":"3.00","status":true,"created_at":"2026-09-24T19:11:49.807Z"}}
+===== gateway list users regression
+GET http://127.0.0.1:3100/api/users
+status=200
+body=[{"id":3,"name":"EDT51 Tester 1790277109699","email":"edt51-1790277109699@example.com"},{"id":2,"name":"EDT51 Tester 1790277069975","email":"edt51-1790277069975@example.com"},{"id":1,"name":"EDT51 Tester 1790277037001","email":"edt51-1790277037001@example.com"}]
+===== gateway list orders regression
+GET http://127.0.0.1:3100/api/orders
+status=200
+body=[{"id":3,"user_id":3,"total":"3.00","created_at":"2026-09-24T19:11:49.782Z"},{"id":2,"user_id":2,"total":"3.00","created_at":"2026-09-24T19:11:10.053Z"},{"id":1,"user_id":1,"total":"3.00","created_at":"2026-09-24T19:10:37.153Z"}]
+===== gateway list payments regression
+GET http://127.0.0.1:3100/api/payments
+status=200
+body=[{"id":3,"order_id":3,"amount":"3.00","status":true,"created_at":"2026-09-24T19:11:49.807Z"},{"id":2,"order_id":2,"amount":"3.00","status":true,"created_at":"2026-09-24T19:11:10.079Z"},{"id":1,"order_id":1,"amount":"3.00","status":true,"created_at":"2026-09-24T19:10:37.191Z"}]
+flow_assertions=user_created:True,order_created:True,payment_created:True,user_found:True,order_found:True,payment_found:True
+===== internal users-service /healthz
+ok
+exit_code=0
+===== internal orders-service /healthz
+ok
+exit_code=0
+===== internal payments-service /healthz
+ok
+exit_code=0

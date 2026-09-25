@@ -1,0 +1,12 @@
+namespace       = "finlab"
+release_name    = "finlab"
+chart_path      = "../infra/helm/finlab"
+kubeconfig_path = "~/.kube/config"
+
+image_registry = "k3d-finlab-registry:5000"
+image_tag      = "latest"
+backend_image  = "finlab/backend"
+frontend_image = "finlab/frontend"
+users_image    = "finlab/users-service"
+orders_image   = "finlab/orders-service"
+payments_image = "finlab/payments-service"

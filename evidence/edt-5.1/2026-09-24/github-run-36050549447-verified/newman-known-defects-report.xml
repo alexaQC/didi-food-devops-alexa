@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="FinLab Eats - API Tests" tests="4" time="0.032">
+  <testsuite name="3. Negativos (error guessing) / POST Usuario sin datos" id="3521aa99-49e2-4c20-8946-c17041fdd2d8" timestamp="2026-09-24T19:48:39.485Z" tests="1" failures="1" errors="0" time="0.020">
+    <testcase name="Status 400 esperado (rechaza usuario sin name/email)" time="0.020" classname="3NegativosErrorGuessingPostUsuarioSinDatos">
+      <failure type="AssertionFailure" message="expected response to have status code 400 but got 500">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: dc570c4f-395c-40f3-aec7-c6b2a1e932c3.]]>
+        <![CDATA[Collection name: FinLab Eats - API Tests.]]>
+        <![CDATA[Request name: 3. Negativos (error guessing) / POST Usuario sin datos.]]>
+        <![CDATA[Test description: Status 400 esperado (rechaza usuario sin name/email).]]>
+        <![CDATA[Error message: expected response to have status code 400 but got 500.]]>
+        <![CDATA[Stacktrace: AssertionError: expected response to have status code 400 but got 500
+   at Object.eval sandbox-script.js:1:1).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="3. Negativos (error guessing) / POST Orden sin datos" id="a78c02fa-1746-44b9-8e68-73baff8788ab" timestamp="2026-09-24T19:48:39.485Z" tests="1" failures="1" errors="0" time="0.006">
+    <testcase name="Status 400 esperado (rechaza orden sin userId/total)" time="0.006" classname="3NegativosErrorGuessingPostOrdenSinDatos">
+      <failure type="AssertionFailure" message="expected response to have status code 400 but got 500">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: dc570c4f-395c-40f3-aec7-c6b2a1e932c3.]]>
+        <![CDATA[Collection name: FinLab Eats - API Tests.]]>
+        <![CDATA[Request name: 3. Negativos (error guessing) / POST Orden sin datos.]]>
+        <![CDATA[Test description: Status 400 esperado (rechaza orden sin userId/total).]]>
+        <![CDATA[Error message: expected response to have status code 400 but got 500.]]>
+        <![CDATA[Stacktrace: AssertionError: expected response to have status code 400 but got 500
+   at Object.eval sandbox-script.js:1:2).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="3. Negativos (error guessing) / GET Menu de restaurante inexistente" id="1942c7d5-e03d-445e-b530-7da1239735ca" timestamp="2026-09-24T19:48:39.485Z" tests="1" failures="0" errors="0" time="0.002">
+    <testcase name="Status 404: restaurante inexistente" time="0.002" classname="3NegativosErrorGuessingGetMenuDeRestauranteInexistente"/>
+  </testsuite>
+  <testsuite name="3. Negativos (error guessing) / POST Pago sin datos" id="493db3ea-704e-497d-b81b-114369dad70c" timestamp="2026-09-24T19:48:39.485Z" tests="1" failures="1" errors="0" time="0.004">
+    <testcase name="Status 400 esperado (rechaza pago sin orderId/amount)" time="0.004" classname="3NegativosErrorGuessingPostPagoSinDatos">
+      <failure type="AssertionFailure" message="expected response to have status code 400 but got 500">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: dc570c4f-395c-40f3-aec7-c6b2a1e932c3.]]>
+        <![CDATA[Collection name: FinLab Eats - API Tests.]]>
+        <![CDATA[Request name: 3. Negativos (error guessing) / POST Pago sin datos.]]>
+        <![CDATA[Test description: Status 400 esperado (rechaza pago sin orderId/amount).]]>
+        <![CDATA[Error message: expected response to have status code 400 but got 500.]]>
+        <![CDATA[Stacktrace: AssertionError: expected response to have status code 400 but got 500
+   at Object.eval sandbox-script.js:1:4).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+</testsuites>

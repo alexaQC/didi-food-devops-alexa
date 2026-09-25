@@ -2,6 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: users-postgres-pvc
+  namespace: {{ .Release.Namespace }}
 spec:
   accessModes:
     - ReadWriteOnce
@@ -14,6 +15,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: users-postgres
+  namespace: {{ .Release.Namespace }}
 spec:
   replicas: 1
   selector:
@@ -49,6 +51,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: users-postgres
+  namespace: {{ .Release.Namespace }}
 spec:
   selector:
     app: users-postgres

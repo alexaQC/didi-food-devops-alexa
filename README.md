@@ -32,6 +32,12 @@ Mejorar la calidad y estabilidad del backend de FinLab Eats mediante una estrate
 
 ---
 
+# Hipótesis del proyecto
+
+Si se incorporan pruebas estáticas, smoke, de integración y regresión con criterios verificables y evidencias conservadas, será posible detectar defectos de configuración y comunicación antes del cierre y reducir el riesgo de liberar componentes no funcionales.
+
+---
+
 # 1. Fases del proyecto - EDT / WBS
 
 La Estructura de Desglose del Trabajo (EDT/WBS) divide el proyecto en cinco fases principales. Cada fase contiene actividades específicas de testing y genera resultados que servirán como entrada para la siguiente etapa.
@@ -456,7 +462,8 @@ scripts/04_resilience_tests.sh
 ## 7. Port-forward
 
 ```bash
-scripts/05_port_forward.sh
+scripts/05-0_frontend_port_forward.sh
+scripts/05-1_backend_port_forward.sh
 ```
 
 ---
@@ -500,3 +507,81 @@ DATABASE_URL
 ```
 
 ---
+
+## Estado de pruebas automatizadas y CI/CD
+
+**Pipeline:** [GitHub Actions - API Tests (Newman)](https://github.com/alexaQC/didi-food-devops-alexa/actions/workflows/api-tests.yml)
+Corre en cada push contra `main`, `fix/**`, `ci/**` y `chore/**`, en pull requests
+contra `main` y mediante ejecución manual. Levanta el stack con Docker Compose,
+exige que `/readyz` confirme disponibilidad y ejecuta Newman en dos grupos:
+22 assertions estables bloqueantes y 4 assertions negativas no bloqueantes que
+conservan tres defectos conocidos. Ambos grupos generan JUnit; el artefacto también
+incluye estado y logs de Compose.
+
+**Tablero:** [Trello - FinLab Eats Testing](https://trello.com/b/9dNf9GX0/finlab-eats-testing)
+
+### Tipos de prueba implementados
+
+| Tipo | Herramienta | Ubicación | Estado |
+|---|---|---|---|
+| Funcionales (e2e) | Playwright | `tests/e2e/app.spec.js` | 2/2, exit 0 |
+| Rendimiento (smoke) | k6 | `tests/perf/smoke.js` | 150/150, 0% errores, p95=62.42 ms, exit 0 |
+| API estable | Postman/Newman | `tests/api/` | 22/22, exit 0 |
+| API completa, incluidos defectos | Postman/Newman | `tests/api/` | **23/26, exit 1** |
+
+Resultados de la ejecución local EDT 5.1 del 24 de septiembre de 2026. El p95
+anterior documentado era 42 ms; las dos corridas cumplen el umbral, pero no se
+interpreta la diferencia como mejora o degradación estadística.
+
+### Evidencia de validación final EDT 5.1
+
+- [Reporte de validación EDT 5.1](docs/validacion-final-edt-5.1.md)
+- [Evidencia reproducible](evidence/edt-5.1/2026-09-24/)
+- [Checkov Helm posterior](infra/checkov-reports/checkov-helm-report-after.txt): 651 pasados / 160 fallidos.
+- [Checkov Dockerfiles posterior](infra/checkov-reports/checkov-dockerfile-report-after.txt): 186 pasados / 0 fallidos.
+- [Checkov Terraform](infra/checkov-reports/checkov-terraform-report.txt): 0 checks aplicables; no equivale a aprobación.
+- [Riesgos estáticos aceptados](infra/checkov-reports/riesgo-aceptado.md), limitados al entorno local.
+
+La ejecución corregida
+[36050549447](https://github.com/alexaQC/didi-food-devops-alexa/actions/runs/36050549447)
+validó el commit `350e7b6fa75bb28ba7f58f0c3dafe530a58710d3`: el grupo estable
+terminó 22/22 y el grupo no bloqueante conservó 1/4, con las tres assertions
+400→500 fallidas. Sus dos JUnit y logs están en el artefacto
+[`api-tests-and-compose-logs`](https://github.com/alexaQC/didi-food-devops-alexa/actions/runs/36050549447/artifacts/10830142527).
+
+### Defecto conocido: manejo de errores en el gateway
+
+El gateway (`apps/backend/src/server.js`) responde `500 { error: "..._unavailable" }`
+para CUALQUIER error de los microservicios downstream, incluyendo errores de
+validación 400 legítimos — pierde el status code y el body real que sí
+devuelven `users-service`/`orders-service`/`payments-service`.
+
+**Evidencia final local:** 3 assertions fallidas en
+`evidence/edt-5.1/2026-09-24/newman-full.txt` y
+`newman-full-report.xml`. En el workflow corregido quedan en
+`newman-known-defects-report.xml`, dentro del artefacto
+`api-tests-and-compose-logs`; el artefacto verificado corresponde a la corrida
+[36050549447](https://github.com/alexaQC/didi-food-devops-alexa/actions/runs/36050549447).
+
+**Corrección propuesta (no aplicada aún):** en cada bloque `catch` de los
+proxies (`/api/users`, `/api/orders`, `/api/payments`), reenviar
+`error.response?.status` y `error.response?.data` cuando existan, y
+reservar el `500 unavailable` genérico solo para cuando `error.response`
+no existe (timeout/conexión real rechazada).
+
+### Hallazgo de seguridad: sin validación de autorización
+
+`POST /api/orders` acepta cualquier `user_id`, incluso uno inexistente,
+sin verificar que corresponda al usuario que hace la petición. No hay
+JWT, cookie de sesión, ni ningún mecanismo de autenticación entre
+requests (confirmado por grep sobre todo el código, cero resultados
+para jwt/session/token/Authorization).
+
+## Portafolio técnico final
+
+[Proyecto_Final_Portafolio.pdf](docs/Proyecto_Final_Portafolio.pdf)
+
+Documento completo: introducción y evolución del caso, trazabilidad
+hipótesis → pruebas → resultados, evidencias funcionales, automatizaciones,
+integración CI/CD, hallazgos, revisión estática de infraestructura,
+quinta retrospectiva y anexo con capturas.

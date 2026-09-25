@@ -1,0 +1,1144 @@
+newman	Set up job	﻿2026-09-24T18:01:46.5250372Z Current runner version: '2.337.0'
+newman	Set up job	2026-09-24T18:01:46.5272175Z ##[group]Runner Image Provisioner
+newman	Set up job	2026-09-24T18:01:46.5272928Z Hosted Compute Agent
+newman	Set up job	2026-09-24T18:01:46.5273416Z Version: 20260828.587
+newman	Set up job	2026-09-24T18:01:46.5274041Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+newman	Set up job	2026-09-24T18:01:46.5274647Z Build Date: 2026-08-28T16:44:25Z
+newman	Set up job	2026-09-24T18:01:46.5275249Z Worker ID: {cf674c94-54c2-464c-92fb-a754029ac2eb}
+newman	Set up job	2026-09-24T18:01:46.5275848Z Azure Region: mexicocentral
+newman	Set up job	2026-09-24T18:01:46.5276344Z ##[endgroup]
+newman	Set up job	2026-09-24T18:01:46.5277515Z ##[group]Operating System
+newman	Set up job	2026-09-24T18:01:46.5278030Z Ubuntu
+newman	Set up job	2026-09-24T18:01:46.5278443Z 24.04.5
+newman	Set up job	2026-09-24T18:01:46.5278936Z LTS
+newman	Set up job	2026-09-24T18:01:46.5279363Z ##[endgroup]
+newman	Set up job	2026-09-24T18:01:46.5279913Z ##[group]Runner Image
+newman	Set up job	2026-09-24T18:01:46.5280404Z Image: ubuntu-24.04
+newman	Set up job	2026-09-24T18:01:46.5281088Z Version: 20260920.314.1
+newman	Set up job	2026-09-24T18:01:46.5282018Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260920.314/images/ubuntu/Ubuntu2404-Readme.md
+newman	Set up job	2026-09-24T18:01:46.5283475Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260920.314
+newman	Set up job	2026-09-24T18:01:46.5284302Z ##[endgroup]
+newman	Set up job	2026-09-24T18:01:46.5285605Z ##[group]GITHUB_TOKEN Permissions
+newman	Set up job	2026-09-24T18:01:46.5287390Z Contents: read
+newman	Set up job	2026-09-24T18:01:46.5287876Z Metadata: read
+newman	Set up job	2026-09-24T18:01:46.5288449Z Packages: read
+newman	Set up job	2026-09-24T18:01:46.5288908Z ##[endgroup]
+newman	Set up job	2026-09-24T18:01:46.5290833Z Secret source: Actions
+newman	Set up job	2026-09-24T18:01:46.5291666Z Cache mode: write
+newman	Set up job	2026-09-24T18:01:46.5292294Z Prepare workflow directory
+newman	Set up job	2026-09-24T18:01:46.5564048Z Prepare all required actions
+newman	Set up job	2026-09-24T18:01:46.5603707Z Getting action download info
+newman	Set up job	2026-09-24T18:01:46.8800712Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+newman	Set up job	2026-09-24T18:01:47.6215263Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+newman	Set up job	2026-09-24T18:01:47.9652352Z Complete job name: newman
+newman	Checkout repositorio	﻿2026-09-24T18:01:48.0272943Z ##[group]Run actions/checkout@v4
+newman	Checkout repositorio	2026-09-24T18:01:48.0273707Z with:
+newman	Checkout repositorio	2026-09-24T18:01:48.0274119Z   repository: alexaQC/didi-food-devops-alexa
+newman	Checkout repositorio	2026-09-24T18:01:48.0277829Z   token: ***
+newman	Checkout repositorio	2026-09-24T18:01:48.0278223Z   ssh-strict: true
+newman	Checkout repositorio	2026-09-24T18:01:48.0278610Z   ssh-user: git
+newman	Checkout repositorio	2026-09-24T18:01:48.0278996Z   persist-credentials: true
+newman	Checkout repositorio	2026-09-24T18:01:48.0279420Z   clean: true
+newman	Checkout repositorio	2026-09-24T18:01:48.0279797Z   sparse-checkout-cone-mode: true
+newman	Checkout repositorio	2026-09-24T18:01:48.0280235Z   fetch-depth: 1
+newman	Checkout repositorio	2026-09-24T18:01:48.0280739Z   fetch-tags: false
+newman	Checkout repositorio	2026-09-24T18:01:48.0281112Z   show-progress: true
+newman	Checkout repositorio	2026-09-24T18:01:48.0281499Z   lfs: false
+newman	Checkout repositorio	2026-09-24T18:01:48.0281860Z   submodules: false
+newman	Checkout repositorio	2026-09-24T18:01:48.0282256Z   set-safe-directory: true
+newman	Checkout repositorio	2026-09-24T18:01:48.0282693Z   allow-unsafe-pr-checkout: false
+newman	Checkout repositorio	2026-09-24T18:01:48.0283305Z ##[endgroup]
+newman	Checkout repositorio	2026-09-24T18:01:48.1102896Z Syncing repository: alexaQC/didi-food-devops-alexa
+newman	Checkout repositorio	2026-09-24T18:01:48.1105152Z ##[group]Getting Git version info
+newman	Checkout repositorio	2026-09-24T18:01:48.1106369Z Working directory is '/home/runner/work/didi-food-devops-alexa/didi-food-devops-alexa'
+newman	Checkout repositorio	2026-09-24T18:01:48.1108127Z [command]/usr/bin/git version
+newman	Checkout repositorio	2026-09-24T18:01:48.2164081Z git version 2.55.0
+newman	Checkout repositorio	2026-09-24T18:01:48.2181702Z ##[endgroup]
+newman	Checkout repositorio	2026-09-24T18:01:48.2194013Z Temporarily overriding HOME='/home/runner/work/_temp/799e481a-4ea1-4be7-80e6-d4201ec955d6' before making global git config changes
+newman	Checkout repositorio	2026-09-24T18:01:48.2195769Z Adding repository directory to the temporary git global config as a safe directory
+newman	Checkout repositorio	2026-09-24T18:01:48.2198636Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/didi-food-devops-alexa/didi-food-devops-alexa
+newman	Checkout repositorio	2026-09-24T18:01:48.2245762Z Deleting the contents of '/home/runner/work/didi-food-devops-alexa/didi-food-devops-alexa'
+newman	Checkout repositorio	2026-09-24T18:01:48.2248963Z ##[group]Initializing the repository
+newman	Checkout repositorio	2026-09-24T18:01:48.2252205Z [command]/usr/bin/git init /home/runner/work/didi-food-devops-alexa/didi-food-devops-alexa
+newman	Checkout repositorio	2026-09-24T18:01:48.2344197Z hint: Using 'master' as the name for the initial branch. This default branch name
+newman	Checkout repositorio	2026-09-24T18:01:48.2345475Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+newman	Checkout repositorio	2026-09-24T18:01:48.2346290Z hint: to use in all of your new repositories, which will suppress this warning,
+newman	Checkout repositorio	2026-09-24T18:01:48.2347094Z hint: call:
+newman	Checkout repositorio	2026-09-24T18:01:48.2347664Z hint:
+newman	Checkout repositorio	2026-09-24T18:01:48.2348262Z hint: 	git config --global init.defaultBranch <name>
+newman	Checkout repositorio	2026-09-24T18:01:48.2348804Z hint:
+newman	Checkout repositorio	2026-09-24T18:01:48.2349305Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+newman	Checkout repositorio	2026-09-24T18:01:48.2350365Z hint: 'development'. The just-created branch can be renamed via this command:
+newman	Checkout repositorio	2026-09-24T18:01:48.2351621Z hint:
+newman	Checkout repositorio	2026-09-24T18:01:48.2352038Z hint: 	git branch -m <name>
+newman	Checkout repositorio	2026-09-24T18:01:48.2352459Z hint:
+newman	Checkout repositorio	2026-09-24T18:01:48.2352989Z hint: Disable this message with "git config set advice.defaultBranchName false"
+newman	Checkout repositorio	2026-09-24T18:01:48.2354024Z Initialized empty Git repository in /home/runner/work/didi-food-devops-alexa/didi-food-devops-alexa/.git/
+newman	Checkout repositorio	2026-09-24T18:01:48.2356147Z [command]/usr/bin/git remote add origin https://github.com/alexaQC/didi-food-devops-alexa
+newman	Checkout repositorio	2026-09-24T18:01:48.2399556Z ##[endgroup]
+newman	Checkout repositorio	2026-09-24T18:01:48.2400265Z ##[group]Disabling automatic garbage collection
+newman	Checkout repositorio	2026-09-24T18:01:48.2402878Z [command]/usr/bin/git config --local gc.auto 0
+newman	Checkout repositorio	2026-09-24T18:01:48.2432153Z ##[endgroup]
+newman	Checkout repositorio	2026-09-24T18:01:48.2433254Z ##[group]Setting up auth
+newman	Checkout repositorio	2026-09-24T18:01:48.2437815Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+newman	Checkout repositorio	2026-09-24T18:01:48.2466781Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+newman	Checkout repositorio	2026-09-24T18:01:48.2771252Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+newman	Checkout repositorio	2026-09-24T18:01:48.2801167Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+newman	Checkout repositorio	2026-09-24T18:01:48.2993542Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+newman	Checkout repositorio	2026-09-24T18:01:48.3023482Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+newman	Checkout repositorio	2026-09-24T18:01:48.3213501Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+newman	Checkout repositorio	2026-09-24T18:01:48.3247040Z ##[endgroup]
+newman	Checkout repositorio	2026-09-24T18:01:48.3247850Z ##[group]Fetching the repository
+newman	Checkout repositorio	2026-09-24T18:01:48.3255676Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +b286c11d38edc6b396b3e60bbb48c9e7eedadd5b:refs/remotes/origin/ci/newman-pipeline
+newman	Checkout repositorio	2026-09-24T18:01:50.8545028Z From https://github.com/alexaQC/didi-food-devops-alexa
+newman	Checkout repositorio	2026-09-24T18:01:50.8547051Z  * [new ref]         b286c11d38edc6b396b3e60bbb48c9e7eedadd5b -> origin/ci/newman-pipeline
+newman	Checkout repositorio	2026-09-24T18:01:50.8550230Z ##[endgroup]
+newman	Checkout repositorio	2026-09-24T18:01:50.8550961Z ##[group]Determining the checkout info
+newman	Checkout repositorio	2026-09-24T18:01:50.8551663Z ##[endgroup]
+newman	Checkout repositorio	2026-09-24T18:01:50.8557548Z [command]/usr/bin/git sparse-checkout disable
+newman	Checkout repositorio	2026-09-24T18:01:50.8603015Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+newman	Checkout repositorio	2026-09-24T18:01:50.8631137Z ##[group]Checking out the ref
+newman	Checkout repositorio	2026-09-24T18:01:50.8635257Z [command]/usr/bin/git checkout --progress --force -B ci/newman-pipeline refs/remotes/origin/ci/newman-pipeline
+newman	Checkout repositorio	2026-09-24T18:01:51.2104323Z Switched to a new branch 'ci/newman-pipeline'
+newman	Checkout repositorio	2026-09-24T18:01:51.2108570Z branch 'ci/newman-pipeline' set up to track 'origin/ci/newman-pipeline'.
+newman	Checkout repositorio	2026-09-24T18:01:51.2156634Z ##[endgroup]
+newman	Checkout repositorio	2026-09-24T18:01:51.2159505Z [command]/usr/bin/git log -1 --format=%H
+newman	Checkout repositorio	2026-09-24T18:01:51.2183767Z b286c11d38edc6b396b3e60bbb48c9e7eedadd5b
+newman	Levantar stack con Docker Compose	﻿2026-09-24T18:01:51.2368306Z ##[group]Run docker compose up --build -d
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:51.2368704Z ^[[36;1mdocker compose up --build -d^[[0m
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:51.2601747Z shell: /usr/bin/bash -e {0}
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:51.2602031Z ##[endgroup]
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:51.5233541Z  db Pulling 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:51.5233982Z  users-db Pulling 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:51.5234258Z  payments-db Pulling 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:51.5234566Z  orders-db Pulling 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5274642Z  6b37362b3da7 Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5275106Z  0d791b2b75ae Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5275409Z  0d39881c83f7 Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5275697Z  c95afe7c234f Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5275993Z  bc176b99a33a Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5276288Z  08a5cd487deb Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5276566Z  eb4d92aaee0a Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5276882Z  75a4dff090e8 Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5277197Z  afe9a40fb214 Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5277487Z  ca5e97c0cd7d Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5277895Z  53fa82bdba52 Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5278193Z  7b9c6b8e5e6e Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5278497Z  b65147f15943 Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5278851Z  170d9ea1cd85 Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5279184Z  eb4d92aaee0a Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5279729Z  75a4dff090e8 Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5280104Z  afe9a40fb214 Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5280801Z  ca5e97c0cd7d Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5281047Z  53fa82bdba52 Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5281296Z  7b9c6b8e5e6e Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5281550Z  b65147f15943 Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5281799Z  170d9ea1cd85 Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5282056Z  c95afe7c234f Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5282298Z  bc176b99a33a Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5282556Z  08a5cd487deb Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5358252Z  6b37362b3da7 Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5361395Z  0d791b2b75ae Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5361731Z  0d39881c83f7 Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5362048Z  c95afe7c234f Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5362404Z  bc176b99a33a Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5362890Z  08a5cd487deb Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5363305Z  eb4d92aaee0a Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5364234Z  75a4dff090e8 Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5364534Z  afe9a40fb214 Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5379663Z  bc176b99a33a Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5380043Z  ca5e97c0cd7d Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5380511Z  53fa82bdba52 Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5380901Z  7b9c6b8e5e6e Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5381140Z  b65147f15943 Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5381426Z  170d9ea1cd85 Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5381709Z  170d9ea1cd85 Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5381960Z  08a5cd487deb Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5382207Z  eb4d92aaee0a Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5382451Z  75a4dff090e8 Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5382687Z  afe9a40fb214 Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5382902Z  c95afe7c234f Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5383079Z  53fa82bdba52 Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5383247Z  ca5e97c0cd7d Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5383520Z  7b9c6b8e5e6e Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5383707Z  b65147f15943 Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5534715Z  6b37362b3da7 Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5535220Z  0d791b2b75ae Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5535590Z  0d39881c83f7 Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5536227Z  c95afe7c234f Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5536449Z  bc176b99a33a Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5536645Z  08a5cd487deb Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5536842Z  eb4d92aaee0a Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5537086Z  75a4dff090e8 Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5537324Z  afe9a40fb214 Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5537512Z  c95afe7c234f Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5537706Z  ca5e97c0cd7d Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5537993Z  53fa82bdba52 Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5538234Z  7b9c6b8e5e6e Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5538427Z  b65147f15943 Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5539190Z  170d9ea1cd85 Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5539421Z  170d9ea1cd85 Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5539873Z  bc176b99a33a Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5540114Z  afe9a40fb214 Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5540281Z  ca5e97c0cd7d Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5540529Z  08a5cd487deb Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5540910Z  53fa82bdba52 Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5541177Z  eb4d92aaee0a Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5541428Z  7b9c6b8e5e6e Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5541671Z  75a4dff090e8 Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5541907Z  b65147f15943 Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5700217Z  e2de96513ba9 Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5700842Z  1b7f9cd581ee Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5701177Z  210b280f9556 Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5701483Z  81717818649a Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5701672Z  3ae6141cfd99 Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5701882Z  e2de96513ba9 Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5702148Z  25b77f59fd95 Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5702505Z  1b7f9cd581ee Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5702782Z  6c25da34e03f Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5703082Z  210b280f9556 Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5703355Z  a88782f92806 Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5703638Z  81717818649a Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5703900Z  d8d21be4bf02 Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5704180Z  3ae6141cfd99 Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5704444Z  6117bd39f23f Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5704714Z  25b77f59fd95 Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5704967Z  509688edf37b Pulling fs layer 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5705149Z  6c25da34e03f Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5761569Z  a88782f92806 Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5761846Z  d8d21be4bf02 Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.5762083Z  6117bd39f23f Waiting 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.7735041Z  0d791b2b75ae Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.7735476Z  0d791b2b75ae Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.7735933Z  0d791b2b75ae Downloading [==================================================>]  1.167kB/1.167kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.7736466Z  0d791b2b75ae Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.8168435Z  0d39881c83f7 Downloading [>                                                  ]  64.94kB/6.443MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.8168915Z  0d39881c83f7 Downloading [>                                                  ]  64.94kB/6.443MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.8169306Z  0d39881c83f7 Downloading [>                                                  ]  64.94kB/6.443MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.8805860Z  6b37362b3da7 Downloading [>                                                  ]  310.7kB/29.83MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.8806590Z  6b37362b3da7 Downloading [>                                                  ]  310.7kB/29.83MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.8807171Z  6b37362b3da7 Downloading [>                                                  ]  310.7kB/29.83MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.9181424Z  0d39881c83f7 Downloading [====>                                              ]  523.7kB/6.443MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.9182099Z  0d39881c83f7 Downloading [====>                                              ]  523.7kB/6.443MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.9182751Z  0d39881c83f7 Downloading [====>                                              ]  523.7kB/6.443MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.9871997Z  6b37362b3da7 Downloading [==>                                                ]  1.245MB/29.83MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.9872602Z  6b37362b3da7 Downloading [==>                                                ]  1.245MB/29.83MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:52.9872978Z  6b37362b3da7 Downloading [==>                                                ]  1.245MB/29.83MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.0189475Z  0d39881c83f7 Downloading [==============>                                    ]    1.9MB/6.443MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.0189939Z  0d39881c83f7 Downloading [==============>                                    ]    1.9MB/6.443MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.0190320Z  0d39881c83f7 Downloading [==============>                                    ]    1.9MB/6.443MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.0288997Z  c95afe7c234f Downloading [>                                                  ]  15.79kB/1.257MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.0290007Z  c95afe7c234f Downloading [>                                                  ]  15.79kB/1.257MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.0291180Z  c95afe7c234f Downloading [>                                                  ]  15.79kB/1.257MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.0902594Z  6b37362b3da7 Downloading [========>                                          ]   4.98MB/29.83MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.0903266Z  6b37362b3da7 Downloading [========>                                          ]   4.98MB/29.83MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.0903881Z  6b37362b3da7 Downloading [========>                                          ]   4.98MB/29.83MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.1168292Z  0d39881c83f7 Verifying Checksum 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.1169347Z  0d39881c83f7 Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.1169778Z  0d39881c83f7 Verifying Checksum 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.1170244Z  0d39881c83f7 Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.1171056Z  0d39881c83f7 Verifying Checksum 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.1171662Z  0d39881c83f7 Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.1302403Z  c95afe7c234f Downloading [=============>                                     ]  327.1kB/1.257MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.1302992Z  c95afe7c234f Downloading [=============>                                     ]  327.1kB/1.257MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.1303380Z  c95afe7c234f Downloading [=============>                                     ]  327.1kB/1.257MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.1946072Z  6b37362b3da7 Downloading [==========================>                        ]  15.88MB/29.83MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.1946817Z  6b37362b3da7 Downloading [==========================>                        ]  15.88MB/29.83MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.1947330Z  6b37362b3da7 Downloading [==========================>                        ]  15.88MB/29.83MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.2330211Z  c95afe7c234f Downloading [================================================>  ]  1.212MB/1.257MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.2331110Z  c95afe7c234f Downloading [================================================>  ]  1.212MB/1.257MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.2331791Z  c95afe7c234f Downloading [================================================>  ]  1.212MB/1.257MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.2347315Z  c95afe7c234f Verifying Checksum 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.2348253Z  c95afe7c234f Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.2348592Z  c95afe7c234f Verifying Checksum 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.2348996Z  c95afe7c234f Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.2349211Z  c95afe7c234f Verifying Checksum 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.2349410Z  c95afe7c234f Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.2450090Z  6b37362b3da7 Verifying Checksum 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.2450755Z  6b37362b3da7 Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.2451098Z  6b37362b3da7 Verifying Checksum 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.2451308Z  6b37362b3da7 Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.2451504Z  6b37362b3da7 Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.2702533Z  6b37362b3da7 Extracting [>                                                  ]  327.7kB/29.83MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.2703265Z  6b37362b3da7 Extracting [>                                                  ]  327.7kB/29.83MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.2703921Z  6b37362b3da7 Extracting [>                                                  ]  327.7kB/29.83MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.3721966Z  6b37362b3da7 Extracting [==============>                                    ]   8.52MB/29.83MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.3722612Z  6b37362b3da7 Extracting [==============>                                    ]   8.52MB/29.83MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.3723188Z  6b37362b3da7 Extracting [==============>                                    ]   8.52MB/29.83MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.4057526Z  bc176b99a33a Downloading [>                                                  ]  97.71kB/8.204MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.4058263Z  bc176b99a33a Downloading [>                                                  ]  97.71kB/8.204MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.4058869Z  bc176b99a33a Downloading [>                                                  ]  97.71kB/8.204MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.4722986Z  6b37362b3da7 Extracting [=====================>                             ]  13.11MB/29.83MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.4724680Z  6b37362b3da7 Extracting [=====================>                             ]  13.11MB/29.83MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.4725534Z  6b37362b3da7 Extracting [=====================>                             ]  13.11MB/29.83MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.4891761Z  08a5cd487deb Downloading [>                                                  ]  15.79kB/1.312MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.4892211Z  08a5cd487deb Downloading [>                                                  ]  15.79kB/1.312MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.4892608Z  08a5cd487deb Downloading [>                                                  ]  15.79kB/1.312MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.4916313Z  eb4d92aaee0a Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.4917681Z  eb4d92aaee0a Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.4918200Z  eb4d92aaee0a Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.5078078Z  bc176b99a33a Downloading [====>                                              ]  687.5kB/8.204MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.5078615Z  bc176b99a33a Downloading [====>                                              ]  687.5kB/8.204MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.5079070Z  bc176b99a33a Downloading [====>                                              ]  687.5kB/8.204MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.5748116Z  6b37362b3da7 Extracting [======================================>            ]  23.27MB/29.83MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.5749041Z  6b37362b3da7 Extracting [======================================>            ]  23.27MB/29.83MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.5750258Z  6b37362b3da7 Extracting [======================================>            ]  23.27MB/29.83MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.5897898Z  08a5cd487deb Downloading [============>                                      ]  327.1kB/1.312MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.5900077Z  08a5cd487deb Downloading [============>                                      ]  327.1kB/1.312MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.5900841Z  08a5cd487deb Downloading [============>                                      ]  327.1kB/1.312MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.6082974Z  bc176b99a33a Downloading [===============>                                   ]  2.555MB/8.204MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.6083996Z  bc176b99a33a Downloading [===============>                                   ]  2.555MB/8.204MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.6084989Z  bc176b99a33a Downloading [===============>                                   ]  2.555MB/8.204MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.6945926Z  bc176b99a33a Verifying Checksum 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.6946962Z  08a5cd487deb Downloading [===============================================>   ]  1.245MB/1.312MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.6947631Z  bc176b99a33a Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.6948211Z  bc176b99a33a Verifying Checksum 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.6948718Z  08a5cd487deb Downloading [===============================================>   ]  1.245MB/1.312MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.6949246Z  bc176b99a33a Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.6949620Z  08a5cd487deb Downloading [===============================================>   ]  1.245MB/1.312MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.6949997Z  bc176b99a33a Verifying Checksum 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.6950307Z  bc176b99a33a Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.6960702Z  08a5cd487deb Verifying Checksum 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.6961513Z  08a5cd487deb Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.6962285Z  08a5cd487deb Verifying Checksum 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.6963201Z  08a5cd487deb Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.6963548Z  08a5cd487deb Verifying Checksum 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.6963827Z  08a5cd487deb Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.7155818Z  6b37362b3da7 Extracting [===========================================>       ]  26.21MB/29.83MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.7156807Z  6b37362b3da7 Extracting [===========================================>       ]  26.21MB/29.83MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.7157507Z  6b37362b3da7 Extracting [===========================================>       ]  26.21MB/29.83MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.7451943Z  75a4dff090e8 Downloading [==================================================>]   3.14kB/3.14kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.7452743Z  75a4dff090e8 Verifying Checksum 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.7458210Z  75a4dff090e8 Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.7459203Z  75a4dff090e8 Verifying Checksum 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.7459817Z  75a4dff090e8 Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.7460135Z  75a4dff090e8 Verifying Checksum 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.7460744Z  75a4dff090e8 Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.9075044Z  6b37362b3da7 Extracting [================================================>  ]  29.16MB/29.83MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.9075873Z  6b37362b3da7 Extracting [================================================>  ]  29.16MB/29.83MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.9076566Z  6b37362b3da7 Extracting [================================================>  ]  29.16MB/29.83MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.9627475Z  ca5e97c0cd7d Downloading [=================>                                 ]  3.502kB/9.934kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.9628090Z  ca5e97c0cd7d Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.9628907Z  ca5e97c0cd7d Downloading [=================>                                 ]  3.502kB/9.934kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.9629893Z  ca5e97c0cd7d Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.9630430Z  ca5e97c0cd7d Downloading [=================>                                 ]  3.502kB/9.934kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.9631136Z  ca5e97c0cd7d Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.9709445Z  6b37362b3da7 Extracting [==================================================>]  29.83MB/29.83MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.9710169Z  6b37362b3da7 Extracting [==================================================>]  29.83MB/29.83MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.9711159Z  6b37362b3da7 Extracting [==================================================>]  29.83MB/29.83MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.9936464Z  6b37362b3da7 Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.9936833Z  6b37362b3da7 Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.9937118Z  6b37362b3da7 Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.9952507Z  0d791b2b75ae Extracting [==================================================>]  1.167kB/1.167kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.9953023Z  0d791b2b75ae Extracting [==================================================>]  1.167kB/1.167kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.9953406Z  0d791b2b75ae Extracting [==================================================>]  1.167kB/1.167kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.9956479Z  0d791b2b75ae Extracting [==================================================>]  1.167kB/1.167kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.9958362Z  0d791b2b75ae Extracting [==================================================>]  1.167kB/1.167kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.9958757Z  0d791b2b75ae Extracting [==================================================>]  1.167kB/1.167kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.9972887Z  53fa82bdba52 Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.9973572Z  53fa82bdba52 Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:53.9977784Z  53fa82bdba52 Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.0945677Z  afe9a40fb214 Downloading [>                                                  ]  534.1kB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.0946141Z  afe9a40fb214 Downloading [>                                                  ]  534.1kB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.0946545Z  afe9a40fb214 Downloading [>                                                  ]  534.1kB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.2128164Z  7b9c6b8e5e6e Downloading [==================================================>]     167B/167B
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.2128813Z  7b9c6b8e5e6e Verifying Checksum 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.2129142Z  7b9c6b8e5e6e Downloading [==================================================>]     167B/167B
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.2129467Z  7b9c6b8e5e6e Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.2129688Z  7b9c6b8e5e6e Verifying Checksum 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.2129896Z  7b9c6b8e5e6e Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.2130183Z  7b9c6b8e5e6e Downloading [==================================================>]     167B/167B
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.2130501Z  7b9c6b8e5e6e Verifying Checksum 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.2130947Z  7b9c6b8e5e6e Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.2147897Z  afe9a40fb214 Downloading [=>                                                 ]  2.673MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.2148696Z  afe9a40fb214 Downloading [=>                                                 ]  2.673MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.2149316Z  afe9a40fb214 Downloading [=>                                                 ]  2.673MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.2460216Z  b65147f15943 Downloading [============================>                      ]  3.502kB/6.108kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.2464313Z  b65147f15943 Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.2464693Z  b65147f15943 Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.2464938Z  b65147f15943 Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.3209988Z  afe9a40fb214 Downloading [====>                                              ]  10.11MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.3210861Z  afe9a40fb214 Downloading [====>                                              ]  10.11MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.3211486Z  afe9a40fb214 Downloading [====>                                              ]  10.11MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.4215827Z  afe9a40fb214 Downloading [=============>                                     ]  30.89MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.4216764Z  afe9a40fb214 Downloading [=============>                                     ]  30.89MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.4217590Z  afe9a40fb214 Downloading [=============>                                     ]  30.89MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.4628496Z  170d9ea1cd85 Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.4629081Z  170d9ea1cd85 Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.4629709Z  170d9ea1cd85 Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.5219061Z  afe9a40fb214 Downloading [===============================>                   ]  70.89MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.5220287Z  afe9a40fb214 Downloading [===============================>                   ]  70.89MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.5220866Z  afe9a40fb214 Downloading [===============================>                   ]  70.89MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.5294821Z  e2de96513ba9 Downloading [>                                                  ]  48.55kB/3.85MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.6160046Z  afe9a40fb214 Verifying Checksum 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.6160543Z  afe9a40fb214 Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.6162223Z  afe9a40fb214 Verifying Checksum 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.6162448Z  afe9a40fb214 Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.6162710Z  afe9a40fb214 Verifying Checksum 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.6162982Z  afe9a40fb214 Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.6463603Z  e2de96513ba9 Downloading [=======>                                           ]  540.1kB/3.85MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.7164084Z  1b7f9cd581ee Downloading [==================================================>]     969B/969B
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.7164819Z  1b7f9cd581ee Verifying Checksum 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.7165209Z  1b7f9cd581ee Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.7480746Z  e2de96513ba9 Downloading [=============================>                     ]   2.26MB/3.85MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.7977205Z  e2de96513ba9 Verifying Checksum 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.7977832Z  e2de96513ba9 Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.7985535Z  e2de96513ba9 Extracting [>                                                  ]  65.54kB/3.85MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.8732427Z  210b280f9556 Downloading [>                                                  ]  15.79kB/901.4kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:54.9650299Z  81717818649a Downloading [==================================================>]     172B/172B
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.0022190Z  81717818649a Verifying Checksum 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.0022753Z  81717818649a Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.0025255Z  210b280f9556 Downloading [===>                                               ]  64.94kB/901.4kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.0037124Z  e2de96513ba9 Extracting [===>                                               ]  262.1kB/3.85MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.0672484Z  e2de96513ba9 Extracting [==================================================>]   3.85MB/3.85MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.0680477Z  e2de96513ba9 Extracting [==================================================>]   3.85MB/3.85MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.0682363Z  3ae6141cfd99 Downloading [==================================================>]     116B/116B
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.0682919Z  3ae6141cfd99 Verifying Checksum 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.0683244Z  3ae6141cfd99 Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.1050888Z  210b280f9556 Downloading [=========================>                         ]  458.2kB/901.4kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.1837293Z  210b280f9556 Verifying Checksum 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.1838064Z  210b280f9556 Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.3323230Z  6c25da34e03f Downloading [==================>                                ]  3.502kB/9.669kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.3323964Z  6c25da34e03f Downloading [==================================================>]  9.669kB/9.669kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.3324473Z  6c25da34e03f Verifying Checksum 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.3324791Z  6c25da34e03f Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.4333316Z  a88782f92806 Downloading [==================================================>]     128B/128B
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.4333896Z  a88782f92806 Verifying Checksum 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.4334150Z  a88782f92806 Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.4395970Z  25b77f59fd95 Downloading [>                                                  ]  540.7kB/111.3MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.5838288Z  25b77f59fd95 Downloading [>                                                  ]  1.081MB/111.3MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.5854691Z  d8d21be4bf02 Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.6815014Z  6117bd39f23f Downloading [============================>                      ]  3.502kB/6.111kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.7416063Z  6117bd39f23f Downloading [==================================================>]  6.111kB/6.111kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.7416600Z  6117bd39f23f Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.7416907Z  25b77f59fd95 Downloading [>                                                  ]  2.163MB/111.3MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.7417255Z  e2de96513ba9 Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.8089449Z  1b7f9cd581ee Extracting [==================================================>]     969B/969B
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.8091296Z  1b7f9cd581ee Extracting [==================================================>]     969B/969B
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.8419481Z  509688edf37b Downloading [==================================================>]     185B/185B
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.8581430Z  509688edf37b Verifying Checksum 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.8583022Z  509688edf37b Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.8683382Z  25b77f59fd95 Downloading [=>                                                 ]  3.785MB/111.3MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:55.9831352Z  25b77f59fd95 Downloading [==>                                                ]  5.405MB/111.3MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:56.0979022Z  25b77f59fd95 Downloading [===>                                               ]   7.56MB/111.3MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:56.2028604Z  25b77f59fd95 Downloading [====>                                              ]  10.79MB/111.3MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:56.3095882Z  25b77f59fd95 Downloading [=======>                                           ]  16.18MB/111.3MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:56.4146188Z  25b77f59fd95 Downloading [===========>                                       ]   24.8MB/111.3MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:56.5164962Z  25b77f59fd95 Downloading [=================>                                 ]  38.26MB/111.3MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:56.6161742Z  25b77f59fd95 Downloading [==========================>                        ]  59.28MB/111.3MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:56.7162494Z  25b77f59fd95 Downloading [=========================================>         ]  92.13MB/111.3MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:56.7653135Z  25b77f59fd95 Verifying Checksum 
+newman	Levantar stack con Docker Compose	2026-09-24T18:01:56.7653797Z  25b77f59fd95 Download complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.3850823Z  1b7f9cd581ee Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.3853859Z  0d791b2b75ae Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.3854277Z  0d791b2b75ae Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.3854585Z  0d791b2b75ae Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.3865312Z  210b280f9556 Extracting [=>                                                 ]  32.77kB/901.4kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.3882332Z  0d39881c83f7 Extracting [>                                                  ]  65.54kB/6.443MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.3883215Z  0d39881c83f7 Extracting [>                                                  ]  65.54kB/6.443MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.3883881Z  0d39881c83f7 Extracting [>                                                  ]  65.54kB/6.443MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.4085122Z  210b280f9556 Extracting [==================================================>]  901.4kB/901.4kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.4087222Z  210b280f9556 Extracting [==================================================>]  901.4kB/901.4kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.4347021Z  210b280f9556 Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.4358930Z  81717818649a Extracting [==================================================>]     172B/172B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.4364874Z  81717818649a Extracting [==================================================>]     172B/172B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.4767899Z  81717818649a Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.4824380Z  3ae6141cfd99 Extracting [==================================================>]     116B/116B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.4828055Z  3ae6141cfd99 Extracting [==================================================>]     116B/116B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.4891421Z  0d39881c83f7 Extracting [===================>                               ]  2.556MB/6.443MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.4892821Z  0d39881c83f7 Extracting [===================>                               ]  2.556MB/6.443MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.4893417Z  3ae6141cfd99 Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.4893843Z  0d39881c83f7 Extracting [===================>                               ]  2.556MB/6.443MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.4973809Z  25b77f59fd95 Extracting [>                                                  ]  557.1kB/111.3MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.5608624Z  0d39881c83f7 Extracting [==================================================>]  6.443MB/6.443MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.5609350Z  0d39881c83f7 Extracting [==================================================>]  6.443MB/6.443MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.5609990Z  0d39881c83f7 Extracting [==================================================>]  6.443MB/6.443MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.5983255Z  25b77f59fd95 Extracting [=>                                                 ]  3.342MB/111.3MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.7024242Z  25b77f59fd95 Extracting [======>                                            ]  13.93MB/111.3MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.8030189Z  25b77f59fd95 Extracting [==========>                                        ]  23.95MB/111.3MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.9074775Z  25b77f59fd95 Extracting [===============>                                   ]  35.09MB/111.3MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.9857041Z  0d39881c83f7 Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.9857462Z  0d39881c83f7 Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.9859253Z  0d39881c83f7 Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.9869208Z  c95afe7c234f Extracting [=>                                                 ]  32.77kB/1.257MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.9870395Z  c95afe7c234f Extracting [=>                                                 ]  32.77kB/1.257MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:01.9871466Z  c95afe7c234f Extracting [=>                                                 ]  32.77kB/1.257MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:02.0106421Z  c95afe7c234f Extracting [==================================================>]  1.257MB/1.257MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:02.0109042Z  c95afe7c234f Extracting [==================================================>]  1.257MB/1.257MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:02.0110347Z  c95afe7c234f Extracting [==================================================>]  1.257MB/1.257MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:02.0119625Z  25b77f59fd95 Extracting [====================>                              ]  44.56MB/111.3MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:02.1139647Z  25b77f59fd95 Extracting [========================>                          ]  54.59MB/111.3MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:02.2151550Z  25b77f59fd95 Extracting [===========================>                       ]  60.72MB/111.3MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:02.3194444Z  25b77f59fd95 Extracting [==============================>                    ]  67.96MB/111.3MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:02.6279902Z  25b77f59fd95 Extracting [=================================>                 ]  73.53MB/111.3MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:02.7116820Z  c95afe7c234f Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:02.7117419Z  c95afe7c234f Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:02.7118148Z  c95afe7c234f Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:02.7132407Z  bc176b99a33a Extracting [>                                                  ]   98.3kB/8.204MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:02.7135061Z  bc176b99a33a Extracting [>                                                  ]   98.3kB/8.204MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:02.7136325Z  bc176b99a33a Extracting [>                                                  ]   98.3kB/8.204MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:02.8140718Z  bc176b99a33a Extracting [==========================>                        ]  4.325MB/8.204MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:02.8142191Z  bc176b99a33a Extracting [==========================>                        ]  4.325MB/8.204MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:02.8143272Z  bc176b99a33a Extracting [==========================>                        ]  4.325MB/8.204MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:02.8156312Z  25b77f59fd95 Extracting [====================================>              ]  81.33MB/111.3MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:02.9314801Z  bc176b99a33a Extracting [========================================>          ]  6.586MB/8.204MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:02.9315764Z  bc176b99a33a Extracting [========================================>          ]  6.586MB/8.204MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:02.9316596Z  bc176b99a33a Extracting [========================================>          ]  6.586MB/8.204MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:02.9360539Z  25b77f59fd95 Extracting [=====================================>             ]  82.44MB/111.3MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:02.9726428Z  bc176b99a33a Extracting [==================================================>]  8.204MB/8.204MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:02.9727173Z  bc176b99a33a Extracting [==================================================>]  8.204MB/8.204MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:02.9727767Z  bc176b99a33a Extracting [==================================================>]  8.204MB/8.204MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.0439741Z  25b77f59fd95 Extracting [======================================>            ]  85.79MB/111.3MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.1503633Z  25b77f59fd95 Extracting [=========================================>         ]  91.36MB/111.3MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.3168852Z  25b77f59fd95 Extracting [============================================>      ]  98.04MB/111.3MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.4179267Z  25b77f59fd95 Extracting [================================================>  ]  108.1MB/111.3MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.4628569Z  25b77f59fd95 Extracting [==================================================>]  111.3MB/111.3MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.8831449Z  bc176b99a33a Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.8832034Z  25b77f59fd95 Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.8832301Z  bc176b99a33a Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.8832487Z  bc176b99a33a Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.8839505Z  6c25da34e03f Extracting [==================================================>]  9.669kB/9.669kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.8843561Z  6c25da34e03f Extracting [==================================================>]  9.669kB/9.669kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.8849609Z  08a5cd487deb Extracting [=>                                                 ]  32.77kB/1.312MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.8851343Z  08a5cd487deb Extracting [=>                                                 ]  32.77kB/1.312MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.8852194Z  08a5cd487deb Extracting [=>                                                 ]  32.77kB/1.312MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.8942159Z  6c25da34e03f Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.8952542Z  a88782f92806 Extracting [==================================================>]     128B/128B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.8959020Z  a88782f92806 Extracting [==================================================>]     128B/128B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9072018Z  a88782f92806 Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9084967Z  d8d21be4bf02 Extracting [==================================================>]     169B/169B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9087918Z  d8d21be4bf02 Extracting [==================================================>]     169B/169B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9174947Z  d8d21be4bf02 Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9225000Z  6117bd39f23f Extracting [==================================================>]  6.111kB/6.111kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9226395Z  6117bd39f23f Extracting [==================================================>]  6.111kB/6.111kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9292543Z  6117bd39f23f Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9305252Z  509688edf37b Extracting [==================================================>]     185B/185B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9306169Z  509688edf37b Extracting [==================================================>]     185B/185B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9374022Z  509688edf37b Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9380443Z  08a5cd487deb Extracting [==================================================>]  1.312MB/1.312MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9381251Z  08a5cd487deb Extracting [==================================================>]  1.312MB/1.312MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9381861Z  08a5cd487deb Extracting [==================================================>]  1.312MB/1.312MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9429599Z  db Pulled 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9555856Z  08a5cd487deb Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9556253Z  08a5cd487deb Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9556586Z  08a5cd487deb Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9564048Z  eb4d92aaee0a Extracting [==================================================>]     116B/116B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9564694Z  eb4d92aaee0a Extracting [==================================================>]     116B/116B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9565072Z  eb4d92aaee0a Extracting [==================================================>]     116B/116B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9569353Z  eb4d92aaee0a Extracting [==================================================>]     116B/116B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9570310Z  eb4d92aaee0a Extracting [==================================================>]     116B/116B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9571268Z  eb4d92aaee0a Extracting [==================================================>]     116B/116B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9825180Z  eb4d92aaee0a Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9825602Z  eb4d92aaee0a Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9825894Z  eb4d92aaee0a Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9832972Z  75a4dff090e8 Extracting [==================================================>]   3.14kB/3.14kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9833837Z  75a4dff090e8 Extracting [==================================================>]   3.14kB/3.14kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9834535Z  75a4dff090e8 Extracting [==================================================>]   3.14kB/3.14kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9840429Z  75a4dff090e8 Extracting [==================================================>]   3.14kB/3.14kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9841384Z  75a4dff090e8 Extracting [==================================================>]   3.14kB/3.14kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9841869Z  75a4dff090e8 Extracting [==================================================>]   3.14kB/3.14kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9893802Z  75a4dff090e8 Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9894144Z  75a4dff090e8 Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:03.9894472Z  75a4dff090e8 Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:04.0303045Z  afe9a40fb214 Extracting [>                                                  ]  557.1kB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:04.0303746Z  afe9a40fb214 Extracting [>                                                  ]  557.1kB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:04.0304346Z  afe9a40fb214 Extracting [>                                                  ]  557.1kB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:04.1407051Z  afe9a40fb214 Extracting [===>                                               ]  8.356MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:04.1407785Z  afe9a40fb214 Extracting [===>                                               ]  8.356MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:04.1408484Z  afe9a40fb214 Extracting [===>                                               ]  8.356MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:04.2419363Z  afe9a40fb214 Extracting [=====>                                             ]  12.81MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:04.2419873Z  afe9a40fb214 Extracting [=====>                                             ]  12.81MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:04.2420388Z  afe9a40fb214 Extracting [=====>                                             ]  12.81MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:04.3510045Z  afe9a40fb214 Extracting [========>                                          ]   19.5MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:04.3511280Z  afe9a40fb214 Extracting [========>                                          ]   19.5MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:04.3512595Z  afe9a40fb214 Extracting [========>                                          ]   19.5MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:04.4522793Z  afe9a40fb214 Extracting [============>                                      ]   27.3MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:04.4523536Z  afe9a40fb214 Extracting [============>                                      ]   27.3MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:04.4523953Z  afe9a40fb214 Extracting [============>                                      ]   27.3MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:04.5575699Z  afe9a40fb214 Extracting [=================>                                 ]  38.44MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:04.5576450Z  afe9a40fb214 Extracting [=================>                                 ]  38.44MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:04.5577093Z  afe9a40fb214 Extracting [=================>                                 ]  38.44MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:04.6622217Z  afe9a40fb214 Extracting [======================>                            ]  49.58MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:04.6624040Z  afe9a40fb214 Extracting [======================>                            ]  49.58MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:04.6625362Z  afe9a40fb214 Extracting [======================>                            ]  49.58MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:04.7645024Z  afe9a40fb214 Extracting [=========================>                         ]  56.82MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:04.7646798Z  afe9a40fb214 Extracting [=========================>                         ]  56.82MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:04.7647696Z  afe9a40fb214 Extracting [=========================>                         ]  56.82MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:04.8685141Z  afe9a40fb214 Extracting [==============================>                    ]  66.85MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:04.8686543Z  afe9a40fb214 Extracting [==============================>                    ]  66.85MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:04.8687393Z  afe9a40fb214 Extracting [==============================>                    ]  66.85MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:04.9727817Z  afe9a40fb214 Extracting [===================================>               ]  78.54MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:04.9730279Z  afe9a40fb214 Extracting [===================================>               ]  78.54MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:04.9731351Z  afe9a40fb214 Extracting [===================================>               ]  78.54MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:05.0768675Z  afe9a40fb214 Extracting [========================================>          ]  89.13MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:05.0769200Z  afe9a40fb214 Extracting [========================================>          ]  89.13MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:05.0769598Z  afe9a40fb214 Extracting [========================================>          ]  89.13MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:05.1928847Z  afe9a40fb214 Extracting [===========================================>       ]  95.81MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:05.1929615Z  afe9a40fb214 Extracting [===========================================>       ]  95.81MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:05.1930264Z  afe9a40fb214 Extracting [===========================================>       ]  95.81MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:05.2968037Z  afe9a40fb214 Extracting [=============================================>     ]  100.3MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:05.2968789Z  afe9a40fb214 Extracting [=============================================>     ]  100.3MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:05.2969392Z  afe9a40fb214 Extracting [=============================================>     ]  100.3MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:05.3995033Z  afe9a40fb214 Extracting [==============================================>    ]  104.2MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:05.3995713Z  afe9a40fb214 Extracting [==============================================>    ]  104.2MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:05.3996348Z  afe9a40fb214 Extracting [==============================================>    ]  104.2MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:05.5250728Z  afe9a40fb214 Extracting [================================================>  ]    107MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:05.5252368Z  afe9a40fb214 Extracting [================================================>  ]    107MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:05.5253309Z  afe9a40fb214 Extracting [================================================>  ]    107MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:05.6339401Z  afe9a40fb214 Extracting [=================================================> ]  109.2MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:05.6340144Z  afe9a40fb214 Extracting [=================================================> ]  109.2MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:05.6340993Z  afe9a40fb214 Extracting [=================================================> ]  109.2MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:05.7656299Z  afe9a40fb214 Extracting [=================================================> ]  109.7MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:05.7656947Z  afe9a40fb214 Extracting [=================================================> ]  109.7MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:05.7657465Z  afe9a40fb214 Extracting [=================================================> ]  109.7MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:05.8512135Z  afe9a40fb214 Extracting [==================================================>]  111.1MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:05.8512848Z  afe9a40fb214 Extracting [==================================================>]  111.1MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:05.8513253Z  afe9a40fb214 Extracting [==================================================>]  111.1MB/111.1MB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7697786Z  afe9a40fb214 Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7698226Z  afe9a40fb214 Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7698490Z  afe9a40fb214 Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7708268Z  ca5e97c0cd7d Extracting [==================================================>]  9.934kB/9.934kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7708747Z  ca5e97c0cd7d Extracting [==================================================>]  9.934kB/9.934kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7709143Z  ca5e97c0cd7d Extracting [==================================================>]  9.934kB/9.934kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7711821Z  ca5e97c0cd7d Extracting [==================================================>]  9.934kB/9.934kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7712430Z  ca5e97c0cd7d Extracting [==================================================>]  9.934kB/9.934kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7713088Z  ca5e97c0cd7d Extracting [==================================================>]  9.934kB/9.934kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7791661Z  ca5e97c0cd7d Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7791905Z  ca5e97c0cd7d Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7792116Z  ca5e97c0cd7d Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7799655Z  53fa82bdba52 Extracting [==================================================>]     128B/128B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7800827Z  53fa82bdba52 Extracting [==================================================>]     128B/128B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7801677Z  53fa82bdba52 Extracting [==================================================>]     128B/128B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7802480Z  53fa82bdba52 Extracting [==================================================>]     128B/128B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7803064Z  53fa82bdba52 Extracting [==================================================>]     128B/128B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7803513Z  53fa82bdba52 Extracting [==================================================>]     128B/128B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7864163Z  53fa82bdba52 Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7866281Z  53fa82bdba52 Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7866572Z  53fa82bdba52 Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7867749Z  7b9c6b8e5e6e Extracting [==================================================>]     167B/167B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7872205Z  7b9c6b8e5e6e Extracting [==================================================>]     167B/167B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7873387Z  7b9c6b8e5e6e Extracting [==================================================>]     167B/167B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7874123Z  7b9c6b8e5e6e Extracting [==================================================>]     167B/167B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7874782Z  7b9c6b8e5e6e Extracting [==================================================>]     167B/167B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7875424Z  7b9c6b8e5e6e Extracting [==================================================>]     167B/167B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7925361Z  7b9c6b8e5e6e Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7926174Z  7b9c6b8e5e6e Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7926483Z  7b9c6b8e5e6e Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7933260Z  b65147f15943 Extracting [==================================================>]  6.108kB/6.108kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7934612Z  b65147f15943 Extracting [==================================================>]  6.108kB/6.108kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7935685Z  b65147f15943 Extracting [==================================================>]  6.108kB/6.108kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7936437Z  b65147f15943 Extracting [==================================================>]  6.108kB/6.108kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7937060Z  b65147f15943 Extracting [==================================================>]  6.108kB/6.108kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7937660Z  b65147f15943 Extracting [==================================================>]  6.108kB/6.108kB
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7990532Z  b65147f15943 Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7991011Z  b65147f15943 Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7991316Z  b65147f15943 Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7998805Z  170d9ea1cd85 Extracting [==================================================>]     185B/185B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7999256Z  170d9ea1cd85 Extracting [==================================================>]     185B/185B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.7999644Z  170d9ea1cd85 Extracting [==================================================>]     185B/185B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.8006039Z  170d9ea1cd85 Extracting [==================================================>]     185B/185B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.8006680Z  170d9ea1cd85 Extracting [==================================================>]     185B/185B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.8007262Z  170d9ea1cd85 Extracting [==================================================>]     185B/185B
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.8051511Z  170d9ea1cd85 Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.8052061Z  170d9ea1cd85 Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.8052338Z  170d9ea1cd85 Pull complete 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.8090543Z  orders-db Pulled 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.8092517Z  payments-db Pulled 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:07.8099180Z  users-db Pulled 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:08.0375042Z #1 [internal] load local bake definitions
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:08.2792007Z #1 reading from stdin 1.74kB done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:08.2792428Z #1 DONE 0.0s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:08.2792579Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:08.2792772Z #2 [payments-service internal] load build definition from Dockerfile
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:08.2793259Z #2 transferring dockerfile: 173B done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:08.2793475Z #2 DONE 0.0s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:08.2793575Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:08.2793715Z #3 [orders-service internal] load build definition from Dockerfile
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:08.2794012Z #3 transferring dockerfile: 168B done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:08.2794226Z #3 DONE 0.0s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:08.2794312Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:08.2794433Z #4 [backend internal] load build definition from Dockerfile
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:08.2794702Z #4 transferring dockerfile: 220B done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:08.2794907Z #4 DONE 0.0s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:08.2794995Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:08.2795130Z #5 [users-service internal] load build definition from Dockerfile
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:08.2795428Z #5 transferring dockerfile: 169B done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:08.2795637Z #5 DONE 0.0s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:08.2795726Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:08.2795871Z #6 [backend internal] load metadata for docker.io/library/node:20-alpine
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:08.4665471Z #6 ...
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:08.4665753Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:08.4665967Z #7 [auth] library/node:pull token for registry-1.docker.io
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:08.4666245Z #7 DONE 0.0s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:08.6168739Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:08.6169596Z #6 [backend internal] load metadata for docker.io/library/node:20-alpine
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1413151Z #6 DONE 0.9s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1413411Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1413573Z #8 [payments-service internal] load .dockerignore
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1413982Z #8 transferring context: 2B done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1414267Z #8 DONE 0.0s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1414367Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1414470Z #9 [orders-service internal] load .dockerignore
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1414730Z #9 transferring context: 2B done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1415323Z #9 DONE 0.0s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1415409Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1415508Z #10 [backend internal] load .dockerignore
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1415880Z #10 transferring context: 2B done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1416069Z #10 DONE 0.0s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1416163Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1416254Z #11 [users-service internal] load .dockerignore
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1416497Z #11 transferring context: 2B done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1416696Z #11 DONE 0.0s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1416795Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1416889Z #12 [orders-service internal] load build context
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1417138Z #12 transferring context: 3.45kB done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1417330Z #12 DONE 0.0s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1417409Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1417518Z #13 [payments-service internal] load build context
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1417756Z #13 transferring context: 2.61kB done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1417944Z #13 DONE 0.0s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1418027Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1418105Z #14 [backend internal] load build context
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1418334Z #14 transferring context: 47.85kB done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1418528Z #14 DONE 0.0s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1418621Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1418726Z #15 [users-service internal] load build context
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1418963Z #15 transferring context: 37.57kB done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1419154Z #15 DONE 0.0s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1419236Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1419593Z #16 [orders-service 1/5] FROM docker.io/library/node:20-alpine@sha256:fb4cd12c85ee03686f6af5362a0b0d56d50c58a04632e6c0fb8363f609372293
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1420433Z #16 resolve docker.io/library/node:20-alpine@sha256:fb4cd12c85ee03686f6af5362a0b0d56d50c58a04632e6c0fb8363f609372293 done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1421323Z #16 sha256:11cedc39e663e7c5d5cb9cc77a461a0d2adc25537b94e6831a6108f09cb2001b 6.52kB / 6.52kB done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1421816Z #16 sha256:6a0ac1617861a677b045b7ff88545213ec31c0ff08763195a70a4a5adda577bb 0B / 3.86MB 0.1s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1422387Z #16 sha256:4feea04c154301db6f4a496efa397b3db96603b1c009c797cfdde77bea8b3287 0B / 43.23MB 0.1s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1422885Z #16 sha256:b2cbbfe903b0821005780971ddc5892edcc4ce74c5a48d82e1d2b382edac3122 0B / 1.26MB 0.1s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1423369Z #16 sha256:fb4cd12c85ee03686f6af5362a0b0d56d50c58a04632e6c0fb8363f609372293 7.67kB / 7.67kB done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.1423845Z #16 sha256:afdf98210b07b586eb71fa22ba2e432e058e4cd1304d31ed60888755b8c865fb 1.72kB / 1.72kB done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.2413477Z #16 sha256:11cedc39e663e7c5d5cb9cc77a461a0d2adc25537b94e6831a6108f09cb2001b 6.52kB / 6.52kB done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.2414167Z #16 sha256:fb4cd12c85ee03686f6af5362a0b0d56d50c58a04632e6c0fb8363f609372293 7.67kB / 7.67kB done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.2414672Z #16 sha256:afdf98210b07b586eb71fa22ba2e432e058e4cd1304d31ed60888755b8c865fb 1.72kB / 1.72kB done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.4418081Z #16 sha256:6a0ac1617861a677b045b7ff88545213ec31c0ff08763195a70a4a5adda577bb 1.05MB / 3.86MB 0.4s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.4418809Z #16 sha256:4feea04c154301db6f4a496efa397b3db96603b1c009c797cfdde77bea8b3287 5.24MB / 43.23MB 0.4s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.5666727Z #16 sha256:6a0ac1617861a677b045b7ff88545213ec31c0ff08763195a70a4a5adda577bb 3.86MB / 3.86MB 0.5s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.5671432Z #16 sha256:4feea04c154301db6f4a496efa397b3db96603b1c009c797cfdde77bea8b3287 19.92MB / 43.23MB 0.5s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.5673936Z #16 sha256:b2cbbfe903b0821005780971ddc5892edcc4ce74c5a48d82e1d2b382edac3122 1.26MB / 1.26MB 0.5s done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.5676303Z #16 sha256:fff4e2c1b189bf87d63ad8bd07f7f4eb288d6f2b6a07a8bb44c60e8c075d2096 0B / 445B 0.5s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.5678057Z #16 extracting sha256:6a0ac1617861a677b045b7ff88545213ec31c0ff08763195a70a4a5adda577bb
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.7418231Z #16 sha256:6a0ac1617861a677b045b7ff88545213ec31c0ff08763195a70a4a5adda577bb 3.86MB / 3.86MB 0.5s done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.7418884Z #16 sha256:4feea04c154301db6f4a496efa397b3db96603b1c009c797cfdde77bea8b3287 43.23MB / 43.23MB 0.7s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.7419397Z #16 sha256:fff4e2c1b189bf87d63ad8bd07f7f4eb288d6f2b6a07a8bb44c60e8c075d2096 445B / 445B 0.6s done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.7419891Z #16 extracting sha256:6a0ac1617861a677b045b7ff88545213ec31c0ff08763195a70a4a5adda577bb 0.1s done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.8549843Z #16 extracting sha256:4feea04c154301db6f4a496efa397b3db96603b1c009c797cfdde77bea8b3287
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:09.9584302Z #16 sha256:4feea04c154301db6f4a496efa397b3db96603b1c009c797cfdde77bea8b3287 43.23MB / 43.23MB 0.8s done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:10.8226031Z #16 extracting sha256:4feea04c154301db6f4a496efa397b3db96603b1c009c797cfdde77bea8b3287 0.8s done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:11.5385736Z #16 extracting sha256:b2cbbfe903b0821005780971ddc5892edcc4ce74c5a48d82e1d2b382edac3122
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:11.7593663Z #16 extracting sha256:b2cbbfe903b0821005780971ddc5892edcc4ce74c5a48d82e1d2b382edac3122 0.0s done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:11.7594562Z #16 extracting sha256:fff4e2c1b189bf87d63ad8bd07f7f4eb288d6f2b6a07a8bb44c60e8c075d2096 done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:11.7595362Z #16 DONE 2.6s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:11.7595599Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:11.7595753Z #17 [orders-service 2/5] WORKDIR /app
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:11.9253984Z #17 DONE 0.1s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:11.9254313Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:11.9254476Z #18 [orders-service 3/5] COPY package.json ./
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:11.9256794Z #18 DONE 0.0s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:11.9257043Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:11.9257218Z #19 [payments-service 3/5] COPY package*.json ./
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:11.9257585Z #19 DONE 0.0s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:11.9257735Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:11.9257865Z #20 [users-service 3/5] COPY package*.json ./
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:11.9258219Z #20 DONE 0.0s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:11.9258375Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:11.9258569Z #21 [backend 3/5] COPY package.json package-lock.json* ./
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:11.9258977Z #21 DONE 0.0s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:11.9259114Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:11.9259266Z #22 [backend 4/5] RUN npm install --omit=dev
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:13.9702132Z #22 ...
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:13.9720758Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:13.9751847Z #23 [users-service 4/5] RUN npm install
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:13.9781113Z #23 1.971 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:13.9803417Z #23 1.971 added 85 packages, and audited 86 packages in 2s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:13.9818941Z #23 1.973 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:13.9819620Z #23 1.973 17 packages are looking for funding
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:13.9820242Z #23 1.973   run `npm fund` for details
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:13.9821422Z #23 1.978 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:13.9821920Z #23 1.978 3 vulnerabilities (1 low, 1 moderate, 1 high)
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:13.9822473Z #23 1.978 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:13.9822883Z #23 1.978 To address all issues, run:
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:13.9823572Z #23 1.978   npm audit fix
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:13.9824012Z #23 1.978 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:13.9824427Z #23 1.978 Run `npm audit` for details.
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:13.9824911Z #23 1.980 npm notice
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:13.9825466Z #23 1.980 npm notice New major version of npm available! 10.8.2 -> 12.1.0
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:13.9826266Z #23 1.980 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.1.0
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:13.9827020Z #23 1.980 npm notice To update run: npm install -g npm@12.1.0
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:13.9827589Z #23 1.980 npm notice
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:13.9828003Z #23 DONE 2.2s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.1473255Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.1478115Z #24 [users-service 5/5] COPY . .
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.1478703Z #24 DONE 0.0s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.1479000Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.1479296Z #22 [backend 4/5] RUN npm install --omit=dev
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.1479786Z #22 2.295 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.1480227Z #22 2.295 added 94 packages, and audited 95 packages in 2s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.1480913Z #22 2.295 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.1481314Z #22 2.295 19 packages are looking for funding
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.1481810Z #22 2.295   run `npm fund` for details
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.3702388Z #22 2.324 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.3731663Z #22 2.324 6 vulnerabilities (1 low, 2 moderate, 3 high)
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.3732380Z #22 2.324 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.3761270Z #22 2.324 To address all issues, run:
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.3788315Z #22 2.324   npm audit fix
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.3810984Z #22 2.324 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.3830999Z #22 2.324 Run `npm audit` for details.
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.3861097Z #22 2.324 npm notice
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.3891097Z #22 2.324 npm notice New major version of npm available! 10.8.2 -> 12.1.0
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.3921059Z #22 2.324 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.1.0
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.3922281Z #22 2.324 npm notice To update run: npm install -g npm@12.1.0
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.3951084Z #22 2.324 npm notice
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.3983606Z #22 DONE 2.4s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.4000992Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.4011357Z #25 [backend 5/5] COPY src ./src
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.4034526Z #25 DONE 0.0s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.4060054Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.4084137Z #26 [backend] exporting to image
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.4111050Z #26 exporting layers
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.9558100Z #26 ...
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.9558351Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.9558564Z #27 [users-service] exporting to image
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.9558945Z #27 exporting layers 0.8s done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.9559488Z #27 writing image sha256:5576dbb9ea3de29fde3bd2fc010550998a7b012957e364da016e666bf3211476 done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.9559989Z #27 naming to docker.io/library/didi-food-devops-alexa-users-service done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.9560333Z #27 DONE 0.8s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.9560433Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.9560556Z #28 [users-service] resolving provenance for metadata file
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:14.9561041Z #28 DONE 0.0s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:15.0212872Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:15.0214024Z #26 [backend] exporting to image
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:15.0214640Z #26 exporting layers 0.8s done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:15.1899511Z #26 writing image sha256:767725ed90e58d77929a2958bbd5a6f4cab3db7e718a309fce27ab83c820e830 done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:15.1900283Z #26 naming to docker.io/library/didi-food-devops-alexa-backend done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:15.1900760Z #26 DONE 0.8s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:15.1900874Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:15.1900998Z #29 [backend] resolving provenance for metadata file
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:15.1901244Z #29 DONE 0.0s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:15.1901342Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:15.1901434Z #30 [payments-service 4/5] RUN npm install
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.2891506Z #30 4.516 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.2891986Z #30 4.516 added 85 packages, and audited 86 packages in 4s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.2910944Z #30 4.516 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.2931371Z #30 4.516 18 packages are looking for funding
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.2961954Z #30 4.516   run `npm fund` for details
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.2962557Z #30 4.516 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.2962984Z #30 4.516 found 0 vulnerabilities
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.4624923Z #30 4.516 npm notice
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.4626008Z #30 4.516 npm notice New major version of npm available! 10.8.2 -> 12.1.0
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.4626825Z #30 4.516 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.1.0
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.4627416Z #30 4.516 npm notice To update run: npm install -g npm@12.1.0
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.4628216Z #30 4.516 npm notice
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.4628485Z #30 DONE 4.7s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.4628639Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.4628771Z #31 [orders-service 4/5] RUN npm install
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.4629098Z #31 4.610 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.4629402Z #31 4.610 added 85 packages, and audited 86 packages in 4s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.4629791Z #31 4.610 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.4630045Z #31 4.610 18 packages are looking for funding
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.4630447Z #31 4.610   run `npm fund` for details
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.4630899Z #31 4.611 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.4631155Z #31 4.611 found 0 vulnerabilities
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.4632900Z #31 4.618 npm notice
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.4633637Z #31 4.618 npm notice New major version of npm available! 10.8.2 -> 12.1.0
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.4634168Z #31 4.618 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.1.0
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.4634680Z #31 4.618 npm notice To update run: npm install -g npm@12.1.0
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.4635044Z #31 4.618 npm notice
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.6324592Z #31 DONE 4.7s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.6325415Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.6325811Z #32 [payments-service 5/5] COPY src ./src
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.6326339Z #32 DONE 0.0s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.6326644Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.6326939Z #33 [orders-service 5/5] COPY src ./src
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.6327432Z #33 DONE 0.0s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.6327745Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:16.6328032Z #34 [payments-service] exporting to image
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.0276746Z #34 exporting layers 0.5s done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.0570094Z #34 writing image sha256:76eb40afaf041eac70e0545696bf8897f5b2cb94671ed6928cc46687a6d966ff done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.0571187Z  orders-service  Built
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.0571445Z  backend  Built
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.0571691Z  payments-service  Built
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.0571973Z  users-service  Built
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.0572374Z #34 naming to docker.io/library/didi-food-devops-alexa-payments-service done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.0572801Z #34 DONE 0.5s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.0572949Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.0573150Z #35 [payments-service] resolving provenance for metadata file
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.0573560Z #35 DONE 0.0s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.0573712Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.0573841Z #36 [orders-service] exporting to image
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.0574193Z #36 exporting layers 0.6s done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.0574750Z #36 writing image sha256:93d70ede39b4eb5d564b7c64d4f7c59337127c63c4a7c4843405eab5b9ae7944 done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.0575468Z #36 naming to docker.io/library/didi-food-devops-alexa-orders-service done
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.0575953Z #36 DONE 0.6s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.0576093Z 
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.0576286Z #37 [orders-service] resolving provenance for metadata file
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.0576686Z #37 DONE 0.0s
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.0585489Z  Network didi-food-devops-alexa_default  Creating
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.0912025Z  Network didi-food-devops-alexa_default  Created
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.0918492Z  Container didi-food-devops-alexa-orders-db-1  Creating
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.0918963Z  Container didi-food-devops-alexa-users-db-1  Creating
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.0919562Z  Container didi-food-devops-alexa-db-1  Creating
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.0920054Z  Container didi-food-devops-alexa-payments-db-1  Creating
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.1187621Z  Container didi-food-devops-alexa-payments-db-1  Created
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.1188368Z  Container didi-food-devops-alexa-orders-db-1  Created
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.1189020Z  Container didi-food-devops-alexa-users-db-1  Created
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.1189563Z  Container didi-food-devops-alexa-orders-service-1  Creating
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.1190032Z  Container didi-food-devops-alexa-db-1  Created
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.1190525Z  Container didi-food-devops-alexa-users-service-1  Creating
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.1191257Z  Container didi-food-devops-alexa-payments-service-1  Creating
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.1314132Z  Container didi-food-devops-alexa-orders-service-1  Created
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.1314626Z  Container didi-food-devops-alexa-payments-service-1  Created
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.1315173Z  Container didi-food-devops-alexa-users-service-1  Created
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.1315670Z  Container didi-food-devops-alexa-backend-1  Creating
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.1377250Z  Container didi-food-devops-alexa-backend-1  Created
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.1389544Z  Container didi-food-devops-alexa-users-db-1  Starting
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.1390083Z  Container didi-food-devops-alexa-orders-db-1  Starting
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.1391296Z  Container didi-food-devops-alexa-payments-db-1  Starting
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.1391943Z  Container didi-food-devops-alexa-db-1  Starting
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.3843654Z  Container didi-food-devops-alexa-payments-db-1  Started
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.3844241Z  Container didi-food-devops-alexa-payments-db-1  Waiting
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.3846692Z  Container didi-food-devops-alexa-db-1  Started
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.4113504Z  Container didi-food-devops-alexa-users-db-1  Started
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.4114278Z  Container didi-food-devops-alexa-users-db-1  Waiting
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.4116633Z  Container didi-food-devops-alexa-orders-db-1  Started
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:17.4117365Z  Container didi-food-devops-alexa-orders-db-1  Waiting
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:22.8860715Z  Container didi-food-devops-alexa-payments-db-1  Healthy
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:22.8861350Z  Container didi-food-devops-alexa-payments-service-1  Starting
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:22.9149176Z  Container didi-food-devops-alexa-users-db-1  Healthy
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:22.9162256Z  Container didi-food-devops-alexa-users-service-1  Starting
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:22.9163076Z  Container didi-food-devops-alexa-orders-db-1  Healthy
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:22.9163588Z  Container didi-food-devops-alexa-orders-service-1  Starting
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:23.0482419Z  Container didi-food-devops-alexa-payments-service-1  Started
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:23.0823297Z  Container didi-food-devops-alexa-users-service-1  Started
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:23.0823958Z  Container didi-food-devops-alexa-orders-service-1  Started
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:23.0825895Z  Container didi-food-devops-alexa-backend-1  Starting
+newman	Levantar stack con Docker Compose	2026-09-24T18:02:23.2428786Z  Container didi-food-devops-alexa-backend-1  Started
+newman	Esperar a que el backend este listo	﻿2026-09-24T18:02:23.2531256Z ##[group]Run for i in $(seq 1 30); do
+newman	Esperar a que el backend este listo	2026-09-24T18:02:23.2531857Z ^[[36;1mfor i in $(seq 1 30); do^[[0m
+newman	Esperar a que el backend este listo	2026-09-24T18:02:23.2532303Z ^[[36;1m  if curl -sf http://localhost:3000/readyz; then^[[0m
+newman	Esperar a que el backend este listo	2026-09-24T18:02:23.2532734Z ^[[36;1m    echo "Backend listo"^[[0m
+newman	Esperar a que el backend este listo	2026-09-24T18:02:23.2533182Z ^[[36;1m    break^[[0m
+newman	Esperar a que el backend este listo	2026-09-24T18:02:23.2533445Z ^[[36;1m  fi^[[0m
+newman	Esperar a que el backend este listo	2026-09-24T18:02:23.2533736Z ^[[36;1m  echo "Esperando backend... intento $i"^[[0m
+newman	Esperar a que el backend este listo	2026-09-24T18:02:23.2534105Z ^[[36;1m  sleep 2^[[0m
+newman	Esperar a que el backend este listo	2026-09-24T18:02:23.2534355Z ^[[36;1mdone^[[0m
+newman	Esperar a que el backend este listo	2026-09-24T18:02:23.2614157Z shell: /usr/bin/bash -e {0}
+newman	Esperar a que el backend este listo	2026-09-24T18:02:23.2614500Z ##[endgroup]
+newman	Esperar a que el backend este listo	2026-09-24T18:02:23.2945347Z Esperando backend... intento 1
+newman	Esperar a que el backend este listo	2026-09-24T18:02:25.3105971Z readyBackend listo
+newman	Instalar Newman	﻿2026-09-24T18:02:25.3133342Z ##[group]Run npm install -g newman
+newman	Instalar Newman	2026-09-24T18:02:25.3133601Z ^[[36;1mnpm install -g newman^[[0m
+newman	Instalar Newman	2026-09-24T18:02:25.3189263Z shell: /usr/bin/bash -e {0}
+newman	Instalar Newman	2026-09-24T18:02:25.3189479Z ##[endgroup]
+newman	Instalar Newman	2026-09-24T18:02:30.1850308Z npm warn deprecated uuid@8.3.2: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+newman	Instalar Newman	2026-09-24T18:02:30.3504725Z npm warn deprecated uuid@3.4.0: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+newman	Instalar Newman	2026-09-24T18:02:30.6378236Z npm warn deprecated har-validator@5.1.5: this library is no longer supported
+newman	Instalar Newman	2026-09-24T18:02:31.6987932Z npm warn deprecated @faker-js/faker@5.5.3: Please update to a newer version.
+newman	Instalar Newman	2026-09-24T18:02:32.7014508Z 
+newman	Instalar Newman	2026-09-24T18:02:32.7014983Z changed 148 packages in 7s
+newman	Instalar Newman	2026-09-24T18:02:32.7015376Z 
+newman	Instalar Newman	2026-09-24T18:02:32.7015614Z 21 packages are looking for funding
+newman	Instalar Newman	2026-09-24T18:02:32.7016019Z   run `npm fund` for details
+newman	Ejecutar coleccion de Postman	﻿2026-09-24T18:02:32.7427605Z ##[group]Run newman run "tests/api/FinLab Eats - API Tests.postman_collection.json" \
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:32.7428111Z ^[[36;1mnewman run "tests/api/FinLab Eats - API Tests.postman_collection.json" \^[[0m
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:32.7428518Z ^[[36;1m  -e "tests/api/FinLab Eats - Local.postman_environment.json" \^[[0m
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:32.7428839Z ^[[36;1m  --reporters cli,junit \^[[0m
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:32.7429090Z ^[[36;1m  --reporter-junit-export newman-report.xml^[[0m
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:32.7484705Z shell: /usr/bin/bash -e {0}
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:32.7484919Z ##[endgroup]
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.2566274Z newman
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.2566561Z 
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.2567106Z FinLab Eats - API Tests
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.2608631Z 
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.2609261Z ❏ 1. Smoke
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.2840247Z ↳ GET Healthz
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.2840740Z   GET http://localhost:3000/healthz [200 OK, 260B, 17ms]
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.2964155Z   ✓  Smoke: /healthz responde 200
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.3016842Z 
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.3017050Z ↳ GET Readyz
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.3093929Z   GET http://localhost:3000/readyz [200 OK, 263B, 4ms]
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.3131270Z   ✓  Smoke: /readyz responde 200 (backend listo)
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.3167691Z 
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.3167979Z ❏ 2. Flujo principal (integracion)
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.3168336Z ↳ GET Restaurantes
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.3229156Z   GET http://localhost:3000/api/restaurants [200 OK, 436B, 2ms]
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.3254347Z   ✓  Status 200
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.3260402Z   ✓  Body es un array con restaurantes
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.3264822Z   ✓  Incluye Taqueria Don Pepe (dato fijo conocido)
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.3268717Z   ✓  Guardar restaurantId
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.3308415Z 
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.3308652Z ↳ GET Menu de restaurante
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.3367524Z   GET http://localhost:3000/api/restaurants/1/menu [200 OK, 465B, 2ms]
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.3401837Z   ✓  Status 200
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.3404864Z   ✓  Body tiene restaurant y menu
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.3445191Z 
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.3445444Z ↳ POST Crear usuario
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.3809011Z   POST http://localhost:3000/api/users [201 Created, 342B, 32ms]
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.3849463Z   ✓  Status 201
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.3854131Z   ✓  Body devuelve el usuario creado
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.3856432Z   ✓  Guardar userId
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.3897424Z 
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.3897979Z ↳ POST Crear orden
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.4138953Z   POST http://localhost:3000/api/orders [201 Created, 347B, 20ms]
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.4176724Z   ✓  Status 201
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.4178947Z   ✓  Body devuelve la orden creada
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.4181423Z   ✓  Guardar orderId
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.4218977Z 
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.4219245Z ↳ POST Crear pago
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.4447923Z   POST http://localhost:3000/api/payments [201 Created, 393B, 19ms]
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.4494389Z   ✓  Status 201
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.4497189Z   ✓  Pago aprobado (success true)
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.4531617Z 
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.4531890Z ↳ GET Verificar orden en consulta (regresion)
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.4615847Z   GET http://localhost:3000/api/orders [200 OK, 344B, 5ms]
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.4649275Z   ✓  Status 200
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.4652058Z   ✓  La orden creada aparece al consultar despues (no solo en el POST)
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.4686912Z 
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.4687162Z ↳ GET Verificar pago en consulta (regresion)
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.4783000Z   GET http://localhost:3000/api/payments [200 OK, 362B, 5ms]
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.4823110Z   ✓  Status 200
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.4825376Z   ✓  El pago creado aparece al consultar despues
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.4864298Z 
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.4864691Z ❏ 3. Negativos (error guessing)
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.4865041Z ↳ POST Usuario sin datos
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.4958437Z   POST http://localhost:3000/api/users [500 Internal Server Error, 323B, 5ms]
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5036715Z   1. Status 400 esperado (rechaza usuario sin name/email)
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5100993Z 
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5101401Z ↳ POST Orden sin datos
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5211541Z   POST http://localhost:3000/api/orders [500 Internal Server Error, 324B, 9ms]
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5240955Z   2. Status 400 esperado (rechaza orden sin userId/total)
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5279145Z 
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5279687Z ↳ GET Menu de restaurante inexistente
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5333480Z   GET http://localhost:3000/api/restaurants/9999/menu [404 Not Found, 306B, 2ms]
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5363015Z   ✓  Status 404: restaurante inexistente
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5400689Z 
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5401105Z ↳ POST Pago sin datos
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5476460Z   POST http://localhost:3000/api/payments [500 Internal Server Error, 326B, 4ms]
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5516062Z   3. Status 400 esperado (rechaza pago sin orderId/amount)
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5548406Z 
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5548686Z ❏ 4. Seguridad (hallazgo real)
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5549195Z ↳ POST Orden con userId inexistente (sin validacion de autorizacion)
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5631686Z   POST http://localhost:3000/api/orders [201 Created, 352B, 4ms]
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5662423Z   ✓  HALLAZGO: el backend acepta un userId que no existe (201), sin validar que el usuario sea real ni que quien manda el request sea ese usuario
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5664267Z   ✓  Esto documenta ausencia de control de acceso: cualquiera puede crear ordenes a nombre de cualquier userId
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5789271Z 
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5789686Z ┌─────────────────────────┬─────────────────┬─────────────────┐
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5790204Z │                         │        executed │          failed │
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5790547Z ├─────────────────────────┼─────────────────┼─────────────────┤
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5791044Z │              iterations │               1 │               0 │
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5791364Z ├─────────────────────────┼─────────────────┼─────────────────┤
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5791859Z │                requests │              14 │               0 │
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5792176Z ├─────────────────────────┼─────────────────┼─────────────────┤
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5792483Z │            test-scripts │              14 │               0 │
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5792797Z ├─────────────────────────┼─────────────────┼─────────────────┤
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5793143Z │      prerequest-scripts │               0 │               0 │
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5793618Z ├─────────────────────────┼─────────────────┼─────────────────┤
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5794080Z │              assertions │              26 │               3 │
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5794567Z ├─────────────────────────┴─────────────────┴─────────────────┤
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5795064Z │ total run duration: 313ms                                   │
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5795600Z ├─────────────────────────────────────────────────────────────┤
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5796123Z │ total data received: 1.04kB (approx)                        │
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5796694Z ├─────────────────────────────────────────────────────────────┤
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5797224Z │ average response time: 9ms [min: 2ms, max: 32ms, s.d.: 8ms] │
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5797790Z └─────────────────────────────────────────────────────────────┘
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5939052Z 
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5939701Z   #  failure         detail                                                          
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5940223Z                                                                                      
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5940918Z  1.  AssertionError  Status 400 esperado (rechaza usuario sin name/email)            
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5941498Z                      expected response to have status code 400 but got 500           
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5942016Z                      at assertion:0 in test-script                                   
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5942528Z                      inside "3. Negativos (error guessing) / POST Usuario sin datos" 
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5943034Z                                                                                      
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5943549Z  2.  AssertionError  Status 400 esperado (rechaza orden sin userId/total)            
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5944132Z                      expected response to have status code 400 but got 500           
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5944488Z                      at assertion:0 in test-script                                   
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5944841Z                      inside "3. Negativos (error guessing) / POST Orden sin datos"   
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5945140Z                                                                                      
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5945473Z  3.  AssertionError  Status 400 esperado (rechaza pago sin orderId/amount)           
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5945873Z                      expected response to have status code 400 but got 500           
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5946210Z                      at assertion:0 in test-script                                   
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.5946712Z                      inside "3. Negativos (error guessing) / POST Pago sin datos"    
+newman	Ejecutar coleccion de Postman	2026-09-24T18:02:33.6089305Z ##[error]Process completed with exit code 1.
+newman	Subir reporte como artefacto	﻿2026-09-24T18:02:33.6150951Z ##[group]Run actions/upload-artifact@v4
+newman	Subir reporte como artefacto	2026-09-24T18:02:33.6151192Z with:
+newman	Subir reporte como artefacto	2026-09-24T18:02:33.6151359Z   name: newman-report
+newman	Subir reporte como artefacto	2026-09-24T18:02:33.6151543Z   path: newman-report.xml
+newman	Subir reporte como artefacto	2026-09-24T18:02:33.6151736Z   if-no-files-found: warn
+newman	Subir reporte como artefacto	2026-09-24T18:02:33.6151925Z   compression-level: 6
+newman	Subir reporte como artefacto	2026-09-24T18:02:33.6152111Z   overwrite: false
+newman	Subir reporte como artefacto	2026-09-24T18:02:33.6152290Z   include-hidden-files: false
+newman	Subir reporte como artefacto	2026-09-24T18:02:33.6152480Z ##[endgroup]
+newman	Subir reporte como artefacto	2026-09-24T18:02:33.7446866Z (node:3880) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+newman	Subir reporte como artefacto	2026-09-24T18:02:33.7447457Z (Use `node --trace-deprecation ...` to show where the warning was created)
+newman	Subir reporte como artefacto	2026-09-24T18:02:33.7484031Z With the provided path, there will be 1 file uploaded
+newman	Subir reporte como artefacto	2026-09-24T18:02:33.7488233Z Artifact name is valid!
+newman	Subir reporte como artefacto	2026-09-24T18:02:33.7488790Z Root directory input is valid!
+newman	Subir reporte como artefacto	2026-09-24T18:02:34.0903387Z Beginning upload of artifact content to blob storage
+newman	Subir reporte como artefacto	2026-09-24T18:02:34.1046928Z (node:3880) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+newman	Subir reporte como artefacto	2026-09-24T18:02:34.3268070Z Uploaded bytes 1925
+newman	Subir reporte como artefacto	2026-09-24T18:02:34.3907851Z Finished uploading artifact content to blob storage!
+newman	Subir reporte como artefacto	2026-09-24T18:02:34.3908640Z SHA256 digest of uploaded artifact zip is 9fc597c62f412cb468f72ca356620444d8233b237a0595ac260a86280f4a2f79
+newman	Subir reporte como artefacto	2026-09-24T18:02:34.3909854Z Finalizing artifact upload
+newman	Subir reporte como artefacto	2026-09-24T18:02:34.6678337Z Artifact newman-report.zip successfully finalized. Artifact ID 10825159782
+newman	Subir reporte como artefacto	2026-09-24T18:02:34.6679180Z Artifact newman-report has been successfully uploaded! Final size is 1925 bytes. Artifact ID is 10825159782
+newman	Subir reporte como artefacto	2026-09-24T18:02:34.6684686Z Artifact download URL: https://github.com/alexaQC/didi-food-devops-alexa/actions/runs/36038380971/artifacts/10825159782
+newman	Bajar el stack	﻿2026-09-24T18:02:34.6789824Z ##[group]Run docker compose down
+newman	Bajar el stack	2026-09-24T18:02:34.6790211Z ^[[36;1mdocker compose down^[[0m
+newman	Bajar el stack	2026-09-24T18:02:34.6846741Z shell: /usr/bin/bash -e {0}
+newman	Bajar el stack	2026-09-24T18:02:34.6846966Z ##[endgroup]
+newman	Bajar el stack	2026-09-24T18:02:34.7509748Z  Container didi-food-devops-alexa-backend-1  Stopping
+newman	Bajar el stack	2026-09-24T18:02:35.5796885Z  Container didi-food-devops-alexa-backend-1  Stopped
+newman	Bajar el stack	2026-09-24T18:02:35.5797320Z  Container didi-food-devops-alexa-backend-1  Removing
+newman	Bajar el stack	2026-09-24T18:02:35.5861743Z  Container didi-food-devops-alexa-backend-1  Removed
+newman	Bajar el stack	2026-09-24T18:02:35.5862287Z  Container didi-food-devops-alexa-orders-service-1  Stopping
+newman	Bajar el stack	2026-09-24T18:02:35.5864184Z  Container didi-food-devops-alexa-payments-service-1  Stopping
+newman	Bajar el stack	2026-09-24T18:02:35.5864594Z  Container didi-food-devops-alexa-db-1  Stopping
+newman	Bajar el stack	2026-09-24T18:02:35.5865032Z  Container didi-food-devops-alexa-users-service-1  Stopping
+newman	Bajar el stack	2026-09-24T18:02:35.6994265Z  Container didi-food-devops-alexa-db-1  Stopped
+newman	Bajar el stack	2026-09-24T18:02:35.6994872Z  Container didi-food-devops-alexa-db-1  Removing
+newman	Bajar el stack	2026-09-24T18:02:35.7047529Z  Container didi-food-devops-alexa-db-1  Removed
+newman	Bajar el stack	2026-09-24T18:02:36.2175241Z  Container didi-food-devops-alexa-payments-service-1  Stopped
+newman	Bajar el stack	2026-09-24T18:02:36.2175899Z  Container didi-food-devops-alexa-payments-service-1  Removing
+newman	Bajar el stack	2026-09-24T18:02:36.2276472Z  Container didi-food-devops-alexa-payments-service-1  Removed
+newman	Bajar el stack	2026-09-24T18:02:36.2277151Z  Container didi-food-devops-alexa-payments-db-1  Stopping
+newman	Bajar el stack	2026-09-24T18:02:36.2541622Z  Container didi-food-devops-alexa-orders-service-1  Stopped
+newman	Bajar el stack	2026-09-24T18:02:36.2542192Z  Container didi-food-devops-alexa-orders-service-1  Removing
+newman	Bajar el stack	2026-09-24T18:02:36.2593911Z  Container didi-food-devops-alexa-users-service-1  Stopped
+newman	Bajar el stack	2026-09-24T18:02:36.2596160Z  Container didi-food-devops-alexa-users-service-1  Removing
+newman	Bajar el stack	2026-09-24T18:02:36.2694051Z  Container didi-food-devops-alexa-orders-service-1  Removed
+newman	Bajar el stack	2026-09-24T18:02:36.2695392Z  Container didi-food-devops-alexa-orders-db-1  Stopping
+newman	Bajar el stack	2026-09-24T18:02:36.2738641Z  Container didi-food-devops-alexa-users-service-1  Removed
+newman	Bajar el stack	2026-09-24T18:02:36.2739909Z  Container didi-food-devops-alexa-users-db-1  Stopping
+newman	Bajar el stack	2026-09-24T18:02:36.3771285Z  Container didi-food-devops-alexa-payments-db-1  Stopped
+newman	Bajar el stack	2026-09-24T18:02:36.3774679Z  Container didi-food-devops-alexa-payments-db-1  Removing
+newman	Bajar el stack	2026-09-24T18:02:36.3868555Z  Container didi-food-devops-alexa-payments-db-1  Removed
+newman	Bajar el stack	2026-09-24T18:02:36.4030154Z  Container didi-food-devops-alexa-orders-db-1  Stopped
+newman	Bajar el stack	2026-09-24T18:02:36.4032388Z  Container didi-food-devops-alexa-orders-db-1  Removing
+newman	Bajar el stack	2026-09-24T18:02:36.4116834Z  Container didi-food-devops-alexa-orders-db-1  Removed
+newman	Bajar el stack	2026-09-24T18:02:36.4144532Z  Container didi-food-devops-alexa-users-db-1  Stopped
+newman	Bajar el stack	2026-09-24T18:02:36.4145082Z  Container didi-food-devops-alexa-users-db-1  Removing
+newman	Bajar el stack	2026-09-24T18:02:36.4204622Z  Container didi-food-devops-alexa-users-db-1  Removed
+newman	Bajar el stack	2026-09-24T18:02:36.4212474Z  Network didi-food-devops-alexa_default  Removing
+newman	Bajar el stack	2026-09-24T18:02:36.4900324Z  Network didi-food-devops-alexa_default  Removed
+newman	Post Checkout repositorio	﻿2026-09-24T18:02:36.5025567Z Post job cleanup.
+newman	Post Checkout repositorio	2026-09-24T18:02:36.5705921Z [command]/usr/bin/git version
+newman	Post Checkout repositorio	2026-09-24T18:02:36.5740494Z git version 2.55.0
+newman	Post Checkout repositorio	2026-09-24T18:02:36.5767749Z Temporarily overriding HOME='/home/runner/work/_temp/7103068c-8117-45ab-aa6f-e221b2ed5448' before making global git config changes
+newman	Post Checkout repositorio	2026-09-24T18:02:36.5768764Z Adding repository directory to the temporary git global config as a safe directory
+newman	Post Checkout repositorio	2026-09-24T18:02:36.5771734Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/didi-food-devops-alexa/didi-food-devops-alexa
+newman	Post Checkout repositorio	2026-09-24T18:02:36.5802837Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+newman	Post Checkout repositorio	2026-09-24T18:02:36.5831438Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+newman	Post Checkout repositorio	2026-09-24T18:02:36.6035444Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+newman	Post Checkout repositorio	2026-09-24T18:02:36.6061563Z http.https://github.com/.extraheader
+newman	Post Checkout repositorio	2026-09-24T18:02:36.6071283Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+newman	Post Checkout repositorio	2026-09-24T18:02:36.6101477Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+newman	Post Checkout repositorio	2026-09-24T18:02:36.6325432Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+newman	Post Checkout repositorio	2026-09-24T18:02:36.6360442Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+newman	Complete job	﻿2026-09-24T18:02:36.6697814Z Cleaning up orphan processes
+newman	Complete job	2026-09-24T18:02:36.7003717Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

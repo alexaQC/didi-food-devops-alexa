@@ -1,0 +1,6 @@
+command=npm ci
+
+added 3 packages, and audited 4 packages in 2s
+
+found 0 vulnerabilities
+exit_code=0

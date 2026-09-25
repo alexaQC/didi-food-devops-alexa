@@ -10,7 +10,7 @@ export const options = {
   }
 };
 
-const BASE = __ENV.PERF_BASE_URL || "http://localhost:8080";
+const BASE = __ENV.PERF_BASE_URL || "http://localhost:3000";
 
 export default function () {
   const res = http.get(`${BASE}/api/items`);

@@ -1,0 +1,47 @@
+services:
+  db:
+    ports: !override []
+    volumes:
+      - edt51-backend-db:/var/lib/postgresql/data
+
+  users-db:
+    ports: !override []
+    volumes:
+      - edt51-users-db:/var/lib/postgresql/data
+
+  users-service:
+    ports: !override []
+
+  orders-db:
+    ports: !override []
+    volumes:
+      - edt51-orders-db:/var/lib/postgresql/data
+
+  orders-service:
+    ports: !override []
+
+  payments-db:
+    ports: !override []
+    volumes:
+      - edt51-payments-db:/var/lib/postgresql/data
+
+  payments-service:
+    ports: !override []
+
+  backend:
+    ports: !override
+      - "3100:3000"
+
+  frontend:
+    build: ./apps/frontend
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - "8081:80"
+
+volumes:
+  edt51-backend-db:
+  edt51-users-db:
+  edt51-orders-db:
+  edt51-payments-db:

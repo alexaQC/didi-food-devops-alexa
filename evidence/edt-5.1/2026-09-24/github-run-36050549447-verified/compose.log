@@ -1,0 +1,250 @@
+payments-db-1  | The files belonging to this database system will be owned by user "postgres".
+payments-db-1  | This user must also own the server process.
+payments-db-1  | 
+payments-db-1  | The database cluster will be initialized with locale "en_US.utf8".
+users-db-1     | The files belonging to this database system will be owned by user "postgres".
+users-db-1     | This user must also own the server process.
+users-db-1     | 
+users-db-1     | The database cluster will be initialized with locale "en_US.utf8".
+users-db-1     | The default database encoding has accordingly been set to "UTF8".
+users-db-1     | The default text search configuration will be set to "english".
+users-db-1     | 
+users-db-1     | Data page checksums are disabled.
+users-db-1     | 
+users-db-1     | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+users-db-1     | creating subdirectories ... ok
+users-db-1     | selecting dynamic shared memory implementation ... posix
+users-db-1     | selecting default max_connections ... 100
+users-db-1     | selecting default shared_buffers ... 128MB
+users-db-1     | selecting default time zone ... Etc/UTC
+users-db-1     | creating configuration files ... ok
+users-db-1     | running bootstrap script ... ok
+users-db-1     | performing post-bootstrap initialization ... ok
+users-db-1     | syncing data to disk ... ok
+users-db-1     | 
+users-db-1     | 
+users-db-1     | Success. You can now start the database server using:
+users-db-1     | 
+users-db-1     |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+users-db-1     | 
+users-db-1     | initdb: warning: enabling "trust" authentication for local connections
+orders-db-1    | The files belonging to this database system will be owned by user "postgres".
+orders-db-1    | This user must also own the server process.
+orders-db-1    | 
+orders-db-1    | The database cluster will be initialized with locale "en_US.utf8".
+orders-db-1    | The default database encoding has accordingly been set to "UTF8".
+orders-db-1    | The default text search configuration will be set to "english".
+orders-db-1    | 
+orders-db-1    | Data page checksums are disabled.
+orders-db-1    | 
+orders-db-1    | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+orders-db-1    | creating subdirectories ... ok
+orders-db-1    | selecting dynamic shared memory implementation ... posix
+orders-db-1    | selecting default max_connections ... 100
+orders-db-1    | selecting default shared_buffers ... 128MB
+orders-db-1    | selecting default time zone ... Etc/UTC
+orders-db-1    | creating configuration files ... ok
+orders-db-1    | running bootstrap script ... ok
+orders-db-1    | performing post-bootstrap initialization ... ok
+orders-db-1    | syncing data to disk ... ok
+orders-db-1    | 
+orders-db-1    | 
+orders-db-1    | Success. You can now start the database server using:
+orders-db-1    | 
+orders-db-1    |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+orders-db-1    | 
+orders-db-1    | initdb: warning: enabling "trust" authentication for local connections
+orders-db-1    | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+orders-db-1    | waiting for server to start....2026-09-24 19:48:23.875 UTC [49] LOG:  starting PostgreSQL 15.19 (Debian 15.19-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+orders-db-1    | 2026-09-24 19:48:23.904 UTC [49] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+orders-db-1    | 2026-09-24 19:48:23.998 UTC [52] LOG:  database system was shut down at 2026-09-24 19:48:22 UTC
+orders-db-1    | 2026-09-24 19:48:24.005 UTC [49] LOG:  database system is ready to accept connections
+orders-db-1    |  done
+orders-db-1    | server started
+orders-db-1    | CREATE DATABASE
+orders-db-1    | 
+orders-db-1    | 
+orders-db-1    | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+orders-db-1    | 
+orders-db-1    | waiting for server to shut down...2026-09-24 19:48:24.129 UTC [49] LOG:  received fast shutdown request
+orders-db-1    | .2026-09-24 19:48:24.130 UTC [49] LOG:  aborting any active transactions
+orders-db-1    | 2026-09-24 19:48:24.135 UTC [49] LOG:  background worker "logical replication launcher" (PID 55) exited with exit code 1
+orders-db-1    | 2026-09-24 19:48:24.135 UTC [50] LOG:  shutting down
+orders-db-1    | 2026-09-24 19:48:24.136 UTC [50] LOG:  checkpoint starting: shutdown immediate
+orders-db-1    | 2026-09-24 19:48:24.294 UTC [50] LOG:  checkpoint complete: wrote 922 buffers (5.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.144 s, sync=0.007 s, total=0.160 s; sync files=301, longest=0.002 s, average=0.001 s; distance=4239 kB, estimate=4239 kB
+orders-db-1    | 2026-09-24 19:48:24.301 UTC [49] LOG:  database system is shut down
+orders-db-1    |  done
+orders-db-1    | server stopped
+orders-db-1    | 
+orders-db-1    | PostgreSQL init process complete; ready for start up.
+orders-db-1    | 
+orders-db-1    | 2026-09-24 19:48:24.435 UTC [1] LOG:  starting PostgreSQL 15.19 (Debian 15.19-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+orders-db-1    | 2026-09-24 19:48:24.436 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+orders-db-1    | 2026-09-24 19:48:24.436 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+orders-db-1    | 2026-09-24 19:48:24.448 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+orders-db-1    | 2026-09-24 19:48:24.470 UTC [65] LOG:  database system was shut down at 2026-09-24 19:48:24 UTC
+orders-db-1    | 2026-09-24 19:48:24.487 UTC [1] LOG:  database system is ready to accept connections
+payments-db-1  | The default database encoding has accordingly been set to "UTF8".
+payments-db-1  | The default text search configuration will be set to "english".
+payments-db-1  | 
+payments-db-1  | Data page checksums are disabled.
+payments-db-1  | 
+payments-db-1  | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+payments-db-1  | creating subdirectories ... ok
+payments-db-1  | selecting dynamic shared memory implementation ... posix
+payments-db-1  | selecting default max_connections ... 100
+payments-db-1  | selecting default shared_buffers ... 128MB
+users-service-1  | 
+payments-db-1    | selecting default time zone ... Etc/UTC
+payments-db-1    | creating configuration files ... ok
+payments-db-1    | running bootstrap script ... ok
+payments-db-1    | performing post-bootstrap initialization ... ok
+payments-db-1    | initdb: warning: enabling "trust" authentication for local connections
+payments-db-1    | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+payments-db-1    | syncing data to disk ... ok
+payments-db-1    | 
+payments-db-1    | 
+payments-db-1    | Success. You can now start the database server using:
+payments-db-1    | 
+payments-db-1    |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+payments-db-1    | 
+payments-db-1    | waiting for server to start....2026-09-24 19:48:23.878 UTC [49] LOG:  starting PostgreSQL 15.19 (Debian 15.19-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+payments-db-1    | 2026-09-24 19:48:23.904 UTC [49] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+payments-db-1    | 2026-09-24 19:48:24.002 UTC [52] LOG:  database system was shut down at 2026-09-24 19:48:22 UTC
+payments-db-1    | 2026-09-24 19:48:24.006 UTC [49] LOG:  database system is ready to accept connections
+payments-db-1    |  done
+payments-db-1    | server started
+payments-db-1    | CREATE DATABASE
+payments-db-1    | 
+payments-db-1    | 
+payments-db-1    | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+payments-db-1    | 
+payments-db-1    | waiting for server to shut down....2026-09-24 19:48:24.204 UTC [49] LOG:  received fast shutdown request
+payments-db-1    | 2026-09-24 19:48:24.205 UTC [49] LOG:  aborting any active transactions
+payments-db-1    | 2026-09-24 19:48:24.206 UTC [49] LOG:  background worker "logical replication launcher" (PID 55) exited with exit code 1
+payments-db-1    | 2026-09-24 19:48:24.209 UTC [50] LOG:  shutting down
+payments-db-1    | 2026-09-24 19:48:24.210 UTC [50] LOG:  checkpoint starting: shutdown immediate
+payments-db-1    | 2026-09-24 19:48:24.520 UTC [50] LOG:  checkpoint complete: wrote 922 buffers (5.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.273 s, sync=0.035 s, total=0.312 s; sync files=301, longest=0.017 s, average=0.001 s; distance=4239 kB, estimate=4239 kB
+payments-db-1    | 2026-09-24 19:48:24.528 UTC [49] LOG:  database system is shut down
+payments-db-1    |  done
+payments-db-1    | server stopped
+payments-db-1    | 
+payments-db-1    | PostgreSQL init process complete; ready for start up.
+payments-db-1    | 
+payments-db-1    | 2026-09-24 19:48:24.623 UTC [1] LOG:  starting PostgreSQL 15.19 (Debian 15.19-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+payments-db-1    | 2026-09-24 19:48:24.623 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+payments-db-1    | 2026-09-24 19:48:24.623 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+payments-db-1    | 2026-09-24 19:48:24.624 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+payments-db-1    | 2026-09-24 19:48:24.630 UTC [65] LOG:  database system was shut down at 2026-09-24 19:48:24 UTC
+payments-db-1    | 2026-09-24 19:48:24.633 UTC [1] LOG:  database system is ready to accept connections
+users-service-1  | > users-service@1.0.0 start
+users-service-1  | > node src/server.js
+users-service-1  | 
+users-service-1  | users-service running on port 3001
+users-service-1  | USER_CREATED 1
+users-db-1     | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+users-db-1       | waiting for server to start....2026-09-24 19:48:23.878 UTC [47] LOG:  starting PostgreSQL 15.19 (Debian 15.19-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+users-db-1       | 2026-09-24 19:48:23.904 UTC [47] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+users-db-1       | 2026-09-24 19:48:23.998 UTC [50] LOG:  database system was shut down at 2026-09-24 19:48:22 UTC
+users-db-1       | 2026-09-24 19:48:24.003 UTC [47] LOG:  database system is ready to accept connections
+users-db-1       |  done
+users-db-1       | server started
+users-db-1       | CREATE DATABASE
+users-db-1       | 
+users-db-1       | 
+users-db-1       | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+users-db-1       | 
+users-db-1       | 2026-09-24 19:48:24.203 UTC [47] LOG:  received fast shutdown request
+users-db-1       | waiting for server to shut down....2026-09-24 19:48:24.204 UTC [47] LOG:  aborting any active transactions
+users-db-1       | 2026-09-24 19:48:24.209 UTC [47] LOG:  background worker "logical replication launcher" (PID 53) exited with exit code 1
+users-db-1       | 2026-09-24 19:48:24.209 UTC [48] LOG:  shutting down
+users-db-1       | 2026-09-24 19:48:24.210 UTC [48] LOG:  checkpoint starting: shutdown immediate
+users-db-1       | 2026-09-24 19:48:24.519 UTC [48] LOG:  checkpoint complete: wrote 922 buffers (5.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.257 s, sync=0.033 s, total=0.311 s; sync files=301, longest=0.014 s, average=0.001 s; distance=4239 kB, estimate=4239 kB
+users-db-1       | 2026-09-24 19:48:24.528 UTC [47] LOG:  database system is shut down
+users-db-1       |  done
+users-db-1       | server stopped
+users-db-1       | 
+users-db-1        | PostgreSQL init process complete; ready for start up.
+users-db-1        | 
+users-db-1        | 2026-09-24 19:48:24.622 UTC [1] LOG:  starting PostgreSQL 15.19 (Debian 15.19-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+users-db-1        | 2026-09-24 19:48:24.623 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+users-db-1        | 2026-09-24 19:48:24.623 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+users-db-1        | 2026-09-24 19:48:24.624 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+users-db-1        | 2026-09-24 19:48:24.630 UTC [63] LOG:  database system was shut down at 2026-09-24 19:48:24 UTC
+users-db-1        | 2026-09-24 19:48:24.634 UTC [1] LOG:  database system is ready to accept connections
+orders-service-1  | 
+orders-service-1  | > orders-service@1.0.0 start
+orders-service-1  | > node src/server.js
+orders-service-1  | 
+orders-service-1  | orders-service running on port 3000
+orders-service-1  | ORDER_CREATED 1
+orders-service-1  | ORDER_CREATED 2
+db-1           | The files belonging to this database system will be owned by user "postgres".
+db-1              | This user must also own the server process.
+db-1              | 
+db-1              | The database cluster will be initialized with locale "en_US.utf8".
+db-1              | The default database encoding has accordingly been set to "UTF8".
+db-1              | The default text search configuration will be set to "english".
+db-1              | 
+db-1              | Data page checksums are disabled.
+db-1              | 
+db-1              | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+db-1              | creating subdirectories ... ok
+db-1              | selecting dynamic shared memory implementation ... posix
+db-1              | selecting default max_connections ... 100
+db-1              | selecting default shared_buffers ... 128MB
+db-1              | selecting default time zone ... UTC
+db-1              | creating configuration files ... ok
+db-1              | running bootstrap script ... ok
+db-1              | sh: locale: not found
+db-1              | 2026-09-24 19:48:22.230 UTC [35] WARNING:  no usable system locales were found
+db-1              | performing post-bootstrap initialization ... ok
+db-1              | syncing data to disk ... ok
+db-1              | 
+db-1              | 
+db-1              | Success. You can now start the database server using:
+db-1              | 
+db-1              |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+db-1              | 
+db-1              | initdb: warning: enabling "trust" authentication for local connections
+db-1              | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+db-1              | waiting for server to start....2026-09-24 19:48:24.044 UTC [41] LOG:  starting PostgreSQL 16.15 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
+db-1              | 2026-09-24 19:48:24.061 UTC [41] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-1              | 2026-09-24 19:48:24.078 UTC [44] LOG:  database system was shut down at 2026-09-24 19:48:23 UTC
+db-1              | 2026-09-24 19:48:24.083 UTC [41] LOG:  database system is ready to accept connections
+db-1              |  done
+db-1              | server started
+db-1              | CREATE DATABASE
+db-1              | 
+db-1              | 
+db-1              | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+db-1              | 
+db-1              | waiting for server to shut down....2026-09-24 19:48:24.260 UTC [41] LOG:  received fast shutdown request
+db-1              | 2026-09-24 19:48:24.270 UTC [41] LOG:  aborting any active transactions
+db-1              | 2026-09-24 19:48:24.273 UTC [41] LOG:  background worker "logical replication launcher" (PID 47) exited with exit code 1
+db-1              | 2026-09-24 19:48:24.273 UTC [42] LOG:  shutting down
+db-1              | 2026-09-24 19:48:24.278 UTC [42] LOG:  checkpoint starting: shutdown immediate
+db-1              | 2026-09-24 19:48:24.522 UTC [42] LOG:  checkpoint complete: wrote 926 buffers (5.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.237 s, sync=0.003 s, total=0.249 s; sync files=301, longest=0.001 s, average=0.001 s; distance=4283 kB, estimate=4283 kB; lsn=0/1925D58, redo lsn=0/1925D58
+backend-1         | DB mode: postgres
+backend-1         | DB schema ready (attempt 1/30)
+backend-1         | API listening on 0.0.0.0:3000
+backend-1         | Error calling users-service: Request failed with status code 400
+backend-1         | Error calling orders-service: Request failed with status code 400
+backend-1         | Error calling payments-service: Request failed with status code 400
+db-1              | 2026-09-24 19:48:24.530 UTC [41] LOG:  database system is shut down
+db-1              |  done
+db-1              | server stopped
+db-1              | 
+db-1              | PostgreSQL init process complete; ready for start up.
+db-1              | 
+db-1              | 2026-09-24 19:48:24.634 UTC [1] LOG:  starting PostgreSQL 16.15 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
+db-1              | 2026-09-24 19:48:24.634 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+db-1              | 2026-09-24 19:48:24.634 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+db-1              | 2026-09-24 19:48:24.635 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-1              | 2026-09-24 19:48:24.637 UTC [57] LOG:  database system was shut down at 2026-09-24 19:48:24 UTC
+db-1              | 2026-09-24 19:48:24.641 UTC [1] LOG:  database system is ready to accept connections
+payments-service-1  | 
+payments-service-1  | > payments-service@1.0.0 start
+payments-service-1  | > node src/server.js
+payments-service-1  | 
+payments-service-1  | payments-service running on port 3002

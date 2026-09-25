@@ -1,0 +1,12 @@
+===== db
+/var/run/postgresql:5432 - accepting connections
+exit_code=0
+===== users-db
+/var/run/postgresql:5432 - accepting connections
+exit_code=0
+===== orders-db
+/var/run/postgresql:5432 - accepting connections
+exit_code=0
+===== payments-db
+/var/run/postgresql:5432 - accepting connections
+exit_code=0
