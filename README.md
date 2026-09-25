@@ -32,6 +32,12 @@ Mejorar la calidad y estabilidad del backend de FinLab Eats mediante una estrate
 
 ---
 
+# Hipótesis del proyecto
+
+Si se incorporan pruebas estáticas, smoke, de integración y regresión con criterios verificables y evidencias conservadas, será posible detectar defectos de configuración y comunicación antes del cierre y reducir el riesgo de liberar componentes no funcionales.
+
+---
+
 # 1. Fases del proyecto - EDT / WBS
 
 La Estructura de Desglose del Trabajo (EDT/WBS) divide el proyecto en cinco fases principales. Cada fase contiene actividades específicas de testing y genera resultados que servirán como entrada para la siguiente etapa.
@@ -456,7 +462,8 @@ scripts/04_resilience_tests.sh
 ## 7. Port-forward
 
 ```bash
-scripts/05_port_forward.sh
+scripts/05-0_frontend_port_forward.sh
+scripts/05-1_backend_port_forward.sh
 ```
 
 ---

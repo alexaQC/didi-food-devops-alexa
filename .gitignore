@@ -8,3 +8,13 @@ coverage
 .DS_Store
 *.log
 test-results
+
+# Terraform local state and provider binaries — never reproducible/needed to
+# clone-and-run; state may embed rendered Helm values (see README/Terraform section).
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.backup
+
+# Real tfvars may hold machine-specific settings (e.g. local kubeconfig path).
+# Use terraform.tfvars.example as the tracked, reproducible reference.
+terraform/terraform.tfvars
