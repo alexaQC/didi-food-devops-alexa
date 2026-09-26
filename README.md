@@ -367,10 +367,10 @@ El proyecto utilizará los archivos y directorios del repositorio como evidencia
 | Ansible | `infra/ansible/` |
 | Scripts de despliegue | `scripts/` |
 | Cronograma, EDT, roles y funciones | `README.md` |
-| Seguimiento de actividades | GitHub Projects |
+| Seguimiento de actividades | Trello - FinLab Eats Testing |
 | Defectos encontrados | GitHub Issues / tablero del proyecto |
 
-Las nuevas evidencias generadas durante las pruebas podrán incorporarse posteriormente al repositorio mediante capturas, logs, casos de prueba y resultados de ejecución.
+Las evidencias generadas durante la ejecución de las pruebas fueron incorporadas al repositorio mediante capturas, logs, reportes, casos de prueba y resultados de ejecución. Las evidencias finales se encuentran organizadas en evidence/edt-5.1/ y en los reportes correspondientes.
 
 ---
 
@@ -384,8 +384,7 @@ Una fase se considerará terminada cuando:
 4. Los defectos críticos hayan sido documentados.
 5. La información necesaria para iniciar la siguiente fase esté disponible.
 
-El proyecto completo se considerará finalizado cuando se hayan ejecutado las pruebas definidas, documentado los resultados, revisado los defectos críticos, calculado las métricas y reunido las evidencias necesarias para el entregable final.
-
+El proyecto completó su fase de cierre con la ejecución de las pruebas definidas, la documentación de resultados, la revisión de defectos detectados, el análisis de métricas y la integración de las evidencias necesarias para el entregable final. Los defectos técnicos pendientes permanecen documentados como riesgos y oportunidades de mejora para futuras iteraciones.
 ---
 
 # Información técnica del proyecto base
@@ -519,6 +518,7 @@ conservan tres defectos conocidos. Ambos grupos generan JUnit; el artefacto tamb
 incluye estado y logs de Compose.
 
 **Tablero:** [Trello - FinLab Eats Testing](https://trello.com/b/9dNf9GX0/finlab-eats-testing)
+El tablero fue actualizado para reflejar la fase final del proyecto, incluyendo las actividades completadas del prototipo, la ejecución de pruebas, automatización y cierre documental.
 
 ### Tipos de prueba implementados
 
